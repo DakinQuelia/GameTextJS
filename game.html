@@ -24,13 +24,13 @@
                                 <button type="button" id="northeast"><i class="fas fa-arrow-up rotate-45"></i></button>
                             </div>
                             <div class="line">
-                                <button type="button"><i class="fas fa-arrow-left"></i></button>
-                                <button type="button" data-title="Regarder"><i class="fas fa-eye"></i></button>
-                                <button type="button"><i class="fas fa-arrow-right"></i></button>
+                                <button type="button" id="west"><i class="fas fa-arrow-left"></i></button>
+                                <button type="button" id="lookat" data-title="Regarder"><i class="fas fa-eye"></i></button>
+                                <button type="button" id="east"><i class="fas fa-arrow-right"></i></button>
                             </div>
                             <div class="line">
                                 <button type="button" id="southwest"><i class="fas fa-arrow-down rotate-45"></i></button>
-                                <button type="button"><i class="fas fa-arrow-down"></i></button>
+                                <button type="button" id="south"><i class="fas fa-arrow-down"></i></button>
                                 <button type="button" id="southeast"><i class="fas fa-arrow-right rotate-45"></i></button>
                             </div>
                         </div>
@@ -42,11 +42,11 @@
                             </div>
                             <div class="line">
                                 <button type="button" id="out"><i class="fas fa-sign-out-alt disabled"></i></button>
-                                <button type="button" id="save" data-title="Sauvegarder"><i class="fas fa-save"></i></button>
+                                <button type="button" id="save" class="jsmodal" data-href="#savegame" data-title="Sauvegarder"><i class="fas fa-save"></i></button>
                             </div>
                             <div class="line">
-                                <button type="button" data-title="Mettre en pause"><i class="fas fa-pause"></i></button>
-                                <button type="button" class="jsmodal" data-href="#about" data-title="A propos"><i class="fas fa-info"></i></button>
+                                <button type="button" id="gpause" data-title="Mettre en pause"><i class="fas fa-pause"></i></button>
+                                <button type="button" id="gabout" class="jsmodal" data-href="#about" data-title="A propos"><i class="fas fa-info"></i></button>
                             </div> 
                         </div>
                     </div>
@@ -67,14 +67,18 @@
                             </li>
                             <li>
                                 <span class="label">Classe</span>
-                                <span class="value">Jedi Gardien</span>
+                                <span class="value"><span style="color: #1da5d5; font-weight: bold;">Jedi Gardien</span></span>
+                            </li>
+                            <li>
+                                <span class="label">Argent</span>
+                                <span class="value">300 Crédits</span>
                             </li>
                         </ul>
                     </div>
                 </div>
                 <div class="sidebar">
                     <div class="head">
-                        <div class="title">Inventaire</div>
+                        <div class="title">Equipement</div>
                     </div>
                     <div class="content">
                         <ul>
@@ -84,7 +88,7 @@
                 </div>
                 <div class="sidebar">
                     <div class="head">
-                        <div class="title">Equipement</div>
+                        <div class="title">Inventaire</div>
                     </div>
                     <div class="content">
                         <ul>
@@ -105,8 +109,9 @@
                     <p>Repudiandae non, pariatur laborum ad deleniti molestias. Suscipit maiores quos officia dolore magni adipisci cupiditate, consequatur molestiae architecto neque laborum esse aut fugiat magnam? Praesentium ea non omnis consectetur obcaecati.</p>
                     <p>Accusantium ut quae provident explicabo quos saepe impedit placeat quo perferendis distinctio cumque eveniet incidunt itaque, cupiditate quidem, est doloremque velit? Beatae quam quas cupiditate similique atque. Architecto, reiciendis possimus!</p>
                 </div>
-                <div class="page-content">
-                    test
+                <div class="console">
+                    <input type="text" name="text" id="text" />
+                    <button type="button" name="submit" id="submit">Envoyer</button>
                 </div>
             </div>
         </div>
@@ -126,10 +131,32 @@
                     </div>
                 </div>
             </div>
+            <div id="savegame" class="modal" aria-hidden="true" role="dialog" aria-labelledby="titlemodal" style="display:none">
+                <div class="modal-wrapper" id="modalstop">
+                    <div class="modal-header">
+                        <button class="modal-button close" id="close"><i class="fas fa-times"></i></button>
+                        <span class="modal-title" id="titlemodal">Sauvegarer la partie</span>
+                    </div>
+                    <div class="modal-content">
+                        <form method="POST">
+                            <div class="inline">
+                                <label>Nom du fichier</label> 
+                                <input type="text" name="savename" id="savename" />   
+                            </div>
+                        </form>      
+                     </div>
+                    <div class="modal-footer">
+                        <div class="left"></div> 
+                        <div class="right">
+                            <button class="modal-button" type="button" id="savesubmit">Valider</button>
+                            <button class="modal-button" type="button" id="btnclose">Fermer</button>
+                        </div> 
+                    </div>
+                </div>
+            </div>
         </div>
     </main>
-    <footer>  
-    </footer>
-    <script type="module" src="js/game/system/game.js"></script>
+    <footer></footer>
+    <script type="module" src="js/main.js"></script>
 </body>
 </html>
