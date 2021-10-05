@@ -142,6 +142,10 @@
     /*justify-content: space-between;*/
 }
 
+.sidebar .content ul li:last-child {
+    margin-bottom: -10px;
+}
+
 .sidebar .content ul li span.label {
     font-weight: bold;
 }
@@ -178,7 +182,7 @@
 
 .compass .line {
     display: flex;
-    margin-bottom: 3px;
+    margin-bottom: 1px;
 }
 
 .compass .line:last-child {
@@ -191,7 +195,7 @@
     background-color: #f9f9f9;
     width: 30px;
     height: 30px;
-    margin: 1px;
+    margin: 2px;
 }
 
 .compass button i {
@@ -253,8 +257,8 @@
 *   Contenu
 **/
 .page-infos {
-    height: 92px;
-    max-height: 92px;
+    height: 93px;
+    max-height: 93px;
 }
 
 .page-content {
@@ -265,4 +269,44 @@
     margin-top: 10px;
     margin-bottom: 10px;
     padding: 10px;
+}
+
+/**
+*   Console
+**/
+.console {
+    display: flex;
+    width: 100%;
+}
+
+.console input {
+    width: 100%;
+    padding: .175rem .55rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ccc;
+    border-radius: .25rem;
+    margin-right: 5px;
+}
+
+.console input::before {
+    content: '> ';
+    border: 1px solid #ccc;
+    border-top-left-radius: .25rem;
+    border-bottom-left-radius: .25rem;
+    width: 30px;
+}
+
+.console button {
+    border: 1px solid #ccc;
+    border-radius: .25rem;
+    height: 31.6px;
+    padding: 0 10px;
+}
+
+.console button:hover {
+    color: blue;
 }
