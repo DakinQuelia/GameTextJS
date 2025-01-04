@@ -1,0 +1,312 @@
+/*****************************************
+*	Style - game.css
+*	Auteur 		: Dakin Quelia
+*	Version 	: 1.0.0. 
+*****************************************/
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css");
+@import url('./_vars.css');
+@import url('./modal.css');
+
+/**
+*   Global
+**/
+.page-wrapper {
+    display: flex;
+}
+
+[data-title]:hover:before {
+    opacity: 1;
+    transition: all 0.1s ease 0.5s;
+    visibility: visible;
+}
+
+[data-title]::before {
+    content: attr(data-title);
+    position: absolute;
+    bottom: -2.5em;
+    left: 0;
+    display: block;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    border: 1px solid #CCC;
+    background: #f9f9f9;
+    color: #495057;
+    font-size: 13px;
+    font-family: sans-serif;
+    white-space: nowrap;
+    z-index: 10;
+    opacity: 0;
+    visibility: hidden;
+}
+
+[data-title] {
+    position: relative;
+}
+
+[data-title][data-placement="right"]:before {
+    right: 0 !important;
+    left: unset;
+}
+
+[data-title][data-placement="top"]:before {
+    top: 0 !important;
+    left: unset;
+    bottom: unset;
+}
+
+[data-title][data-placement="bottom"]:before {
+    bottom: 0 !important;
+    left: unset;
+}
+
+/**
+*   Menu à gauche
+**/
+#sidebar {
+    display: flex;
+    flex-direction: column;
+    width: var(--width-sidebar);
+}
+
+.sidebar {
+    border: solid 1px #ccc;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+ 
+.sidebar .head,
+.compass .head {
+    height: 30px;
+    border-bottom: solid 1px #ccc;
+    padding: 0px 5px 5px 10px;
+}
+
+.sidebar .content {
+    padding: 10px 5px 10px 5px;
+    margin-bottom: 10px;
+}
+
+.sidebar .datetime {
+    font-size: 13px;
+    padding: 0 5px 0 5px;
+    text-align: center;
+}
+  
+.sidebar .footer {
+    clear: both;
+    height: 20px;
+    border-top: solid 1px #ccc;
+    padding: 5px 5px 5px 10px;
+}
+  
+.sidebar .title,
+.compass .title {
+    float: left;
+    text-align: left;
+    font-weight: bold;
+}
+  
+.sidebar .toggle {
+    float: right;
+    text-align: right;
+    padding-right: 5px;
+}
+  
+.sidebar p {
+    padding: 10px;
+    margin-bottom: 0px;
+}
+  
+.sidebar ul {
+    margin: 0 5px 0 5px;
+    padding: 0;
+}
+
+.sidebar ul li {
+    list-style-type: none;
+}
+  
+.sidebar a {
+    color: #000000;
+    text-decoration: none;
+}
+  
+.sidebar a:hover {
+    color:blue;
+}
+
+.sidebar .content ul li {
+    display: flex;
+    /*justify-content: space-between;*/
+}
+
+.sidebar .content ul li:last-child {
+    margin-bottom: -10px;
+}
+
+.sidebar .content ul li span.label {
+    font-weight: bold;
+}
+
+.sidebar .content ul li span.label:after {
+    font-weight: normal;
+    content: " : ";
+}
+
+.sidebar .content ul li span.value {
+    margin-left: auto;
+}
+
+.sidebar-time {
+    margin-bottom: -8px !important;
+}
+
+/**
+*   Boussole
+**/
+.compass .content {
+    padding: 5px;
+}
+
+.compass {
+    border: solid 1px #ccc;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    margin-top: 10px;
+    margin-right: 10px;
+    text-align: center;
+    user-select: none;
+}
+
+.compass .line {
+    display: flex;
+    margin-bottom: 1px;
+}
+
+.compass .line:last-child {
+    margin-bottom: 5px;
+}
+
+.compass button {
+    border: solid 1px #ccc;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    width: 30px;
+    height: 30px;
+    margin: 2px;
+}
+
+.compass button i {
+    padding: 3px;
+    cursor: pointer;
+    text-align: center;
+    margin: auto;
+    display: block;
+}
+
+.compass button i:hover {
+    color: blue;
+}
+
+.compass button i.disabled {
+    color: #AAA;
+}
+
+.compass button i.disabled:hover {
+    color: #AAA;
+}
+
+.compass button i.fas.fa-eye {
+    margin-left: -2px;
+}
+
+.compass .content {
+    display: flex;
+    clear: both !important;
+    padding-bottom: 0;
+}
+
+.compass .content .separator {
+    display: block;
+    content: '';
+    border-right: solid 1px #CCC;
+    margin-left: 5px;
+    margin-right: 5px;
+    height: 100px;
+}
+
+.compass .content .directional {
+   float: left;
+}
+
+.compass .content .options {
+    float: right;
+}
+
+.compass .arrow-nw {
+    transform: rotate(45deg);
+}
+
+.compass .rotate-45 {
+    transform: rotate(45deg);
+}
+
+/**
+*   Contenu
+**/
+.page-infos {
+    height: 93px;
+    max-height: 93px;
+}
+
+.page-content {
+    /*width: calc(100% - var(--width-sidebar));*/
+    border: solid 1px #ccc;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+/**
+*   Console
+**/
+.console {
+    display: flex;
+    width: 100%;
+}
+
+.console input {
+    width: 100%;
+    padding: .175rem .55rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ccc;
+    border-radius: .25rem;
+    margin-right: 5px;
+}
+
+.console input::before {
+    content: '> ';
+    border: 1px solid #ccc;
+    border-top-left-radius: .25rem;
+    border-bottom-left-radius: .25rem;
+    width: 30px;
+}
+
+.console button {
+    border: 1px solid #ccc;
+    border-radius: .25rem;
+    height: 31.6px;
+    padding: 0 10px;
+}
+
+.console button:hover {
+    color: blue;
+}
