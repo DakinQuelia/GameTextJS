@@ -1,0 +1,34 @@
+[
+    {
+        "name": "Dakin Quelia",
+        "gender": "MALE",
+        "appareance": "face.png",
+        "attributes": {
+            "str": 10,
+            "dex": 15,
+            "con": 14,
+            "int": 16,
+            "wis": 10,
+            "cha": 10
+        },
+        "credits": 0,
+        "force_points": 0,
+        "max_force_points": 0,
+        "hit_points": 30,
+        "max_hit_points": 30,
+        "experience": 0,
+        "alignment": 50,
+        "classes": {},
+        "skills": {
+            "computer": 5,
+            "persuasion": 2,
+            "demolition": 0,
+            "discretion": 0,
+            "vigilance": 0,
+            "securite": 0,
+            "reparation": 0,
+            "premiers_secours": 0
+        },
+        "feats": {}
+    }
+]
