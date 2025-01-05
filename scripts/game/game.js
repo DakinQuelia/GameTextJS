@@ -8,6 +8,7 @@ import Modal from '../lib/modal.js';
 import Utils from '../lib/utils.js';
 
 const ROOT = location.protocol + '//' + location.host;
+const SCRIPTS_ROOT = ROOT + '/sripts'
 
 class Game
 {
@@ -53,7 +54,7 @@ class Game
     /**
 	*	Cette méthode permet de vérifier si l'utilisateur utilise Internet Explorer 
     *
-    *   @return {bool}
+    *   @return {boolean}
 	**/
 	IsIE() 
 	{
@@ -69,7 +70,7 @@ class Game
     **/
     LoadSettings(folder)
     {
-        let filename = folder ? folder + '/settings.js' : ROOT + '/js/game/game/settings.js';
+        let filename = folder ? folder + '/settings.js' : ROOT + `${SCRIPTS_ROOT}/game/game/settings.js`;
     }
 
     /**
@@ -94,13 +95,23 @@ class Game
     }
 
     /**
+    *   Cette méthode permet de récupérer les informations sur le joueur.
+    * 
+    *   @return {void}
+    **/
+    GetPlayer()
+    {
+        
+    }
+
+    /**
     *   Cette méthode récupère les textes du fichier de langue.
     * 
     *   @return {array}
     **/
     async LoadText()
     {
-        let lang = await fetch(ROOT + '/js/game/lang/' + this.config.language + '.json').catch((err) => { console.log('ERROR :: ' + err); });
+        let lang = await fetch(ROOT + `${SCRIPTS_ROOT}/game/lang/${this.config.language}.json`).catch((err) => { console.log('ERROR :: ' + err); });
         let texts = await lang.json();
 
         return texts;
