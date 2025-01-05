@@ -57,8 +57,8 @@ class Items
     **/
     AddItem(item, amount)
     {
-        
+
     }
 }
 
-export default Items;
+export default new Items();

@@ -5,7 +5,15 @@
 *****************************************/
 class NPC
 {
-    
+    /**
+    *   Initialisation de la classe.
+    *   
+    *   @return {void} 
+    **/
+    constructor()
+    {
+        this.npcs = [];
+    }
 }
 
-export default NPC;
+export default new NPC();
