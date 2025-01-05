@@ -422,6 +422,40 @@ class Utils
     }
 
     /**
+    *   Cette méthode permet de retourner une chaîne formatée.
+    *
+    *   @author redexp (de Stackoverflow)
+    * 
+    *   @param {string} str                                             Chaîne de caractère
+    * 
+    *   @return {string}
+    **/
+    Sprintf(str) 
+    {
+        let args = arguments, i = 1;
+        
+        return str.replace(/%(s|d|0\d+d)/g, function (x, type) 
+        {
+            let value = args[i++];
+    
+            switch (type) 
+            {
+                case 's': 
+                    return value;
+                break;
+                case 'd': 
+                    return parseInt(value, 10);
+                break;
+                default:
+                    value = String(parseInt(value, 10));
+                    let n = Number(type.slice(1, -1));
+    
+                    return '0' . repeat(n).slice(value.length) + value;
+            }
+        });
+    }
+
+    /**
     *   Cette méthode permet d'afficher la date et heure du jour.
     * 
     *   @param {Intl.LocalesArgument} locale                            La date/heure locale

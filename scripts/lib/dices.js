@@ -16,26 +16,55 @@ class Dices
         this.dices = 0;
         this.sides = 0;
         this.rolls = [];
+        this.results = "";
+        this.format = new RegExp(/(\d+)d(\d+)$/i);
     }
 
     /**
-    *   Cette méthode permet de récupérer les informations sur le jet de dés.
+    *   Cette méthode permet d'exécuter le lancer de dés.
     * 
-    *   @return {void}
+    *   @param {string} dices
+    * 
+    *   @return {number}
+    **/
+    Dices(dices)
+    {
+        let dicesMatch = this.format.exec(dices);
+
+        this.dices = parseInt(dicesMatch[1]);
+        this.sides = parseInt(dicesMatch[2]);
+
+        return this.GetResults();
+    }
+
+    /**
+    *   Cette méthode permet de récupérer le nombre de dés jetés.
+    * 
+    *   @return {number}
     **/
     GetDices()
     {
+        return this.dices;
+    }
 
+    /**
+    *   Cette méthode permet de récupérer le nombre de faces des dès.
+    * 
+    *   @return {number}
+    **/
+    GetSides()
+    {
+        return this.sides;
     }
 
     /**
     *   Cette méthode permet d'obtenir le résultat final.
     * 
-    *   @return {void} 
+    *   @return {number} 
     **/
     GetResults()
     {
-
+        return Math.floor(Math.random() * (this.sides - this.dices + 1)) + this.dices;
     }
 }
 

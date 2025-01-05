@@ -4,8 +4,6 @@
 *	Version 	: 1.0.0. 
 *****************************************/
 import Config from '../scripts/game/config/config.js';
-import Game from '../scripts/game/game.js';
-import Utils from '../scripts/lib/utils.js';
 import { OpenWindow, DisplayDateTime, GetPlayer, DisplayGameInfo, GameInit } from '../scripts/game/alias.js';
 
 /* Donnéees de jeu */
@@ -24,6 +22,7 @@ const form_savegame = document.querySelector("#savegame-form");
 const show_date = document.querySelector(".sidebar-block.sidebar-time .datetime");
 const pages_infos = document.querySelector(".page-infos");
 const title_game = document.querySelector("#main > h1"); 
+const page_content = document.querySelector(".page-content");
 const player_name_tag =  document.querySelector("#playername");
 const player_class_tag = document.querySelector("#klass .value");
 const player_money_tag = document.querySelector("#money .value");
