@@ -416,7 +416,7 @@ class Utils
     **/
     PrintError (error, explicit) 
     {
-        console.log(`[${explicit ? 'EXPLICIT' : 'INEXPLICIT'}] ${error.name}: ${error.message}`);
+        console.log(`[${explicit ? 'EXPLICIT' : 'INEXPLICIT'}] ${error.name} : ${error.message}`);
     }
 
     /**

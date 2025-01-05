@@ -3,6 +3,7 @@
 *	Auteur 		: Dakin Quelia
 *	Version 	: 1.0.0. 
 *****************************************/
+import Config from './game/config/config.js';
 import Game from './game/game.js';
 
 const button_about = document.querySelector("#gabout");
