@@ -15,9 +15,14 @@ export function DisplayGameInfo()
     return Game.DisplayGameInfo();
 }
 
-export function GetPlayer()
+export async function GameInit()
 {
-    return Game.GetPlayer();
+    return await Game.Init();
+}
+
+export async function GetPlayer()
+{
+    return await Game.GetPlayer();
 }
 
 /******************************************

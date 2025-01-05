@@ -1,39 +1,43 @@
-[
-    {
-        "name": "Dakin Quelia",
-        "gender": "MALE",
-        "appareance": "face.png",
-        "attributes": {
-            "str": 10,
-            "dex": 15,
-            "con": 14,
-            "int": 16,
-            "wis": 10,
-            "cha": 10
+{
+    "name": "Dakin Quelia",
+    "gender": "MALE",
+    "appareance": "face.png",
+    "attributes": {
+        "str": 10,
+        "dex": 15,
+        "con": 14,
+        "int": 16,
+        "wis": 10,
+        "cha": 10
+    },
+    "money": 300,
+    "force_points": 0,
+    "max_force_points": 0,
+    "hit_points": 30,
+    "max_hit_points": 30,
+    "experience": 0,
+    "alignment": 50,
+    "classes": {
+        "0": {
+            "name": "Jedi Gardien",
+            "color": "#1da5d5",
+            "level": 5
         },
-        "money": 0,
-        "force_points": 0,
-        "max_force_points": 0,
-        "hit_points": 30,
-        "max_hit_points": 30,
-        "experience": 0,
-        "alignment": 50,
-        "classes": {
-            "jedi_guardian": {
-                "name": "Jedi Gardien",
-                "level": 5
-            }
-        },
-        "skills": {
-            "computer": 5,
-            "persuasion": 2,
-            "demolition": 0,
-            "discretion": 0,
-            "vigilance": 0,
-            "securite": 0,
-            "reparation": 0,
-            "premiers_secours": 0
-        },
-        "feats": {}
-    }
-]
+        "1": {
+            "name": "Maître Jedi",
+            "color": "#000000",
+            "level": 10
+        }
+    },
+    "skills": {
+        "computer": 5,
+        "persuasion": 2,
+        "demolition": 0,
+        "discretion": 0,
+        "vigilance": 0,
+        "securite": 0,
+        "reparation": 0,
+        "premiers_secours": 0
+    },
+    "feats": {}
+}

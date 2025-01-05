@@ -24,40 +24,11 @@ class Game
     {
         this.config = Config;
         this.language = this.config.language;
-        this.lang = this.LoadText();
+        this.lang = null;
         this.files = {
             'player'    : RESOURCES_ROOT + '/player.json',      
             'rules'     : RESOURCES_ROOT + '/rules.json',
         };
-
-        //console.log(this.lang);
-    }
-
-    /**
-    *   Cette méthode initialise le jeu.
-    * 
-    *   @return {void}
-    **/
-    Init()
-    {
-        const savename = document.querySelector('#savename');
-        const gamename = savename ? savename.value : null;
-
-        // Si le navigateur est Internet Explorer, on quitte le script.
-		if (this.IsIE())
-		{
-			console.error(`L'éditeur ne supporte pas Internet Explorer. Veuillez utiliser un navigateur moderne tel que : Chrome / Firefox / Edge / Safari !`);
-
-			return;
-		}
-
-        // On exécute les modales
-        Modal.Init();
-
-        if (gamename !== null)
-        {
-            this.SaveGame(gamename);    
-        }
     }
 
     /**
@@ -108,6 +79,34 @@ class Game
     }
 
     /**
+    *   Cette méthode initialise le jeu.
+    * 
+    *   @return {void}
+    **/
+    async Init()
+    {
+        const savename = document.querySelector('#savename');
+        const gamename = savename ? savename.value : null;
+        this.lang = await this.LoadText();
+
+        // Si le navigateur est Internet Explorer, on quitte le script.
+		if (this.IsIE())
+		{
+			console.error(`L'éditeur ne supporte pas Internet Explorer. Veuillez utiliser un navigateur moderne tel que : Chrome / Firefox / Edge / Safari !`);
+
+			return;
+		}
+
+        // On exécute les modales
+        Modal.Init();
+
+        if (gamename !== null)
+        {
+            this.SaveGame(gamename);    
+        }
+    }
+
+    /**
     *   Cette méthode charge les paramètres du jeu.
     * 
     *   @return {Promise}
@@ -140,16 +139,17 @@ class Game
     /**
     *   Cette méthode permet de récupérer les informations sur le joueur.
     * 
-    *   @return {void}
+    *   @return {Promise}
     **/
     async GetPlayer()
     {
-        let player = await fetch(`${RESOURCES_ROOT}/player.json`)
+        return await fetch(`${RESOURCES_ROOT}/player.json`)
             .then(response => response.json())
-            .then(data => { return data; })
+            .then(data =>
+            { 
+                return data ? data : "Joueur"; 
+            })
             .catch((err) => { console.log('ERROR :: ' + err); });
-
-        return player ? player : "Joueur";
     }
 
     /**
