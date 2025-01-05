@@ -15,7 +15,9 @@ const show_date = document.querySelector(".sidebar-time .datetime");
 //console.log(Game.prototype.GetPlayer());
 CreateItem({ name: "Test", description: "Ceci est un test", amount: 1 });
 CreateItem({ name: "Objet", description: "Ceci est un second test", amount: 1 });
-GetItems();
+CreateItem({ name: "ABDev", description: "C'est un super poto !!", amount: 1 });
+
+console.log(GetItems());
 
 /**
 show_date.innerHTML == DisplayDateTime();

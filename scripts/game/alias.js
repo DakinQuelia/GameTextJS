@@ -6,17 +6,38 @@
 import Command from "./system/command.js";
 import Items from "./system/items.js";
 
+/******************************************
+*   Objets 
+******************************************/
 export function CreateItem(item)
 {
-    Items.CreateItem(item);
+    return Items.CreateItem(item);
 }
 
 export function GetItems()
 {
-    Items.GetItems();
+    return Items.GetItems();
 }
 
 export function GetItem(item)
 {
-    Items.GetItem(item);
+    return Items.GetItem(item);
+}
+
+export function AddItem(item)
+{
+    return Items.AddItem(item, amount);
+}
+
+/******************************************
+*   Commandes
+******************************************/
+export function NPCCommand()
+{
+
+}
+
+export function ExitCommand()
+{
+
 }

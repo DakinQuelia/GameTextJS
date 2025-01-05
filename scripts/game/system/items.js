@@ -38,7 +38,7 @@ class Items
     /**
     *   Cette méthode permet de créer un objet.
     * 
-    *   @param {object} item                                            Hash de l'objet
+    *   @param {object} item                                            Hash de l'objet { id: 0, name: "Objet", description: "...", icon: "..." }
     *
     *   @return {void}
     **/
