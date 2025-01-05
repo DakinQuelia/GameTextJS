@@ -103,16 +103,6 @@ class Utils
     }
 
     /**
-    *   Cette méthode permet de récupérer le joueur.
-    * 
-    *   @return {void}
-    **/
-    GetPlayer()
-    {
-
-    }
-
-    /**
     *   Cette méthode permet d'ajouter un tooltip.
     *   Auteur : Forumactif.com (modifié par Dakin Quelia)
     * 
