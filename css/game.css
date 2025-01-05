@@ -116,6 +116,11 @@
     text-align: left;
     font-weight: bold;
 }
+
+.sidebar-block .title.center {
+    float: none;
+    text-align: center;
+}
   
 .sidebar-block .toggle {
     float: right;

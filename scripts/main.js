@@ -8,6 +8,13 @@ import Game from './game/game.js';
 const button_about = document.querySelector("#gabout");
 const button_save = document.querySelector("#gsave");
 const form_savegame = document.querySelector("#savegame-form");
+const show_date = document.querySelector(".sidebar-time .datetime");
+
+console.log(Game.prototype.GetPlayer());
+
+/**
+show_date.innerHTML == DisplayDateTime();
+*/
 
 button_about.addEventListener("click", (e) => 
 { 

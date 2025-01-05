@@ -109,7 +109,7 @@ class Game
     **/
     GetPlayer()
     {
-        
+        return "Dakin Quelia";
     }
 
     /**
