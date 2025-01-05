@@ -28,12 +28,18 @@ class Items
     /**
     *   Cette méthode permet de récupérer un objet en particulier.
     * 
+    *   @param {number} id                                              ID de l'objet
+    * 
     *   @return {object}
     **/
-    GetItem()
+    GetItem(id)
     {
         return {
-
+            name: '',
+            description: '',
+            type: '',
+            rarity: '',
+            icon: ''
         };
     }
 

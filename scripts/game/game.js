@@ -79,6 +79,37 @@ class Game
     }
 
     /**
+    *   Cette méthode récupère les règles du jeu.
+    * 
+    *   @return {void}
+    **/
+    LoadRules()
+    {
+        const page = document.querySelector('#rules .modal-content');
+        const footer = document.querySelector('#rules .modal-footer .left');
+
+        return fetch(this.files['rules'])
+            .then(response => response.json())
+            .then(data => 
+            { 
+                let spanhtml = document.createElement('span');
+                    spanhtml.textContent = "Dernière mise à jour le : " + data.last_update; /*+ " © " + data.author*/
+
+                for (const rule of data.paragraphs) 
+                {
+                    let phtml = document.createElement('p');
+                        phtml.setAttribute('id', rule.id);
+                        phtml.textContent = rule.content;
+                        
+                    page.appendChild(phtml);
+                }
+
+                footer.appendChild(spanhtml);
+            })
+            .catch(error => { console.log('[ERREUR] ' + error.name + " :: " + error.message); });
+    }
+
+    /**
     *   Cette méthode initialise le jeu.
     * 
     *   @return {void}
