@@ -13,6 +13,7 @@ await GameInit();
 
 let game_infos = await DisplayGameInfo();
 let player_data = await GetPlayer();
+let player_level = 0;
 
 /* Eléments HTML */
 const button_about = document.querySelector("#gabout");
@@ -27,6 +28,7 @@ const player_class_tag = document.querySelector("#klass .value");
 const player_money_tag = document.querySelector("#money .value");
 const player_hp_tag = document.querySelector("#hitpoints .value");
 const player_pf_tag = document.querySelector("#forcepoints .value");
+const player_level_tag = document.querySelector("#level .value");
 
 pages_infos.innerHTML = `<span>Ecrit par : ${game_infos.author}</span>`;
 title_game.innerHTML = game_infos.title;
@@ -35,6 +37,13 @@ player_class_tag.innerHTML = `<span style="color: ${player_data.classes[0].color
 player_money_tag.innerHTML = `${player_data.money} Crédits`;
 player_hp_tag.innerHTML = `${player_data.hit_points} / ${player_data.max_hit_points}`;
 player_pf_tag.innerHTML = `${player_data.force_points} / ${player_data.max_force_points}`;
+
+Object.values(player_data.classes).forEach(function(key, index) 
+{
+    player_level += player_data.classes[index].level
+
+    player_level_tag.innerHTML = player_level;
+});
 
 /**
 show_date.innerHTML == DisplayDateTime();
