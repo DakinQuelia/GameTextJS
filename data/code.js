@@ -19,6 +19,7 @@ let player_level = 0;
 const button_about = document.querySelector("#gabout");
 const button_save = document.querySelector("#gsave");
 const button_cmd = document.querySelector("#cmdsubmit");
+const button_rules = document.querySelector("#grules");
 const form_savegame = document.querySelector("#savegame-form");
 const show_date = document.querySelector(".sidebar-block.sidebar-time .datetime");
 const pages_infos = document.querySelector(".page-infos");
@@ -55,17 +56,16 @@ button_save.addEventListener("click", (e) =>
     OpenWindow(e, { title: "Sauvegarder la partie" });
 });
 
+button_rules.addEventListener("click", (e) => 
+{ 
+    OpenWindow(e, { title: "Règles du jeu" });
+});
+
 button_cmd.addEventListener("click", (e) => 
 {
 
 });
 
 /* Afficher la date/heure */
-setInterval(() => 
-{ 
-    let time = DisplayDateTime('fr-FR');
-
-    show_date.textContent = time;
-
-}, 1000);
+setInterval(() => { show_date.textContent = DisplayDateTime('fr-FR'); }, 1000);
 

@@ -110,6 +110,18 @@ class Game
     }
 
     /**
+    *   Cette méthode permet d'ouvrir l'inventaire.
+    *   
+    *   @param {Event} event                                            Evènement
+    * 
+    *   @return {void}
+    **/
+    OpenInventory(event)
+    {
+        Utils.OpenWindow(event, { title: "Inventaire" });
+    }
+
+    /**
     *   Cette méthode initialise le jeu.
     * 
     *   @return {void}
@@ -135,6 +147,12 @@ class Game
         {
             this.SaveGame(gamename);    
         }
+
+        // On charge les règles de jeu
+        this.LoadRules();
+
+        // On ajoute l'option "Afficher / Masquer"
+        Utils.Toggle();
     }
 
     /**
