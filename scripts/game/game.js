@@ -8,7 +8,8 @@ import Modal from '../lib/modal.js';
 import Utils from '../lib/utils.js';
 
 const ROOT = location.protocol + '//' + location.host;
-const SCRIPTS_ROOT = ROOT + '/sripts'
+const DATA_ROOT = ROOT + '/data';
+const SCRIPTS_ROOT = ROOT + '/scripts';
 
 class Game
 {
@@ -74,7 +75,7 @@ class Game
     **/
     LoadSettings(folder)
     {
-        let filename = folder ? folder + '/settings.js' : ROOT + `${SCRIPTS_ROOT}/game/game/settings.js`;
+        let filename = folder ? folder + '/settings.js' : `${DATA_ROOT}/settings.js`;
     }
 
     /**
@@ -119,45 +120,14 @@ class Game
     **/
     async LoadText()
     {
-        let lang = await fetch(ROOT + `${SCRIPTS_ROOT}/game/lang/${this.config.language}.json`).catch((err) => { console.log('ERROR :: ' + err); });
+        let lang = await fetch(`${SCRIPTS_ROOT}/game/lang/${this.config.language}.json`).catch((err) => { console.log('ERROR :: ' + err); });
+
+        console.log(lang);
+
         let texts = await lang.json();
 
         return texts;
     }
-
-    /**
-	* 	Cette méthode permet d'ouvrir une fenêtre modale.
-    *
-	*	@param {object} event                                           Evènement
-	*	@param {object} data                                            Données de la fenêtre
-    *
-    *   @return {boolean}
-	**/
-	static OpenWindow(event, data)
-	{
-		// Si l'évènement n'est pas défini, on retourne.
-		if (typeof event === "undefined")
-		{
-			return false;
-		}
-
-		// Si la fenêtre n'existe pas, on la crée.
-		if (typeof Modal.modal === "undefined")
-		{
-			return Modal.CreateModal(data.id, data.title, data.footer, data.content);
-		}
-
-		// Si on ne définit pas d'objet data, on lui donne une valeur nulle.
-		if (data === null)
-		{
-			data = null;
-		}
-
-		// Si la fenêtre existe, on l'ouvre.
-		Modal.OpenModal(event);
-
-		return true;
-	}
 }
 
-export default Game;
+export default new Game();

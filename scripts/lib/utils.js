@@ -3,6 +3,8 @@
 *	Auteur 		: Dakin Quelia
 *	Version 	: 1.0.0. 
 *****************************************/
+import Modal from './modal.js';
+
 /* Variables générales */
 let previousdiff = {};
 let pageactivate = 1;
@@ -428,6 +430,40 @@ class Utils
     {
         
     }
+
+    /**
+	* 	Cette méthode permet d'ouvrir une fenêtre modale.
+    *
+	*	@param {object} event                                           Evènement
+	*	@param {object} data                                            Données de la fenêtre
+    *
+    *   @return {boolean}
+	**/
+	OpenWindow(event, data)
+	{
+		// Si l'évènement n'est pas défini, on retourne.
+		if (typeof event === "undefined")
+		{
+			return false;
+		}
+
+		// Si la fenêtre n'existe pas, on la crée.
+		if (typeof Modal.modal === "undefined")
+		{
+			return Modal.CreateModal(data.id, data.title, data.footer, data.content);
+		}
+
+		// Si on ne définit pas d'objet data, on lui donne une valeur nulle.
+		if (data === null)
+		{
+			data = null;
+		}
+
+		// Si la fenêtre existe, on l'ouvre.
+		Modal.OpenModal(event);
+
+		return true;
+	}
 }
 
 export default new Utils();

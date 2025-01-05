@@ -28,11 +28,13 @@ class Items
     /**
     *   Cette méthode permet de récupérer un objet en particulier.
     * 
-    *   @return {array}
+    *   @return {object}
     **/
     GetItem()
     {
-        return [];
+        return {
+
+        };
     }
 
     /**
@@ -48,7 +50,7 @@ class Items
     }
 
     /**
-    *   Cette méthode permet d'ajouter un objet à l'inventaire.
+    *   Cette méthode permet d'ajouter un objet à l'inventaire du joueur.
     * 
     *   @param {object} item                                            Objet à ajouter
     *   @param {number} amount                                          Nombre d'objet
