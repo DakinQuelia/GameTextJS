@@ -424,11 +424,15 @@ class Utils
     /**
     *   Cette méthode permet d'afficher la date et heure du jour.
     * 
+    *   @param {HTMLElement} element                                    Elément HTML
+    * 
     *   @return {void}
     **/
     DisplayDateTime()
     {
-        
+        let time = new Date();
+
+        return time.toLocaleString('fr-FR', { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: false });
     }
 
     /**

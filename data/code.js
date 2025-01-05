@@ -6,7 +6,7 @@
 import Config from '../scripts/game/config/config.js';
 import Game from '../scripts/game/game.js';
 import Utils from '../scripts/lib/utils.js';
-import { OpenWindow, GetPlayer, DisplayGameInfo, GameInit } from '../scripts/game/alias.js';
+import { OpenWindow, DisplayDateTime, GetPlayer, DisplayGameInfo, GameInit } from '../scripts/game/alias.js';
 
 /* Donnéees de jeu */
 await GameInit();
@@ -20,7 +20,7 @@ const button_about = document.querySelector("#gabout");
 const button_save = document.querySelector("#gsave");
 const button_cmd = document.querySelector("#cmdsubmit");
 const form_savegame = document.querySelector("#savegame-form");
-const show_date = document.querySelector(".sidebar-time .datetime");
+const show_date = document.querySelector(".sidebar-block.sidebar-time .datetime");
 const pages_infos = document.querySelector(".page-infos");
 const title_game = document.querySelector("#main > h1"); 
 const player_name_tag =  document.querySelector("#playername");
@@ -45,10 +45,6 @@ Object.values(player_data.classes).forEach(function(key, index)
     player_level_tag.innerHTML = player_level;
 });
 
-/**
-show_date.innerHTML == DisplayDateTime();
-*/
-
 button_about.addEventListener("click", (e) => 
 { 
     OpenWindow(e, { title: "A propos" });
@@ -63,4 +59,13 @@ button_cmd.addEventListener("click", (e) =>
 {
 
 });
+
+/* Afficher la date/heure */
+setInterval(() => 
+{ 
+    let time = DisplayDateTime();
+
+    show_date.textContent = time;
+
+}, 1000);
 
