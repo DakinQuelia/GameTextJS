@@ -26,7 +26,7 @@ class Game
         this.language = this.config.language;
         this.lang = null;
         this.files = {
-            'player'    : RESOURCES_ROOT + '/player.json',      
+            'player'    : RESOURCES_ROOT + '/player.json',  
             'rules'     : RESOURCES_ROOT + '/rules.json',
         };
     }

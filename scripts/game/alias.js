@@ -3,9 +3,18 @@
 *	Auteur 		: Dakin Quelia
 *	Version 	: 1.0.0. 
 *****************************************/ 
+import Utils from "../lib/utils.js";
 import Game from "./game.js";
 import Command from "./system/command.js";
 import Items from "./system/items.js";
+
+/******************************************
+*   Utilitaires
+******************************************/
+export function OpenWindow(event, data)
+{
+    return Utils.OpenWindow(event, data);
+}
 
 /******************************************
 *   Jeu (Game)

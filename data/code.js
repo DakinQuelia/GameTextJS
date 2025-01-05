@@ -6,7 +6,7 @@
 import Config from '../scripts/game/config/config.js';
 import Game from '../scripts/game/game.js';
 import Utils from '../scripts/lib/utils.js';
-import { GetPlayer, DisplayGameInfo, GameInit } from '../scripts/game/alias.js';
+import { OpenWindow, GetPlayer, DisplayGameInfo, GameInit } from '../scripts/game/alias.js';
 
 /* Donnéees de jeu */
 await GameInit();
@@ -42,12 +42,12 @@ show_date.innerHTML == DisplayDateTime();
 
 button_about.addEventListener("click", (e) => 
 { 
-    Utils.OpenWindow(e, { title: "A propos" });
+    OpenWindow(e, { title: "A propos" });
 });
 
 button_save.addEventListener("click", (e) => 
 { 
-    Utils.OpenWindow(e, { title: "Sauvegarder la partie" });
+    OpenWindow(e, { title: "Sauvegarder la partie" });
 });
 
 button_cmd.addEventListener("click", (e) => 
