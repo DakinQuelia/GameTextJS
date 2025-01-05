@@ -7,6 +7,7 @@ import Utils from "../lib/utils.js";
 import Game from "./game.js";
 import Command from "./system/command.js";
 import Items from "./system/items.js";
+import Rooms from "./system/rooms.js";
 
 /******************************************
 *   Utilitaires
@@ -73,6 +74,14 @@ export function GetItem(item)
 export function AddItem(item)
 {
     return Items.AddItem(item, amount);
+}
+
+/******************************************
+*   Pièces (rooms)
+******************************************/
+export function CreateRoom(name, hash)
+{
+    return Rooms.CreateRoom(name, hash);
 }
 
 /******************************************
