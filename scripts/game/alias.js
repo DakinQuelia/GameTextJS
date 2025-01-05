@@ -10,6 +10,11 @@ import Items from "./system/items.js";
 /******************************************
 *   Jeu (Game)
 ******************************************/
+export function DisplayGameInfo() 
+{
+    return Game.DisplayGameInfo();
+}
+
 export function GetPlayer()
 {
     return Game.GetPlayer();

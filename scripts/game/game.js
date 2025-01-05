@@ -6,10 +6,12 @@
 import Config from './config/config.js';
 import Modal from '../lib/modal.js';
 import Utils from '../lib/utils.js';
+import settings from "../../data/settings.js";
 
 const ROOT = location.protocol + '//' + location.host;
 const DATA_ROOT = ROOT + '/data';
 const SCRIPTS_ROOT = ROOT + '/scripts';
+const RESOURCES_ROOT = ROOT + '/resources';
 
 class Game
 {
@@ -23,6 +25,10 @@ class Game
         this.config = Config;
         this.language = this.config.language;
         this.lang = this.LoadText();
+        this.files = {
+            'player'    : RESOURCES_ROOT + '/player.json',      
+            'rules'     : RESOURCES_ROOT + '/rules.json',
+        };
 
         //console.log(this.lang);
     }
@@ -52,8 +58,6 @@ class Game
         {
             this.SaveGame(gamename);    
         }
-
-        //console.log('Le jeu est lancé !');
     }
 
     /**
@@ -75,7 +79,7 @@ class Game
     **/
     LoadSettings(folder)
     {
-        let filename = folder ? folder + '/settings.js' : `${DATA_ROOT}/settings.js`;
+        let filename = folder ? folder + '/settings.js' : this.files['settings'];
     }
 
     /**
@@ -104,13 +108,48 @@ class Game
     }
 
     /**
+    *   Cette méthode charge les paramètres du jeu.
+    * 
+    *   @return {Promise}
+    **/
+    async DisplayGameInfo()
+    {
+        if (typeof settings === typeof undefined)
+        {
+            return;
+        }
+
+        const game_infos = settings;
+
+        let page_infos = document.querySelector('#about');
+        let game_title = page_infos.querySelector('#title');
+        let game_written = page_infos.querySelector('#written');
+        let game_version = page_infos.querySelector('#version');
+
+        game_title.innerText = game_infos['title'] ? game_infos['title'] : 'Aucun titre';
+        game_written.innerText = game_infos['author'] ? game_infos['author'] : `Information indisponible`;
+        game_version.innerText = game_infos['version'] ? game_infos['version'] : `Information indisponible`;
+
+        return {
+            title: game_infos['title'],
+            author: game_infos['author'],
+            version: game_infos['version']
+        }
+    }
+
+    /**
     *   Cette méthode permet de récupérer les informations sur le joueur.
     * 
     *   @return {void}
     **/
-    GetPlayer()
+    async GetPlayer()
     {
-        return "Dakin Quelia";
+        let player = await fetch(`${RESOURCES_ROOT}/player.json`)
+            .then(response => response.json())
+            .then(data => { return data; })
+            .catch((err) => { console.log('ERROR :: ' + err); });
+
+        return player ? player : "Joueur";
     }
 
     /**
@@ -122,7 +161,10 @@ class Game
     {
         let lang = await fetch(`${SCRIPTS_ROOT}/game/lang/${this.config.language}.json`).catch((err) => { console.log('ERROR :: ' + err); });
 
-        console.log(lang);
+        if (!lang.ok) 
+        {
+            throw new Error("Statut de la réponse :: " + response.status);
+        }
 
         let texts = await lang.json();
 

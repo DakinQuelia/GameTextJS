@@ -464,6 +464,41 @@ class Utils
 
 		return true;
 	}
+
+    /**
+    *   Cette méthode permet d'afficher/masque le contenu des différents blocs composant le menu.
+    *   
+    *   @return {void}
+    **/
+    Toggle()
+    {
+        const toggles = document.querySelectorAll('#toggle i');
+
+        toggles.forEach(toggle => 
+        {
+            toggle.addEventListener('click', (e) => 
+            {
+                const target = e.target.parentNode.parentNode.nextElementSibling;
+                const head = e.target.parentNode.parentNode;
+                const icon = e.target;
+
+                if (target.style.display === "block")
+                {
+                    head.classList.add('noborder');
+                    icon.classList.add('fa-plus');
+                    icon.classList.remove('fa-minus');
+                    target.style.display = "none";
+                }
+                else
+                {
+                    head.classList.remove('noborder');
+                    icon.classList.add('fa-minus');
+                    icon.classList.remove('fa-plus');
+                    target.style.display = "block";
+                }
+            });
+        });
+    }
 }
 
 export default new Utils();
