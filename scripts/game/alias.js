@@ -16,6 +16,11 @@ export function OpenWindow(event, data)
     return Utils.OpenWindow(event, data);
 }
 
+export function DisplayDateTime()
+{
+    return Utils.DisplayDateTime();
+}
+
 /******************************************
 *   Jeu (Game)
 ******************************************/
