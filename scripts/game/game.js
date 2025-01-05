@@ -14,6 +14,8 @@ class Game
 {
     /**
 	*	Constructeur
+    *
+    *   @return {void}
 	**/
     constructor()
     {
@@ -26,6 +28,8 @@ class Game
 
     /**
     *   Cette méthode initialise le jeu.
+    * 
+    *   @return {void}
     **/
     Init()
     {
@@ -75,6 +79,8 @@ class Game
 
     /**
     *   Cette méthode permet de sauvegarder la partie.
+    * 
+    *   @return {void}
     **/
     SaveGame(filename)
     {
@@ -88,6 +94,8 @@ class Game
 
     /**
     *   Cette méthode permet de charger la partie sauvegardée.
+    * 
+    *   @return {void}
     **/
     LoadGame(filename)
     {
@@ -122,6 +130,8 @@ class Game
     *
 	*	@param {object} event
 	*	@param {object} data
+    *
+    *   @return {boolean}
 	**/
 	static OpenWindow(event, data)
 	{
