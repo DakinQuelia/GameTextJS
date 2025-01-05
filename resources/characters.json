@@ -11,7 +11,7 @@
             "wis": 10,
             "cha": 10
         },
-        "credits": 0,
+        "money": 0,
         "force_points": 0,
         "max_force_points": 0,
         "hit_points": 30,

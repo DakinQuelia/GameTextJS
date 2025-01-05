@@ -68,7 +68,7 @@
     width: var(--width-sidebar);
 }
 
-.sidebar {
+.sidebar-block {
     border: solid 1px #ccc;
     border-radius: 4px;
     background-color: #f9f9f9;
@@ -76,90 +76,90 @@
     margin-right: 10px;
 }
  
-.sidebar .head,
+.sidebar-block .head,
 .compass .head {
     height: 30px;
     border-bottom: solid 1px #ccc;
     padding: 0px 5px 5px 10px;
 }
 
-.sidebar .content {
+.sidebar-block .content {
     padding: 10px 5px 10px 5px;
     margin-bottom: 10px;
 }
 
-.sidebar .datetime {
+.sidebar-block .datetime {
     font-size: 13px;
     padding: 0 5px 0 5px;
     text-align: center;
 }
   
-.sidebar .footer {
+.sidebar-block .footer {
     clear: both;
     height: 20px;
     border-top: solid 1px #ccc;
     padding: 5px 5px 5px 10px;
 }
   
-.sidebar .title,
+.sidebar-block .title,
 .compass .title {
     float: left;
     text-align: left;
     font-weight: bold;
 }
   
-.sidebar .toggle {
+.sidebar-block .toggle {
     float: right;
     text-align: right;
     padding-right: 5px;
 }
   
-.sidebar p {
+.sidebar-block p {
     padding: 10px;
     margin-bottom: 0px;
 }
   
-.sidebar ul {
+.sidebar-block ul {
     margin: 0 5px 0 5px;
     padding: 0;
 }
 
-.sidebar ul li {
+.sidebar-block ul li {
     list-style-type: none;
 }
   
-.sidebar a {
+.sidebar-block a {
     color: #000000;
     text-decoration: none;
 }
   
-.sidebar a:hover {
+.sidebar-block a:hover {
     color:blue;
 }
 
-.sidebar .content ul li {
+.sidebar-block .content ul li {
     display: flex;
     /*justify-content: space-between;*/
 }
 
-.sidebar .content ul li:last-child {
+.sidebar-block .content ul li:last-child {
     margin-bottom: -10px;
 }
 
-.sidebar .content ul li span.label {
+.sidebar-block .content ul li span.label {
     font-weight: bold;
 }
 
-.sidebar .content ul li span.label:after {
+.sidebar-block .content ul li span.label:after {
     font-weight: normal;
     content: " : ";
 }
 
-.sidebar .content ul li span.value {
+.sidebar-block .content ul li span.value {
     margin-left: auto;
 }
 
-.sidebar-time {
+.sidebar-block-time {
     margin-bottom: -8px !important;
 }
 
