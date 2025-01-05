@@ -30,6 +30,8 @@ class Utils
 {
     /**
     *   Le constructeur
+    * 
+    *   @return {void}
     **/
     constructor()
     {
@@ -38,6 +40,8 @@ class Utils
 
     /**
     *   Cette méthode permet d'afficher un message si l'utilisateur est sur Internet Explorer.
+    * 
+    *   @return {void}
     **/
     AlertIE()
     {
@@ -46,6 +50,8 @@ class Utils
 
     /**
 	*	Cette méthode permet de vérifier si l'utilisateur utilise Internet Explorer.
+    *   
+    *   @return {boolean}
 	**/
 	IsIE() 
 	{
@@ -54,6 +60,8 @@ class Utils
 
     /**
 	*	Cette méthode permet de vérifier si l'utilisateur utilise Firefox.
+    *   
+    *   @return {boolean}
 	**/
     IsFirefox()
     {
@@ -63,10 +71,12 @@ class Utils
     /**
     *   Cette méthode permet d'inclure un fichier.
     * 
-    *   @param {*} url      L'url du fichier
+    *   @param {string} url                                             L'url du fichier
+    * 
+    *   @return {void}
     **/
-     Require(url)
-     {
+    Require(url)
+    {
         var ajax = new XMLHttpRequest();
  
         ajax.open('GET', url, false);
@@ -93,11 +103,23 @@ class Utils
     }
 
     /**
+    *   Cette méthode permet de récupérer le joueur.
+    * 
+    *   @return {void}
+    **/
+    GetPlayer()
+    {
+
+    }
+
+    /**
     *   Cette méthode permet d'ajouter un tooltip.
     *   Auteur : Forumactif.com (modifié par Dakin Quelia)
     * 
-    *   @param {callback} caller 
-    *   @param {string} content 
+    *   @param {callback} caller                                        Méthode / fonction
+    *   @param {string} content                                         Contenu
+    * 
+    *   @return {void}
     **/
     Tooltip(caller, content)
     {
@@ -139,7 +161,9 @@ class Utils
     *   Cette fonction permet de déplacer l'infobulle.
     *   Auteur : Forumactif.com (modifié par Dakin Quelia)
     * 
-    *   @param {object} e 
+    *   @param {object} e                                               Evènement
+    * 
+    *   @return {void}
     **/
     MoveTooltip(e)
     {
@@ -179,6 +203,8 @@ class Utils
 
     /**
     * 	Afficher le menu personnalisé
+    * 
+    *   @return {void}
 	**/
 	CustomSelect()
 	{
@@ -222,6 +248,8 @@ class Utils
 
     /**
     *   Cette méthode permet de créer un champ de type numérique personnalisé. 
+    * 
+    *   @return {void}
     **/
     CustomSpinner()
     {
@@ -250,7 +278,9 @@ class Utils
     /**
     *   Cette méthode permet de générer un mot de passe. 
     * 
-    *   @param {int} pwdlength      Longueur du mot de passe généré
+    *   @param {int} pwdlength                                          Longueur du mot de passe généré
+    * 
+    *   @return {string}
     **/
     PasswordGenerator(pwdlength)
     {
@@ -259,6 +289,8 @@ class Utils
 
     /**
     *   Cette méthode permet d'afficher un compte à rebours.
+    * 
+    *   @return {void}
     **/
     CountDown()
     {
@@ -289,7 +321,9 @@ class Utils
     /**
     *   Cette méthode permet de mettre à jour la strucutre HTML du compteur.
     *
-    *   @param {{days: number, hours: numbers, minutes: number, seconds: number}} diff
+    *   @param {{days: number, hours: numbers, minutes: number, seconds: number}} diff 
+    * 
+    *   @return {void}
     **/
     UpdateCountdownDOM(diff)
     {
@@ -307,8 +341,10 @@ class Utils
     /**
     *   Cette méthode permet de calculer le montant TVAC / TTC.
     * 
-    *   @param {int} vat 
-    *   @param {int} price 
+    *   @param {int} vat                                                Taux de TVA
+    *   @param {int} price                                              Prix de l'article
+    * 
+    *   @return {void}
     **/
     CalculateVAT(vat, price)
     {
@@ -318,7 +354,9 @@ class Utils
     /**
     *   Cette méthode sert à nettoyer les espaces blancs au début du code.
     * 
-    *   @param {string} string
+    *   @param {string} string                                          Texte / Message
+    * 
+    *   @return {string}
     **/
     TrimCode(string) 
     {
@@ -334,7 +372,9 @@ class Utils
     /**
     *   Cette méthode permet de créer la balise Code avec le code.
     * 
-    *   @param {string} string
+    *   @param {string} string                                          Texte / Message
+    * 
+    *   @return {void}              
     **/
     Code(string)
     {
@@ -345,11 +385,13 @@ class Utils
     }
 
     /**
-    *   cette méthode supprime toutes les balises afin de s'assurer que la chaîne de caractère
+    *   Cette méthode supprime toutes les balises afin de s'assurer que la chaîne de caractère
     *   retournée ne contient pas de balises interdites (exemple : '<<bait/>switch/>')
     * 
-    *   @param {element} input 
-    *   @param {string} allowed 
+    *   @param {ElementHTML} input                                      Elément HTML
+    *   @param {string} allowed                                         Balises autorisées
+    * 
+    *   @return {void}
     **/
     StripTags(input, allowed) 
     {
@@ -377,8 +419,10 @@ class Utils
     /**
     *   Cette méthode permet d'afficher les erreurs en console.
     * 
-    *   @param {object} error 
-    *   @param {string} explicit 
+    *   @param {object} error                                           L'objet de l'erreur
+    *   @param {string} explicit                                        Explict ou Inexplicit
+    * 
+    *   @return {void}
     **/
     PrintError (error, explicit) 
     {
