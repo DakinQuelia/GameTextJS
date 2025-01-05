@@ -39,5 +39,6 @@
         "reparation": 0,
         "premiers_secours": 0
     },
-    "feats": {}
+    "feats": {},
+    "inventory": []
 }
