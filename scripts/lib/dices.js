@@ -25,7 +25,17 @@ class Dices
     **/
     GetDices()
     {
-        
+
+    }
+
+    /**
+    *   Cette méthode permet d'obtenir le résultat final.
+    * 
+    *   @return {void} 
+    **/
+    GetResults()
+    {
+
     }
 }
 
