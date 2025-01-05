@@ -63,7 +63,7 @@ button_cmd.addEventListener("click", (e) =>
 /* Afficher la date/heure */
 setInterval(() => 
 { 
-    let time = DisplayDateTime();
+    let time = DisplayDateTime('fr-FR');
 
     show_date.textContent = time;
 
