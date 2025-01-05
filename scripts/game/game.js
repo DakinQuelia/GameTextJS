@@ -128,8 +128,8 @@ class Game
     /**
 	* 	Cette méthode permet d'ouvrir une fenêtre modale.
     *
-	*	@param {object} event
-	*	@param {object} data
+	*	@param {object} event                                           Evènement
+	*	@param {object} data                                            Données de la fenêtre
     *
     *   @return {boolean}
 	**/
