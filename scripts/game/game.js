@@ -64,7 +64,7 @@ class Game
 
         if (filename !== null && submit)
         {
-            console.log(filename);
+            //console.log(filename);
         }
     }
 
