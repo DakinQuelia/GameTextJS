@@ -18,7 +18,12 @@
         "max_hit_points": 30,
         "experience": 0,
         "alignment": 50,
-        "classes": {},
+        "classes": {
+            "jedi_guardian": {
+                "name": "Jedi Gardien",
+                "level": 5
+            }
+        },
         "skills": {
             "computer": 5,
             "persuasion": 2,

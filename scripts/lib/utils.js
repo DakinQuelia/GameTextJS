@@ -418,6 +418,16 @@ class Utils
     {
         console.log(`[${explicit ? 'EXPLICIT' : 'INEXPLICIT'}] ${error.name}: ${error.message}`);
     }
+
+    /**
+    *   Cette méthode permet d'afficher la date et heure du jour.
+    * 
+    *   @return {void}
+    **/
+    DisplayDateTime()
+    {
+        
+    }
 }
 
 export default new Utils();

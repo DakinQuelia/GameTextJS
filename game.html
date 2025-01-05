@@ -12,7 +12,7 @@
     <main class="container-fluid mt-10">
         <div class="page-wrapper">
             <div id="sidebar">
-                <div class="sidebar sidebar-time">
+                <div class="sidebar-block sidebar-time">
                     <div class="datetime">04/10/2021 03h44</div>
                 </div>
                 <div class="compass">
@@ -42,12 +42,22 @@
                             </div>
                             <div class="line">
                                 <button type="button" id="out"><i class="fas fa-sign-out-alt disabled"></i></button>
-                                <button type="button" id="save" class="jsmodal" data-href="#savegame" data-title="Sauvegarder"><i class="fas fa-save"></i></button>
+                                <button type="button" id="gsave" class="jsmodal" data-href="#savegame" data-title="Sauvegarder"><i class="fas fa-save"></i></button>
                             </div>
                             <div class="line">
                                 <button type="button" id="gpause" data-title="Mettre en pause"><i class="fas fa-pause"></i></button>
                                 <button type="button" id="gabout" class="jsmodal" data-href="#about" data-title="A propos"><i class="fas fa-info"></i></button>
                             </div> 
+                        </div>
+                    </div>
+                </div>
+                <div class="sidebar-block">
+                    <div class="head">
+                        <div class="title">{ player.name }</div>
+                    </div>
+                    <div class="content">
+                        <div class="avatar">
+                            <img src="https://picsum.photos/id/237/100/100" alt="" />
                         </div>
                     </div>
                 </div>
@@ -135,10 +145,10 @@
                 <div class="modal-wrapper" id="modalstop">
                     <div class="modal-header">
                         <button class="modal-button close" id="close"><i class="fas fa-times"></i></button>
-                        <span class="modal-title" id="titlemodal">Sauvegarer la partie</span>
+                        <span class="modal-title" id="titlemodal">Sauvegarder la partie</span>
                     </div>
                     <div class="modal-content">
-                        <form method="POST">
+                        <form method="POST" id="savegame-form">
                             <div class="inline">
                                 <label>Nom du fichier</label> 
                                 <input type="text" name="savename" id="savename" />   
@@ -148,7 +158,7 @@
                     <div class="modal-footer">
                         <div class="left"></div> 
                         <div class="right">
-                            <button class="modal-button" type="button" id="savesubmit">Valider</button>
+                            <button class="modal-button success" type="button" id="savesubmit">Valider</button>
                             <button class="modal-button" type="button" id="btnclose">Fermer</button>
                         </div> 
                     </div>

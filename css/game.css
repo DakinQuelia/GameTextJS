@@ -85,7 +85,16 @@
 
 .sidebar-block .content {
     padding: 10px 5px 10px 5px;
-    margin-bottom: 10px;
+}
+
+.sidebar-block .content .avatar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sidebar-block .content img {
+    border-radius: 5px;
 }
 
 .sidebar-block .datetime {
@@ -120,7 +129,7 @@
 }
   
 .sidebar-block ul {
-    margin: 0 5px 0 5px;
+    margin: 0 5px 10px 5px;
     padding: 0;
 }
 
