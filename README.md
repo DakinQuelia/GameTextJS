@@ -1,6 +1,3 @@
-# GameTextJS
-Ceci est un sript de jeu textuel en Javascript.
-
 <h1 align="center">GameText JS</h1>
 <p>Ceci est le dépôt officiel du script : GameText.</p>
 <p>Inspiré du projet : Quest JS de TextAdventures</p>
