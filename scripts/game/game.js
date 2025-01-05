@@ -56,16 +56,27 @@ class Game
     /**
     *   Cette méthode permet de sauvegarder la partie.
     * 
-    *   @return {void}
+    *   @param {string} filename                                        Nom du fichier
+    * 
+    *   @return {boolean}
     **/
     SaveGame(filename)
     {
         let submit = document.querySelector('#savesubmit');
 
+        
+        if (submit && filename === undefined) 
+        {
+            throw new Error(`[ERREUR] : vous n'avez pas défini de nom de fichier.`);
+        }
+    
         if (filename !== null && submit)
         {
             //console.log(filename);
+            // localStorage.setItem(settings.title + ": " + filename);
         }
+    
+        return true;
     }
 
     /**
