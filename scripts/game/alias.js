@@ -4,10 +4,11 @@
 *	Version 	: 1.0.0. 
 *****************************************/ 
 import Utils from "../lib/utils.js";
-import Game from "./game.js";
+import Dices from "../lib/dices.js";
 import Command from "./system/command.js";
 import Items from "./system/items.js";
 import Rooms from "./system/rooms.js";
+import Game from "./game.js";
 
 /******************************************
 *   Utilitaires
@@ -48,6 +49,14 @@ export async function GameInit()
 export async function GetPlayer()
 {
     return await Game.GetPlayer();
+}
+
+/******************************************
+*   Jet de dés
+******************************************/
+export function Dices(dices)
+{
+    return Dices.Rolls(dices);
 }
 
 /******************************************

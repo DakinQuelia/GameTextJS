@@ -18,6 +18,7 @@ const button_about = document.querySelector("#gabout");
 const button_save = document.querySelector("#gsave");
 const button_cmd = document.querySelector("#cmdsubmit");
 const button_rules = document.querySelector("#grules");
+const button_dices = document.querySelector("#gdices");
 const form_savegame = document.querySelector("#savegameform");
 const button_save_form = document.querySelector("#savegame #savesubmit");
 const show_date = document.querySelector(".sidebar-block.sidebar-time .datetime");
@@ -64,6 +65,11 @@ button_rules.addEventListener("click", (e) =>
 button_cmd.addEventListener("click", (e) => 
 {
 
+});
+
+button_dices.addEventListener("click", (e) => 
+{
+    console.log("Jet de dés !");
 });
 
 /* Au chargement */

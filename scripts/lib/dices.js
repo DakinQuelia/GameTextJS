@@ -27,7 +27,7 @@ class Dices
     * 
     *   @return {number}
     **/
-    Dices(dices)
+    Rolls(dices)
     {
         let dicesMatch = this.format.exec(dices);
 
