@@ -71,40 +71,6 @@ class Utils
     }
 
     /**
-    *   Cette méthode permet d'inclure un fichier.
-    * 
-    *   @param {string} url                                             L'url du fichier
-    * 
-    *   @return {void}
-    **/
-    Require(url)
-    {
-        let ajax = new XMLHttpRequest();
- 
-        ajax.open('GET', url, false);
-        ajax.onreadystatechange = function() 
-        {
-            let script = ajax.response || ajax.responseText;
- 
-            if (ajax.readyState === 4) 
-            {
-                switch(ajax.status) 
-                {
-                    case 200:
-                        eval.apply(window, [script]);
-                        console.log(`Le script « ${url} » a été chargé !`);
-                    break;
-                    default:
-                        console.log(`ERREUR : le script suivant « ${url} » n'a pas été chargé.`);
-                        throw new Error(`ERREUR : le script suivant « ${url} » n'a pas été chargé.`);
-                }
-            }
-        };
- 
-        ajax.send(null);
-    }
-
-    /**
     *   Cette méthode permet d'ajouter un tooltip.
     *   Auteur : Forumactif.com (modifié par Dakin Quelia)
     * 
@@ -536,6 +502,25 @@ class Utils
                 }
             });
         });
+    }
+
+    /**
+    *   Cette méthode permet d'inclure un fichier.
+    * 
+    *   @param {string} url                                             L'url du fichier
+    * 
+    *   @return {void}
+    **/
+    async Require(url)
+    {
+        try 
+        {
+            return await import(url);
+        } 
+        catch(e) 
+        {
+            console.error(`Echec du chargement du module :: ${url}`, e);
+        }
     }
 }
 
