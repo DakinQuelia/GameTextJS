@@ -4,7 +4,7 @@
 *	Version 	: 1.0.0. 
 *****************************************/
 import Config from '../scripts/game/config/config.js';
-import { OpenWindow, DisplayDateTime, GetPlayer, DisplayGameInfo, GameInit } from '../scripts/game/alias.js';
+import { OpenWindow, DisplayDateTime, GetPlayer, DisplayGameInfo, GameInit, SaveGame } from '../scripts/game/alias.js';
 
 /* Donnéees de jeu */
 await GameInit();
@@ -19,7 +19,7 @@ const button_save = document.querySelector("#gsave");
 const button_cmd = document.querySelector("#cmdsubmit");
 const button_rules = document.querySelector("#grules");
 const form_savegame = document.querySelector("#savegameform");
-const button_save_form = document.querySelector("#savesubmit");
+const button_save_form = document.querySelector("#savegame #savesubmit");
 const show_date = document.querySelector(".sidebar-block.sidebar-time .datetime");
 const pages_infos = document.querySelector(".page-infos");
 const title_game = document.querySelector("#main > h1"); 
@@ -66,30 +66,21 @@ button_cmd.addEventListener("click", (e) =>
 
 });
 
+/* Au chargement */
+document.addEventListener("DOMContentLoaded", () => 
+{
+    form_savegame.classList.remove("form-invalid");
+    form_savegame.querySelector("#savename").value = "";
+    button_save_form.style.disabled = false;
+});
+
 /* Sauvegarder la partie */
+let filename = form_savegame.querySelector("#savename").value;
+
 button_save_form.addEventListener("click", (e) => 
 {
-    let filename = form_savegame.querySelector("#savename").value;
-    
-    if (filename === null || filename === "")
-    {
-        form_savegame.classList.add('form-invalid');
-
-        let error_span = document.createElement('div');
-
-        error_span.textContent = "Vous n'avez pas rempli le champ « Nom du fichier » !";
-        error_span.style.marginLeft = "127px";
-    
-        form_savegame.appendChild(error_span);
-    }
-    else
-    {
-        form_savegame.classList.remove('form-invalid');
-    }
-
-    //
+    SaveGame(filename);
 });
 
 /* Afficher la date/heure */
 setInterval(() => { show_date.textContent = DisplayDateTime('fr-FR'); }, 1000);
-

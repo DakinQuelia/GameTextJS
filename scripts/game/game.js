@@ -62,21 +62,32 @@ class Game
     **/
     SaveGame(filename)
     {
-        let submit = document.querySelector('#savesubmit');
+        const form = document.querySelector("#savegameform");
+        const submit = document.querySelector("#savesubmit");
 
-        
-        if (submit && filename === undefined) 
+        if (filename === typeof undefined || filename === "" || filename === null) 
         {
-            throw new Error(`[ERREUR] : vous n'avez pas défini de nom de fichier.`);
+            submit.style.disabled = true;
+            form.classList.add('form-invalid');
+                    
+            let error_span = document.createElement('div');
+            error_span.textContent = "Vous n'avez pas rempli le champ « Nom du fichier » !";
+            error_span.style.marginLeft = "127px";
+        
+            form.appendChild(error_span);
+        
+            return false;
         }
-    
-        if (filename !== null && submit)
+            
+        if (filename !== null)
         {
             //console.log(filename);
             // localStorage.setItem(settings.title + ": " + filename);
+        
+            return true;
         }
-    
-        return true;
+
+        return false;
     }
 
     /**

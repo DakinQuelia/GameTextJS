@@ -25,6 +25,11 @@ export function DisplayDateTime()
 /******************************************
 *   Jeu (Game)
 ******************************************/
+export function SaveGame(filename)
+{
+    return Game.SaveGame(filename);
+}
+
 export function DisplayGameInfo() 
 {
     return Game.DisplayGameInfo();
