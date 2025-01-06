@@ -39,10 +39,6 @@ player_money_tag.innerHTML = `${player_data.money} Crédits`;
 player_hp_tag.innerHTML = `${player_data.hit_points} / ${player_data.max_hit_points}`;
 player_pf_tag.innerHTML = `${player_data.force_points} / ${player_data.max_force_points}`;
 
-let test = Require('./data/settings.js');
-
-console.log(test);
-
 Object.values(player_data.classes).forEach((key, index) =>
 {
     player_level += player_data.classes[index].level

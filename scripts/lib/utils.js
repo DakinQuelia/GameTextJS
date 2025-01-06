@@ -515,7 +515,7 @@ class Utils
     {
         try 
         {
-            return await import(url);
+            return (await import(url)).default;
         } 
         catch(e) 
         {
