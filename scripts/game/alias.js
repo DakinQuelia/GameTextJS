@@ -54,7 +54,7 @@ export async function GetPlayer()
 /******************************************
 *   Jet de dés
 ******************************************/
-export function Dices(dices)
+export function DicesRolls(dices)
 {
     return Dices.Rolls(dices);
 }
