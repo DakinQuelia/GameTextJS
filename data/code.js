@@ -18,7 +18,8 @@ const button_about = document.querySelector("#gabout");
 const button_save = document.querySelector("#gsave");
 const button_cmd = document.querySelector("#cmdsubmit");
 const button_rules = document.querySelector("#grules");
-const form_savegame = document.querySelector("#savegame-form");
+const form_savegame = document.querySelector("#savegameform");
+const button_save_form = document.querySelector("#savesubmit");
 const show_date = document.querySelector(".sidebar-block.sidebar-time .datetime");
 const pages_infos = document.querySelector(".page-infos");
 const title_game = document.querySelector("#main > h1"); 
@@ -38,7 +39,7 @@ player_money_tag.innerHTML = `${player_data.money} Crédits`;
 player_hp_tag.innerHTML = `${player_data.hit_points} / ${player_data.max_hit_points}`;
 player_pf_tag.innerHTML = `${player_data.force_points} / ${player_data.max_force_points}`;
 
-Object.values(player_data.classes).forEach(function(key, index) 
+Object.values(player_data.classes).forEach((key, index) =>
 {
     player_level += player_data.classes[index].level
 
@@ -63,6 +64,30 @@ button_rules.addEventListener("click", (e) =>
 button_cmd.addEventListener("click", (e) => 
 {
 
+});
+
+/* Sauvegarder la partie */
+button_save_form.addEventListener("click", (e) => 
+{
+    let filename = form_savegame.querySelector("#savename").value;
+    
+    if (filename === null || filename === "")
+    {
+        form_savegame.classList.add('form-invalid');
+
+        let error_span = document.createElement('div');
+
+        error_span.textContent = "Vous n'avez pas rempli le champ « Nom du fichier » !";
+        error_span.style.marginLeft = "127px";
+    
+        form_savegame.appendChild(error_span);
+    }
+    else
+    {
+        form_savegame.classList.remove('form-invalid');
+    }
+
+    //
 });
 
 /* Afficher la date/heure */
