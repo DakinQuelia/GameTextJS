@@ -79,12 +79,12 @@ class Utils
     **/
     Require(url)
     {
-        var ajax = new XMLHttpRequest();
+        let ajax = new XMLHttpRequest();
  
         ajax.open('GET', url, false);
         ajax.onreadystatechange = function() 
         {
-            var script = ajax.response || ajax.responseText;
+            let script = ajax.response || ajax.responseText;
  
             if (ajax.readyState === 4) 
             {
@@ -92,7 +92,7 @@ class Utils
                 {
                     case 200:
                         eval.apply(window, [script]);
-                        console.log(`Le script a été chargé ${url} !`);
+                        console.log(`Le script « ${url} » a été chargé !`);
                     break;
                     default:
                         console.log(`ERREUR : le script suivant « ${url} » n'a pas été chargé.`);

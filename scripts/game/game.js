@@ -202,6 +202,9 @@ class Game
         game_version.innerText = game_infos['version'] ? game_infos['version'] : `Information indisponible`;
         game_version_footer.innerText = game_infos['version'] ? game_infos['version'] : `Information indisponible`;
 
+        /* Titre de la page */
+        document.title = `Jeu :: ${game_infos.title}`;
+
         return {
             title: game_infos['title'],
             author: game_infos['author'],

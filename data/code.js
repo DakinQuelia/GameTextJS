@@ -4,7 +4,7 @@
 *	Version 	: 1.0.0. 
 *****************************************/
 import Config from '../scripts/game/config/config.js';
-import { OpenWindow, DisplayDateTime, GetPlayer, DisplayGameInfo, GameInit, SaveGame } from '../scripts/game/alias.js';
+import { OpenWindow, Require, DisplayDateTime, GetPlayer, DisplayGameInfo, GameInit, SaveGame } from '../scripts/game/alias.js';
 
 /* Donnéees de jeu */
 await GameInit();
@@ -38,6 +38,10 @@ player_class_tag.innerHTML = `<span style="color: ${player_data.classes[0].color
 player_money_tag.innerHTML = `${player_data.money} Crédits`;
 player_hp_tag.innerHTML = `${player_data.hit_points} / ${player_data.max_hit_points}`;
 player_pf_tag.innerHTML = `${player_data.force_points} / ${player_data.max_force_points}`;
+
+let test = Require('./data/settings.js');
+
+console.log(test);
 
 Object.values(player_data.classes).forEach((key, index) =>
 {

@@ -12,6 +12,11 @@ import Rooms from "./system/rooms.js";
 /******************************************
 *   Utilitaires
 ******************************************/
+export function Require(url)
+{
+    return Utils.Require(url);
+}
+
 export function OpenWindow(event, data)
 {
     return Utils.OpenWindow(event, data);
