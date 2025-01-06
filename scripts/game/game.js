@@ -195,10 +195,12 @@ class Game
         let game_title = page_infos.querySelector('#title');
         let game_written = page_infos.querySelector('#written');
         let game_version = page_infos.querySelector('#version');
+        let game_version_footer = page_infos.querySelector('#versionfooter');
 
         game_title.innerText = game_infos['title'] ? game_infos['title'] : 'Aucun titre';
         game_written.innerText = game_infos['author'] ? game_infos['author'] : `Information indisponible`;
         game_version.innerText = game_infos['version'] ? game_infos['version'] : `Information indisponible`;
+        game_version_footer.innerText = game_infos['version'] ? game_infos['version'] : `Information indisponible`;
 
         return {
             title: game_infos['title'],

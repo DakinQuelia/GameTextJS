@@ -304,6 +304,11 @@
     width: 100%;
 }
 
+.console form {
+    width: 100%;
+    display: flex;
+}
+
 .console input {
     width: 100%;
     padding: .175rem .55rem;

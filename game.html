@@ -130,8 +130,10 @@
                     <p>Accusantium ut quae provident explicabo quos saepe impedit placeat quo perferendis distinctio cumque eveniet incidunt itaque, cupiditate quidem, est doloremque velit? Beatae quam quas cupiditate similique atque. Architecto, reiciendis possimus!</p>
                 </div>
                 <div class="console">
-                    <input type="text" name="command" id="command" />
-                    <button type="button" name="cmdsubmit" id="cmdsubmit">Envoyer</button>
+                    <form method="POST" action="">
+                        <input type="text" name="command" id="command" />
+                        <button type="button" name="cmdsubmit" id="cmdsubmit">Envoyer</button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -161,7 +163,7 @@
                         </ul>
                     </div>
                     <div class="modal-footer">
-                        <div class="left">v1.0.0</div> 
+                        <div class="left" id="versionfooter">v1.0.0</div> 
                         <div class="right"><button class="modal-button" type="button" id="btnclose">Fermer</button></div> 
                     </div>
                 </div>
