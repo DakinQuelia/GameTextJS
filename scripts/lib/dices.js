@@ -87,7 +87,7 @@ class Dices
     GetResults()
     {
         let roll = this.rolls.map((roll) => roll).join(" + ");
-        
+
         return `(${roll}) = ${this.GetTotal()}`;
     }
 
@@ -114,8 +114,6 @@ class Dices
         {
             return false;
         }
-
-        let roll = this.rolls.map((roll) => roll).join(" + ");
 
         dices_content.innerHTML = `
             <div>
