@@ -126,12 +126,14 @@ class Dices
             return false;
         }
 
+        let roll = this.rolls.map((roll) => roll).join(" + ");
+
         dices_content.innerHTML = `
             <div>
                 <strong>Jet de dés</strong>  : ${this.dicef} 
             </div>
             <div>
-                <strong>Résultat</strong>    : ${this.GetResults()}
+                <strong>Résultat</strong>    : ${roll} = ${this.GetResults()}
             </div>
         `;
     }

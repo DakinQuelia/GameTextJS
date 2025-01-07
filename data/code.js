@@ -41,7 +41,7 @@ player_money_tag.innerHTML = `${player_data.money} Crédits`;
 player_hp_tag.innerHTML = `${player_data.hit_points} / ${player_data.max_hit_points}`;
 player_pf_tag.innerHTML = `${player_data.force_points} / ${player_data.max_force_points}`;
 
-console.log(DicesRolls("3d6"));
+console.log(DicesRolls("2d6"));
 
 DicesDisplayResults();
 
