@@ -4,6 +4,8 @@
 *	Auteur 		: Dakin Quelia
 *	Version 	: 1.0.0. 
 *****************************************/
+import Utils from "./utils.js";
+
 class Dices
 {
     /**
@@ -13,6 +15,7 @@ class Dices
     **/
     constructor()
     {
+        this.dicef = null;
         this.dices = 0;
         this.sides = 0;
         this.rolls = [];
@@ -32,10 +35,17 @@ class Dices
     {
         let dicesMatch = this.format.exec(dices);
 
+        this.dicef = dices;
         this.dices = parseInt(dicesMatch[1]);
         this.sides = parseInt(dicesMatch[2]);
 
-        return this.GetResults();
+        do 
+        {
+            this.rolls.push(this.GetDicesRoll());
+        }
+        while(this.rolls.length < this.dices);
+
+        return this.rolls;
     }
 
     /**
@@ -59,13 +69,71 @@ class Dices
     }
 
     /**
-    *   Cette méthode permet d'obtenir le résultat final.
+    *   Cette méthode permet d'obtenir le lancer de dés.
     * 
     *   @return {number} 
     **/
-    GetResults()
+    GetDicesRoll()
     {
         return Math.floor(Math.random() * (this.sides - this.dices + 1)) + this.dices;
+    }
+
+    /**
+    *   Cette méthode permet d'obtenir le résultat total.
+    * 
+    *   @return {void} 
+    **/
+    GetResults()
+    {
+        let total = this.GetTotal();
+
+        return total;
+    }
+
+    /**
+    *   Cette méthode permet d'obtenir le total final.
+    * 
+    *   @return {number}
+    **/
+    GetTotal()
+    {
+        return Utils.Sum(this.rolls);
+    }
+
+    /**
+    *   Cette méthode permet de ...
+    * 
+    *   @param {object} obj                                             Hash des dés : { 3d6, 5d10 }
+    * 
+    *   @return 
+    **/
+    DicePool(obj)
+    {
+
+    }
+
+    /**
+    *   Cette méthode permet d'afficher le résultat.
+    * 
+    *   @return {void}
+    **/
+    DisplayResults()
+    {
+        const dices_content = document.querySelector(".dices-content");
+
+        if (dices_content === typeof undefined || dices_content === null)
+        {
+            return false;
+        }
+
+        dices_content.innerHTML = `
+            <div>
+                <strong>Jet de dés</strong>  : ${this.dicef} 
+            </div>
+            <div>
+                <strong>Résultat</strong>    : ${this.GetResults()}
+            </div>
+        `;
     }
 }
 

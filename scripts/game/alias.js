@@ -64,6 +64,11 @@ export function DicesRolls(dices, data = {})
     return Dices.Rolls(dices, data);
 }
 
+export function DicesDisplayResults()
+{
+    return Dices.DisplayResults();
+}
+
 /******************************************
 *   Commandes
 ******************************************/

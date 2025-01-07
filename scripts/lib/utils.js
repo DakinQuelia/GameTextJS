@@ -513,7 +513,7 @@ class Utils
     **/
     Sum(items)
     {
-        items.reduce((acc, item) => acc + item, 0);
+        return items.reduce((acc, item) => acc + item, 0);
     }
 
     /**
