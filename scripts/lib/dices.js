@@ -15,12 +15,13 @@ class Dices
     **/
     constructor()
     {
-        this.dicef = null;
         this.dices = 0;
         this.sides = 0;
-        this.rolls = [];
         this.result = {};
         this.results = [];
+        this.rolls = [];
+        this.dicef = null;
+        this.modifier = null;
         this.format = new RegExp(/(\d+)d(\d+)$/i);
     }
 
@@ -87,8 +88,9 @@ class Dices
     GetResults()
     {
         let roll = this.rolls.map((roll) => roll).join(" + ");
+        let modifier = ""; // (+ 1) ou (- 1)
 
-        return `(${roll}) = ${this.GetTotal()}`;
+        return `(${roll}) = ${this.GetTotal()} ${modifier}`;
     }
 
     /**
