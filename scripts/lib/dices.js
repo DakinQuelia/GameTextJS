@@ -19,7 +19,7 @@ class Dices
         this.dices = 0;
         this.sides = 0;
         this.rolls = [];
-        this.results = "";
+        this.results = {};
         this.format = new RegExp(/(\d+)d(\d+)$/i);
     }
 
@@ -81,13 +81,11 @@ class Dices
     /**
     *   Cette méthode permet d'obtenir le résultat total.
     * 
-    *   @return {void} 
+    *   @return {number} 
     **/
     GetResults()
     {
-        let total = this.GetTotal();
-
-        return total;
+        return this.GetTotal();
     }
 
     /**
@@ -98,18 +96,6 @@ class Dices
     GetTotal()
     {
         return Utils.Sum(this.rolls);
-    }
-
-    /**
-    *   Cette méthode permet de ...
-    * 
-    *   @param {object} obj                                             Hash des dés : { 3d6, 5d10 }
-    * 
-    *   @return 
-    **/
-    DicePool(obj)
-    {
-
     }
 
     /**
@@ -133,7 +119,7 @@ class Dices
                 <strong>Jet de dés</strong>  : ${this.dicef} 
             </div>
             <div>
-                <strong>Résultat</strong>    : ${roll} = ${this.GetResults()}
+                <strong>Résultat</strong>    : (${roll}) = ${this.GetResults()}
             </div>
         `;
     }
