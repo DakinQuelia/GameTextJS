@@ -23,11 +23,12 @@ class Dices
     /**
     *   Cette méthode permet d'exécuter le lancer de dés.
     * 
-    *   @param {string} dices
+    *   @param {string} dices                                           Jet de dés (exemple : 1d10)
+    *   @param {object} data                                            Données : { modifier: 1, text: "..." }
     * 
     *   @return {number}
     **/
-    Rolls(dices)
+    Rolls(dices, data = {})
     {
         let dicesMatch = this.format.exec(dices);
 

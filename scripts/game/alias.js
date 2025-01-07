@@ -23,6 +23,11 @@ export function DisplayDateTime()
     return Utils.DisplayDateTime();
 }
 
+export function Sum(items)
+{
+    return Utils.Sum(items);
+}
+
 export async function Require(url)
 {
     return await Utils.Require(url);
@@ -54,9 +59,9 @@ export async function GetPlayer()
 /******************************************
 *   Jet de dés
 ******************************************/
-export function DicesRolls(dices)
+export function DicesRolls(dices, data = {})
 {
-    return Dices.Rolls(dices);
+    return Dices.Rolls(dices, data);
 }
 
 /******************************************

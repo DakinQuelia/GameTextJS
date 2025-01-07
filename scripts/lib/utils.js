@@ -505,6 +505,18 @@ class Utils
     }
 
     /**
+    *   Cette méthode permet de calculer la somme des éléments.
+    *   
+    *   @param {array} items                                            Tableau d'éléments
+    * 
+    *   @return {void}
+    **/
+    Sum(items)
+    {
+        items.reduce((acc, item) => acc + item, 0);
+    }
+
+    /**
     *   Cette méthode permet d'inclure un fichier.
     * 
     *   @param {string} url                                             L'url du fichier
