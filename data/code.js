@@ -41,7 +41,8 @@ player_money_tag.innerHTML = `${player_data.money} Crédits`;
 player_hp_tag.innerHTML = `${player_data.hit_points} / ${player_data.max_hit_points}`;
 player_pf_tag.innerHTML = `${player_data.force_points} / ${player_data.max_force_points}`;
 
-DicesRolls("3d6");
+DicesRolls("2d6");
+
 DicesDisplayResults();
 
 Object.values(player_data.classes).forEach((key, index) =>

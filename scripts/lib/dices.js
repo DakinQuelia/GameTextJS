@@ -19,7 +19,8 @@ class Dices
         this.dices = 0;
         this.sides = 0;
         this.rolls = [];
-        this.results = {};
+        this.result = {};
+        this.results = [];
         this.format = new RegExp(/(\d+)d(\d+)$/i);
     }
 
@@ -85,7 +86,9 @@ class Dices
     **/
     GetResults()
     {
-        return this.GetTotal();
+        let roll = this.rolls.map((roll) => roll).join(" + ");
+        
+        return `(${roll}) = ${this.GetTotal()}`;
     }
 
     /**
@@ -119,7 +122,7 @@ class Dices
                 <strong>Jet de dés</strong>  : ${this.dicef} 
             </div>
             <div>
-                <strong>Résultat</strong>    : (${roll}) = ${this.GetResults()}
+                <strong>Résultat</strong>    : ${this.GetResults()}
             </div>
         `;
     }
