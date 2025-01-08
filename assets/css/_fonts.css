@@ -5,3 +5,13 @@
 *****************************************/
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css");
 @import url("https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300");
+
+@font-face {
+    font-family: Eurofont;
+    src: url("../fonts/Hayward-SmBd.eot");
+    src: url("../fonts/Hayward-SmBd.eot?#iefix") format("embedded-opentype"), 
+         url("../fonts/Hayward-SmBd.woff2") format("woff2"), 
+         url("../fonts/Hayward-SmBd.woff") format("woff"), 
+         url("../fonts/Hayward-SmBd.ttf") format("truetype");
+    font-weight: normal;
+}

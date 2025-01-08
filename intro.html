@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeu :: Introduction</title>
+    <link rel="stylesheet" href="assets/css/game.css" />
+</head>
+<body class="stars">
+    <div class="star-wars-intro">
+        <div class="intro-text">Dans une galaxie, lointaine, très lointaine...</div>
+        <div class="intro-logo">
+            <img src="assets/images/star.svg" alt="Star" class="star" />
+            <img src="assets/images/wars.svg" alt="Wars" class="wars" />
+            <!--<h2 class="byline" id="byline">L'Ordre de la Force</h2>-->
+        </div>
+        <div class="intro-main">
+            <div class="intro-container">
+                <div class="intro-header">
+                    <span class="star-wars-title">EPISODES XXVI</span>
+                    <span class="star-wars-subtitle">Un sous-titre</span>   
+                </div>
+                <div class="intro-content">
+                    <p>Après plusieurs années de silence galactique, la civilisation est sur le point de connaître une nouvelle sortie Star Wars.</p>
+                    <p>Désormais, tandis que la Force se prépare à s'éveiller, le peuple de la terre...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <audio preload="auto" autoplay>
+        <source src="assets/audio/star-wars-opening.mp3" type="audio/mpeg" />
+    </audio>      
+    <script type="module" src="scripts/lib/intro.js" defer></script>
+</body>
+</html>

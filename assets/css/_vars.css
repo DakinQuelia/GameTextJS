@@ -6,6 +6,8 @@
 :root {
     /* Polices */
     --fontawesome: "Font Awesome 5 Free";
+    --credits-fonts: 'Open Sans Condensed';
+    --starwars-fonts: Eurofont;
     /* Couleurs */
     --blue: #007bff;
     --blue-hover: #0057a9;
