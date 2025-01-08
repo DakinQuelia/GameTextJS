@@ -75,6 +75,7 @@
 }
 
 .credits-wrapper {
+    user-select: none;
     position: absolute;
     top: 100%;
     left: 50%;

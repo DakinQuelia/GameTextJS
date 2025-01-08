@@ -49,6 +49,20 @@ class Dices
             this.rolls.push(this.GetDicesRoll());
         }
         while(this.rolls.length < this.dices);
+        
+        console.log(this.rolls);
+        
+        /*
+        this.result = {
+            dicef: this.dicef,
+            dices: this.GetDices(),
+            sides: this.GetSides(),
+            rolls: this.GetDicesRoll(),
+            modifier: this.modifier
+        };
+
+        this.results.push(this.result);
+        */
 
         return this.rolls;
     }
@@ -80,7 +94,7 @@ class Dices
     **/
     GetDicesRoll()
     {
-        return Math.floor(Math.random() * (this.sides - this.dices + 1)) + this.dices;
+        return Math.floor(Math.random() * (this.GetSides() - this.GetDices() + 1)) + this.GetDices();
     }
 
     /**
@@ -155,21 +169,26 @@ class Dices
     **/
     DisplayResults()
     {
-        const dices_content = document.querySelector(".dices-content");
+        const dices_content = document.querySelector("#dicesresult");
+        const dice_result = document.createElement('div');
 
         if (dices_content === typeof undefined || dices_content === null)
         {
             return false;
         }
 
-        dices_content.innerHTML = `
-            <div>
+        dice_result.classList.add("dices-content");
+
+        dice_result.innerHTML = `
+            <div id="rolldice">
                 <strong>Jet de dés</strong>  : ${this.dicef} 
             </div>
-            <div>
+            <div id="result">
                 <strong>Résultat</strong>    : ${this.GetResults()}
             </div>
         `;
+
+        dices_content.appendChild(dice_result);
     }
 }
 

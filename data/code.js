@@ -14,8 +14,6 @@ let game_infos = await DisplayGameInfo();
 let player_data = await GetPlayer();
 let player_level = 0;
 
-DicesRolls("1d20", { modifier: "+1" });
-
 /* Eléments HTML */
 const button_about = document.querySelector("#gabout");
 const button_save = document.querySelector("#gsave");
@@ -25,6 +23,7 @@ const button_dices = document.querySelector("#gdices");
 const form_savegame = document.querySelector("#savegameform");
 const button_save_form = document.querySelector("#savegame #savesubmit");
 const show_date = document.querySelector(".sidebar-block.sidebar-time .datetime");
+const dices_content = document.querySelector("#dicesresult");
 const pages_infos = document.querySelector(".page-infos");
 const title_game = document.querySelector("#main > h1"); 
 const page_content = document.querySelector(".page-content");
@@ -74,6 +73,10 @@ button_dices.addEventListener("click", (e) =>
 {
     e.preventDefault();
 
+    /* Jet de dés du jeu */
+    DicesRolls("1d20", {});
+
+    /* Afficher le résultat */
     DicesDisplayResults();
 });
 
