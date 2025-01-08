@@ -44,27 +44,24 @@ class Dices
         this.sides = parseInt(dicesMatch[2]);
         this.modifier = data.modifier ? data.modifier : null;
 
+        let rolls = [];
+
         do 
         {
-            this.rolls.push(this.GetDicesRoll());
+            rolls.push(this.GetDicesRoll());
         }
-        while(this.rolls.length < this.dices);
-        
-        console.log(this.rolls);
-        
-        /*
+        while(rolls.length < this.dices);
+
         this.result = {
-            dicef: this.dicef,
-            dices: this.GetDices(),
-            sides: this.GetSides(),
-            rolls: this.GetDicesRoll(),
-            modifier: this.modifier
+            sides: this.sides,
+            dices:  this.dices,
+            modifier: this.modifier,
+            rolls: rolls
         };
 
         this.results.push(this.result);
-        */
 
-        return this.rolls;
+        return rolls;
     }
 
     /**
@@ -104,7 +101,8 @@ class Dices
     **/
     GetResults()
     {
-        let roll = this.rolls.map((roll) => roll).join(" + ");
+        let rolls = this.result.rolls;
+        let roll = rolls.map(r => r).join(" + ");
         let total = this.GetModifier();
         let modifier = this.modifier ? `(${this.modifier}) = ${total}` : "";
 
@@ -141,25 +139,13 @@ class Dices
     }
 
     /**
-    *   Cette méthode permet d'obtenir le total final.
+    *   Cette méthode permet d'obtenir le total final.  
     * 
     *   @return {number}
     **/
     GetTotal()
     {
-        return Utils.Sum(this.rolls);
-    }
-
-    /**
-    *   Cette méthode permet d'obtenir le total final.
-    * 
-    *   @param {array} items                                            Eléments à calculer  
-    * 
-    *   @return {number}
-    **/
-    SetTotal(items)
-    {
-        return Utils.Sum(items);
+        return Utils.Sum(this.result.rolls);
     }
 
     /**
