@@ -23,6 +23,7 @@ class Dices
         this.dicef = null;
         this.modifier = null;
         this.text = "";
+        this.classCSS = "dices-modifier";
         this.format = new RegExp(/(\d+)d(\d+)$/i);
     }
 
@@ -99,8 +100,10 @@ class Dices
     {
         let rolls = this.result.rolls;
         let roll = rolls.map(r => r).join(" + ");
-        let total = this.GetModifier();
-        let modifier = this.modifier ? `(${this.modifier}) = ${total}` : "";
+        let total = this.GetModifier().total;
+        let color = this.GetModifier().color;
+        let style = `--dices-modifier-color: ${color};`;
+        let modifier = this.modifier ? `(<span style="${style}" class="${this.classCSS}">${this.modifier}</span>) = ${total}` : "";
 
         return `(${roll}) = ${this.GetTotal()} ${modifier}`;
     }
@@ -113,6 +116,7 @@ class Dices
     GetModifier()
     {
         let total;
+        let color;
 
         if (this.modifier === null || this.modifier === typeof undefined)
         {
@@ -124,14 +128,19 @@ class Dices
 
         if (modifier_c === "+")
         {
+            color = "#008000";
             total = this.GetTotal() + modifier_n;
         }
         else
         {
+            color = "#FF0000";
             total = this.GetTotal() - modifier_n;
         }
 
-        return total;
+        return {
+            color,
+            total
+        };
     }
 
     /**

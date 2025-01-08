@@ -75,7 +75,7 @@ button_dices.addEventListener("click", (e) =>
 
     /* Jet de dés du jeu */
     //DicesRolls("1d20", { modifier: "+1" });
-    DicesRolls("1d20");
+    DicesRolls("1d20", { modifier: "+2" });
 
     /* Afficher le résultat */
     DicesDisplayResults();

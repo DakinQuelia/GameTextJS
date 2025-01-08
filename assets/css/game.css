@@ -67,6 +67,12 @@
     margin-right: 2px;
 }
 
+.dices-modifier {
+    --dices-modifier-color: #008000;
+    color: var(--dices-modifier-color);
+    font-weight: bold;
+}
+
 /**
 *   Crédits
 **/
