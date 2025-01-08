@@ -120,6 +120,21 @@
     font-size: 35px;
 }
 
+.movie-text {
+    margin-top: 100px;
+    margin-bottom: 50px;
+}
+
+.movie-text p {
+    font-size: 14px;
+    text-align: justify;
+}
+
+.movie-copyright {
+    font-size: 18px;
+    margin-top: 50px;
+}
+
 @keyframes credits {
     0% {
       top: 100%;
