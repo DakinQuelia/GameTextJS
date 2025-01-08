@@ -17,11 +17,13 @@ class Dices
     {
         this.dices = 0;
         this.sides = 0;
+        this.total = 0;
         this.result = {};
         this.results = [];
         this.rolls = [];
         this.dicef = null;
         this.modifier = null;
+        this.text = "";
         this.format = new RegExp(/(\d+)d(\d+)$/i);
     }
 
@@ -29,7 +31,7 @@ class Dices
     *   Cette méthode permet d'exécuter le lancer de dés.
     * 
     *   @param {string} dices                                           Jet de dés (exemple : 1d10)
-    *   @param {object} data                                            Données : { modifier: 1, text: "..." }
+    *   @param {object} data                                            Données : { modifier: "+1", text: "..." }
     * 
     *   @return {number}
     **/
@@ -40,6 +42,7 @@ class Dices
         this.dicef = dices;
         this.dices = parseInt(dicesMatch[1]);
         this.sides = parseInt(dicesMatch[2]);
+        this.modifier = data.modifier ? data.modifier : null;
 
         do 
         {
@@ -88,9 +91,33 @@ class Dices
     GetResults()
     {
         let roll = this.rolls.map((roll) => roll).join(" + ");
-        let modifier = ""; // (+ 1) ou (- 1)
+        let total = this.GetModifier();
+        let modifier = this.modifier ? `(${this.modifier}) = ${total}` : "";
 
         return `(${roll}) = ${this.GetTotal()} ${modifier}`;
+    }
+
+    /**
+    *   Cette méthode permet de récupérer le total du modificateur.
+    * 
+    *   @return {number}
+    **/
+    GetModifier()
+    {
+        let total;
+        let modifier_n = parseInt(this.modifier.slice(1));
+        let modifier_c = this.modifier.slice(0).charAt(0);
+
+        if (modifier_c === "+")
+        {
+            total = this.GetTotal() + modifier_n;
+        }
+        else
+        {
+            total = this.GetTotal() - modifier_n;
+        }
+
+        return total;
     }
 
     /**
@@ -101,6 +128,18 @@ class Dices
     GetTotal()
     {
         return Utils.Sum(this.rolls);
+    }
+
+    /**
+    *   Cette méthode permet d'obtenir le total final.
+    * 
+    *   @param {array} items                                            Eléments à calculer  
+    * 
+    *   @return {number}
+    **/
+    SetTotal(items)
+    {
+        return Utils.Sum(items);
     }
 
     /**
