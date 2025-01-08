@@ -1,7 +1,7 @@
 /*****************************************
 *	Gestion des lancers de dés
 *   ----------------------------
-*	Auteur 		: Dakin Quelia
+*	Auteur 		: Dakin Quelia <dakinquelia@gmail.com>
 *	Version 	: 1.0.0. 
 *****************************************/
 import Utils from "./utils.js";
@@ -20,7 +20,6 @@ class Dices
         this.total = 0;
         this.result = {};
         this.results = [];
-        this.rolls = [];
         this.dicef = null;
         this.modifier = null;
         this.text = "";
@@ -37,14 +36,13 @@ class Dices
     **/
     Rolls(dices, data = {})
     {
+        let rolls = [];
         let dicesMatch = this.format.exec(dices);
 
         this.dicef = dices;
         this.dices = parseInt(dicesMatch[1]);
         this.sides = parseInt(dicesMatch[2]);
         this.modifier = data.modifier ? data.modifier : null;
-
-        let rolls = [];
 
         do 
         {
