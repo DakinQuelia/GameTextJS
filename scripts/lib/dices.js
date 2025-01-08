@@ -58,8 +58,6 @@ class Dices
         };
 
         this.results.push(this.result);
-
-        return rolls;
     }
 
     /**
