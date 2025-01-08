@@ -192,6 +192,12 @@ class Game
         const game_infos = settings;
 
         let page_infos = document.querySelector('#about');
+
+        if (typeof page_infos === typeof undefined || page_infos === null)
+        {
+            return;
+        }
+
         let game_title = page_infos.querySelector('#title');
         let game_written = page_infos.querySelector('#written');
         let game_version = page_infos.querySelector('#version');

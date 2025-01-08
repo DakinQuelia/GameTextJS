@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeu :: Crédits</title>
+    <link rel="stylesheet" href="assets/css/game.css" />
+    <script type="module" defer>
+        import Game from "/scripts/game/game.js";
+
+        const title = document.querySelector("#gametitle");
+
+       // title.innerHTML = await Game.DisplayGameInfo();
+
+        console.log(Game.DisplayGameInfo());
+    </script>
+</head>
+<body class="credits">
+    <div class="credits-wrapper kotor">
+        <div class="movie">
+            <div id="gametitle">Titre de votre jeu</div>
+        </div>
+        <div class="movie-job">Chef du projet</div>
+        <div class="movie-name">Dakin Quelia</div>
+        <div class="movie-job">Programmeur(s)</div>
+        <div class="movie-name">Dakin Quelia</div>
+        <div class="movie blue">GameText JS</div>
+        <div class="movie-subtitle">Une application d'aventure textuelle.</div>
+        <div class="movie-job">Chef du projet</div>
+        <div class="movie-name">Dakin Quelia</div>
+        <div class="movie-job">Programmeur(s)</div>
+        <div class="movie-name">Dakin Quelia</div>
+    </div>
+</body>
+</html>
