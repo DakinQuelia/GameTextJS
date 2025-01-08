@@ -105,6 +105,12 @@ class Dices
     GetModifier()
     {
         let total;
+
+        if (this.modifier === null || this.modifier === typeof undefined)
+        {
+            return false;
+        }
+
         let modifier_n = parseInt(this.modifier.slice(1));
         let modifier_c = this.modifier.slice(0).charAt(0);
 

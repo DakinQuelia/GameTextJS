@@ -14,6 +14,8 @@ let game_infos = await DisplayGameInfo();
 let player_data = await GetPlayer();
 let player_level = 0;
 
+DicesRolls("1d20", { modifier: "+1" });
+
 /* Eléments HTML */
 const button_about = document.querySelector("#gabout");
 const button_save = document.querySelector("#gsave");
@@ -40,10 +42,6 @@ player_class_tag.innerHTML = `<span style="color: ${player_data.classes[0].color
 player_money_tag.innerHTML = `${player_data.money} Crédits`;
 player_hp_tag.innerHTML = `${player_data.hit_points} / ${player_data.max_hit_points}`;
 player_pf_tag.innerHTML = `${player_data.force_points} / ${player_data.max_force_points}`;
-
-DicesRolls("2d10", { modifier: "-1" });
-
-DicesDisplayResults();
 
 Object.values(player_data.classes).forEach((key, index) =>
 {
@@ -74,7 +72,9 @@ button_cmd.addEventListener("click", (e) =>
 
 button_dices.addEventListener("click", (e) => 
 {
-    console.log("Jet de dés !");
+    e.preventDefault();
+
+    DicesDisplayResults();
 });
 
 /* Au chargement */
