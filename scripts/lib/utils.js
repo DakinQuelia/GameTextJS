@@ -517,6 +517,25 @@ class Utils
     }
 
     /**
+    *   Cette méthode permet de valider le nombre.
+    *   
+    *   @param {HTMLElement} amount                                     Elément HTML
+    * 
+    *   @return {boolean}
+    **/
+    Validate(amount)
+    {
+        if (parseFloat(amount.value) <= 0)
+        {
+            amount.value = "";
+
+            return false;
+        }
+
+        return true;
+    }
+
+    /**
     *   Cette méthode permet d'inclure un fichier.
     * 
     *   @param {string} url                                             L'url du fichier
