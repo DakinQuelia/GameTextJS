@@ -1,3 +1,19 @@
 [
-    
+    {
+        "name"  : "Jedi Gardien",
+        "role"  : "Jedi Gardien",
+        "icon"  : "",
+        "color": "",
+        "description" : "Le rôle du Jedi Gardien...",
+        "attributes" : {
+            "dexterite" : 6,
+            "constitution" : 3,
+            "intelligence" : 2,
+            "sagesse": 1,
+            "charisme": 0,
+            "vigueur": 0,
+            "volonte": 0,
+            "reflexe": 0
+        }
+    }
 ]
