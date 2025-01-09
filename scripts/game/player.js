@@ -17,9 +17,14 @@ class Player
     }
 
     /**
+    *   Cette méthode permet de vérifier que le joueur ne dépasse pas le quota des points.
     * 
+    *   @return {void}
     **/
-    
+    CheckPoints()
+    {
+        
+    }
 }
 
 export default Player;
