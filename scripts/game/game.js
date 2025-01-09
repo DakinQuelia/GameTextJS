@@ -7,6 +7,7 @@ import Config from './config/config.js';
 import Modal from '../lib/modal.js';
 import Utils from '../lib/utils.js';
 import settings from "../../data/settings.js";
+import Player from "./player";
 
 const ROOT = location.protocol + '//' + location.host;
 const DATA_ROOT = ROOT + '/data';

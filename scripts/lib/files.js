@@ -26,6 +26,8 @@ class File
     WriteFile(filename)
     {
         
+
+        return true;
     }
 }
 
