@@ -14,6 +14,7 @@ class Player
     {
         this.points_stats = 30;
         this.points_skills = 12;
+        this.name = "";
     }
 
     /**
@@ -23,8 +24,18 @@ class Player
     **/
     CheckPoints()
     {
-        
+
+    }
+
+    /**
+    *   Cette méthode permet de retourner le nom du joueur.
+    * 
+    *   @return {string}
+    **/
+    GetName()
+    {
+        return '';
     }
 }
 
-export default Player;
+export default new Player();
