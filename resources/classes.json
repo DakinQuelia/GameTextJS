@@ -4,12 +4,46 @@
         "role"  : "Jedi Gardien",
         "icon"  : "",
         "color": "",
-        "description" : "Le rôle du Jedi Gardien...",
+        "description" : "Les Jedi Gardiens se concentrent sur l'art du combat et le maniement du sabre-laser.",
         "attributes" : {
-            "dexterite" : 6,
-            "constitution" : 3,
-            "intelligence" : 2,
-            "sagesse": 1,
+            "dexterite" : 0,
+            "constitution" : 0,
+            "intelligence" : 0,
+            "sagesse": 0,
+            "charisme": 0,
+            "vigueur": 0,
+            "volonte": 0,
+            "reflexe": 0
+        }
+    },
+    {
+        "name"  : "Jedi Sentinelle",
+        "role"  : "Jedi Sentinelle",
+        "icon"  : "",
+        "color": "",
+        "description" : "Les Jedi Sentinelles possèdent de nombreuses compétences et sont bien équilibrées.",
+        "attributes" : {
+            "dexterite" : 0,
+            "constitution" : 0,
+            "intelligence" : 0,
+            "sagesse": 0,
+            "charisme": 0,
+            "vigueur": 0,
+            "volonte": 0,
+            "reflexe": 0
+        }
+    },
+    {
+        "name"  : "Jedi Consulaire",
+        "role"  : "Jedi Consulaire",
+        "icon"  : "",
+        "color": "",
+        "description" : "Les Jedi Consulaires ont une grande maîtrise de la Force et passent moins de temps à s'entraîner au combat.",
+        "attributes" : {
+            "dexterite" : 0,
+            "constitution" : 0,
+            "intelligence" : 0,
+            "sagesse": 0,
             "charisme": 0,
             "vigueur": 0,
             "volonte": 0,
