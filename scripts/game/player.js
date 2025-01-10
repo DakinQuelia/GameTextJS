@@ -24,7 +24,7 @@ class Player
     **/
     CheckPoints()
     {
-
+        
     }
 
     /**
@@ -35,6 +35,16 @@ class Player
     GetName()
     {
         return '';
+    }
+
+    /**
+    *   Cettte méthode permet de récupérer la/les classes du personnage.
+    * 
+    *   @return {array} 
+    **/
+    GetClassCharacter()
+    {
+        return [];
     }
 }
 
