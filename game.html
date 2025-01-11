@@ -37,7 +37,7 @@
                         <div class="separator"></div>
                         <div class="options">
                             <div class="line">
-                                <button type="button" id="gdices" data-title="Lancer de dés"><i class="fas fa-dice-d20"></i></button>
+                                <button type="button" id="gcredits" class="jsmodal" data-href="#credits" data-title="Crédits du jeu"><i class="fas fa-scroll"></i></button>
                                 <button type="button" id="grules" class="jsmodal" data-href="#rules" data-title="Règles du jeu"><i class="fas fa-book"></i></button>
                             </div>
                             <div class="line">
@@ -134,6 +134,7 @@
                     <form method="POST" action="/">
                         <input type="text" name="command" id="command" />
                         <button type="button" name="cmdsubmit" id="cmdsubmit">Envoyer</button>
+                        <button type="button" id="gdices" data-title="Lancer de dés" data-placement="right"><i class="fas fa-dice-d20"></i></button>
                     </form>
                 </div>
             </div>
@@ -201,6 +202,24 @@
                         <span class="modal-title" id="titlemodal">Règles du jeu</span>
                     </div>
                     <div class="modal-content"></div>
+                    <div class="modal-footer">
+                        <div class="left"></div> 
+                        <div class="right">
+                            <button class="modal-button" type="button" id="btnclose">Fermer</button>
+                        </div> 
+                    </div>
+                </div>
+            </div>
+            <!-- Fenêtre :: Crédits du jeu -->
+            <div id="credits" class="modal" aria-hidden="true" role="dialog" aria-labelledby="titlemodal" style="display: none;">
+                <div class="modal-wrapper" id="modalstop" style="width: unset;">
+                    <div class="modal-header">
+                        <button class="modal-button close" id="close"><i class="fas fa-times"></i></button>
+                        <span class="modal-title" id="titlemodal">Crédits du jeu</span>
+                    </div>
+                    <div class="modal-content nopadding" style="height: 500px;">
+                        <iframe src="./credits.html" style="height: 500px;"></iframe>
+                    </div>
                     <div class="modal-footer">
                         <div class="left"></div> 
                         <div class="right">

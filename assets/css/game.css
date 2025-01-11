@@ -45,6 +45,11 @@
     position: relative;
 }
 
+[data-title][data-placement="left"]:before {
+    left: 0 !important;
+    right: unset;
+}
+
 [data-title][data-placement="right"]:before {
     right: 0 !important;
     left: unset;
@@ -94,6 +99,7 @@
     text-transform: uppercase;
     color: #fff;
     animation: 60s credits linear infinite;
+    z-index: 100;
 }
 
 .credits-wrapper.kotor {
@@ -403,6 +409,7 @@
 .console form {
     width: 100%;
     display: flex;
+    gap: 5px;
 }
 
 .console input {

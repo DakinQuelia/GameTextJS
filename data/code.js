@@ -19,6 +19,7 @@ const button_about = document.querySelector("#gabout");
 const button_save = document.querySelector("#gsave");
 const button_cmd = document.querySelector("#cmdsubmit");
 const button_rules = document.querySelector("#grules");
+const button_credits = document.querySelector("#gcredits");
 const button_dices = document.querySelector("#gdices");
 const form_savegame = document.querySelector("#savegameform");
 const button_save_form = document.querySelector("#savegame #savesubmit");
@@ -62,6 +63,11 @@ button_save.addEventListener("click", (e) =>
 button_rules.addEventListener("click", (e) => 
 { 
     OpenWindow(e, { title: "Règles du jeu" });
+});
+
+button_credits.addEventListener("click", (e) => 
+{ 
+    OpenWindow(e, { title: "Crédits du jeu" });
 });
 
 button_cmd.addEventListener("click", (e) => 
