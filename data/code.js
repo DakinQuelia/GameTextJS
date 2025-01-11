@@ -25,7 +25,7 @@ const form_savegame = document.querySelector("#savegameform");
 const button_save_form = document.querySelector("#savegame #savesubmit");
 const show_date = document.querySelector(".sidebar-block.sidebar-time .datetime");
 const pages_infos = document.querySelector(".page-infos");
-const title_game = document.querySelector("#main .page-infos h1"); 
+const title_game = document.querySelector(".page-infos h1"); 
 const page_content = document.querySelector(".page-content");
 const player_name_tag =  document.querySelector("#playername");
 const player_class_tag = document.querySelector("#klass .value");
@@ -34,7 +34,10 @@ const player_hp_tag = document.querySelector("#hitpoints .value");
 const player_pf_tag = document.querySelector("#forcepoints .value");
 const player_level_tag = document.querySelector("#level .value");
 
-pages_infos.innerHTML = `<span>Ecrit par : ${game_infos.author}</span>`;
+pages_infos.innerHTML = `
+    <h1>${game_infos.title}</h1>
+    <span>Ecrit par : ${game_infos.author}</span>
+`;
 title_game.innerHTML = game_infos.title;
 player_name_tag.textContent = player_data.name; 
 player_class_tag.innerHTML = `<span style="color: ${player_data.classes[0].color}; font-weight: bold;">${player_data.classes[0].name}</span>`;
