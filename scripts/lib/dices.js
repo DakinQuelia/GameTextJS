@@ -44,6 +44,7 @@ class Dices
         this.dices = parseInt(dicesMatch[1]);
         this.sides = parseInt(dicesMatch[2]);
         this.modifier = data.modifier ? data.modifier : null;
+        this.text = data.text ? data.text : "";
 
         do 
         {
@@ -54,6 +55,7 @@ class Dices
         this.result = {
             sides: this.sides,
             dices:  this.dices,
+            text: this.text,
             modifier: this.modifier,
             rolls: rolls
         };
@@ -162,6 +164,7 @@ class Dices
     {
         const dices_content = document.querySelector("#dicesresult");
         const dice_result = document.createElement('div');
+        const dice_text = this.text;
 
         if (dices_content === typeof undefined || dices_content === null)
         {
@@ -171,7 +174,7 @@ class Dices
         dice_result.classList.add("dices-content");
 
         dice_result.innerHTML = `
-            <div class="title">Lancer(s) de dés</div>
+            <div class="title">Lancer(s) de dés ${this.text ? ":: " + dice_text : ""} </div>
             <div id="rolldice">
                 <strong>Jet de dés</strong>  : ${this.dicef} 
             </div>
