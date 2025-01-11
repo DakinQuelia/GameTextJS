@@ -171,6 +171,7 @@ class Dices
         dice_result.classList.add("dices-content");
 
         dice_result.innerHTML = `
+            <div class="title">Lancer(s) de dés</div>
             <div id="rolldice">
                 <strong>Jet de dés</strong>  : ${this.dicef} 
             </div>

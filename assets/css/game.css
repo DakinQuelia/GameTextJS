@@ -73,12 +73,6 @@
     margin-right: 2px;
 }
 
-.dices-modifier {
-    --dices-modifier-color: #008000;
-    color: var(--dices-modifier-color);
-    font-weight: bold;
-}
-
 /**
 *   Crédits
 **/
@@ -400,13 +394,28 @@
     padding: 10px;
 }
 
+/**
+*   Jet de dés
+**/
 .dices-content {
     border: solid 1px #ccc;
     border-radius: 4px;
     background-color: #f9f9f9;
-    margin-top: 10px;
+    margin-top: 15px;
     margin-bottom: 10px;
     padding: 10px;
+}
+
+.dices-modifier {
+    --dices-modifier-color: #008000;
+    color: var(--dices-modifier-color);
+    font-weight: bold;
+}
+
+.dices-content .title {
+    font-weight: bold;
+    margin-top: -25px;
+    border: solid 1px #FFF;
 }
 
 /**
