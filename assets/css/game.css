@@ -74,6 +74,124 @@
 }
 
 /**
+*   Menu / Barre d'outils
+**/
+.menu {
+    display: flex;
+}
+
+.menu .actions {
+    float: right;
+    margin-left: auto;
+    margin-right: 10px;
+}
+
+.menu .actions i {
+    cursor: pointer;
+}
+
+.menu .actions .dropmenu {
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+
+.menu .actions .dropmenu ul {
+    list-style: none;
+    margin-top: 10px;
+    line-height: 1;
+    padding-left: 0;
+    background-color: #fff;
+    border: 1px solid #CCC;
+    border-radius: .25rem;
+    width: 220px;
+    right: -15px;
+    position: absolute;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    z-index: -10;
+    box-shadow: 0px 2px 6px -1px rgba(32, 33, 36, 0.28);
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.4s ease;
+}
+
+.menu .actions .dropmenu ul li {
+    margin: 0px;
+    width: 100%;
+    padding: 10px;
+    border-bottom: 1px solid #d7d3d7;;
+    text-transform: unset !important;
+}
+
+.menu .actions .dropmenu ul li:hover {
+    width: 100%;
+    color: var(--blue);
+}
+
+.menu .actions .dropmenu ul li:last-child {
+    border-bottom: 0;
+}
+
+.menu .actions .dropmenu ul li a {
+    width: inherit;
+    text-decoration: none;
+    color: #000000;
+    cursor: pointer;
+}
+
+.menu .actions .dropmenu ul li a:hover {
+    width: inherit;
+    color: var(--blue);
+}
+
+.menu .actions .dropmenu ul li i {
+    margin-right: 5px;
+}
+
+.menu .actions .dropmenu ul::after, 
+.menu .actions .dropmenu ul::before {
+    position: absolute;
+    bottom: 100%;
+    right: 20px;
+    border: solid transparent;
+    content: "";
+    height: 0;
+    width: 0;
+}
+
+.menu .actions .dropmenu ul::before {
+    border-color: transparent;
+    border-bottom-color: #CCC;
+    border-width: 8px;
+    margin-right: -8px !important;
+}
+
+.menu .actions .dropmenu ul::after {
+    border-color: transparent;
+    border-bottom-color: #FFF;
+    border-width: 6px;
+    margin-right: -6px !important;
+}
+
+.menu .actions .dropmenu ul li {
+    margin: 0px;
+    width: 100%;
+    padding: 10px;
+    border-bottom: 1px solid #d7d3d7;
+    text-transform: unset !important;
+}
+
+.menu .actions i:focus-within + .dropmenu ul,
+.menu .actions button:focus + .dropmenu ul {
+    opacity: 1;
+    z-index: 20;
+    pointer-events: all;
+    transform: translateY(0px);
+}
+
+/**
 *   Crédits
 **/
 #credits .modal-wrapper {
@@ -384,8 +502,8 @@
 *   Contenu
 **/
 .page-infos {
-    height: 102px;
-    max-height: 102px;
+    height: 144px;
+    max-height: 150px;
 }
 
 .page-content {

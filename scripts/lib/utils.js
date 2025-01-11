@@ -536,6 +536,52 @@ class Utils
     }
 
     /**
+    *   Cette méthode permet de charger un fichier.
+    *   
+    *   @param {string} filename 
+    * 
+    *   @return {void}
+    **/
+    LoadScript(filename)
+    {   
+        const folder = ROOT + '/scripts/game/game';
+
+        let script = document.createElement('script');
+        script.setAttribute('src', folder + '/' + filename + this.files_ext);
+        script.setAttribute('type', 'module');
+
+        document.body.appendChild(script);
+    }
+
+    /** 
+    *   Cette méthode permet d'ajouter une information dans le bloc "statut".
+    * 
+    *   @param {string} name                                            Nom du champ
+    *   @param {string} value                                           Valeur
+    * 
+    *   @return {void}
+    **/
+    AddStatus(name, value)
+    {
+        let status_pane = document.querySelector("#status .content");
+        let status_ul = status_pane.querySelector('ul');
+        let money_li = status_pane.querySelector('.separator');
+        let new_li = document.createElement('li');
+        let li_span_label = document.createElement('span');
+        let li_span_value = document.createElement('span');
+ 
+        li_span_label.classList.add('label');
+        li_span_value.classList.add('value');
+        li_span_label.innerText = name;
+        li_span_value.innerText = value;
+ 
+        new_li.appendChild(li_span_label);
+        new_li.appendChild(li_span_value);
+ 
+        status_ul.insertBefore(new_li, money_li);
+    }
+
+    /**
     *   Cette méthode permet d'inclure un fichier.
     * 
     *   @param {string} url                                             L'url du fichier
