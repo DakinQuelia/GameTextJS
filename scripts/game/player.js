@@ -15,6 +15,9 @@ class Player
         this.points_stats = 30;
         this.points_skills = 20;
         this.name = "";
+        this.skills = [];
+        this.feats = [];
+        this.inventory = [];
     }
 
     /**
