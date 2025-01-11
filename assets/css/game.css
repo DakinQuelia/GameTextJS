@@ -173,12 +173,16 @@
     width: var(--width-sidebar);
 }
 
+#sidebar.left {
+    margin-right: 10px;
+}
+
 .sidebar-block {
     border: solid 1px #ccc;
     border-radius: 4px;
     background-color: #f9f9f9;
     margin-top: 10px;
-    margin-right: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
  
 .sidebar-block .head,
@@ -208,7 +212,7 @@
 
 .sidebar-block .datetime {
     font-size: 13px;
-    padding: 0 5px 0 5px;
+    padding: 5px;
     text-align: center;
 }
   
@@ -298,9 +302,9 @@
     border-radius: 4px;
     background-color: #f9f9f9;
     margin-top: 10px;
-    margin-right: 10px;
     text-align: center;
     user-select: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .compass .line {
@@ -392,6 +396,7 @@
     margin-top: 10px;
     margin-bottom: 10px;
     padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 /**
@@ -443,6 +448,7 @@
     border: 1px solid #ccc;
     border-radius: .25rem;
     margin-right: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .console input::before {
@@ -458,6 +464,7 @@
     border-radius: .25rem;
     height: 31.6px;
     padding: 0 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .console button:hover {
