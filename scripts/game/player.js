@@ -13,7 +13,7 @@ class Player
     constructor()
     {
         this.points_stats = 30;
-        this.points_skills = 12;
+        this.points_skills = 20;
         this.name = "";
     }
 
@@ -24,7 +24,7 @@ class Player
     **/
     CheckPoints()
     {
-        
+
     }
 
     /**
