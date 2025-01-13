@@ -244,13 +244,42 @@ class Player
     }
 
     /**
-    *   Cette méthode permet d'inclure les popovers d'aide.
+    *   Cette méthode permet de récupérer les données des aides
     * 
     *   @return {void} 
     **/
-    UpdateHelp()
+    GetHelpData()
     {
 
+    }
+
+    /**
+    *   Cette méthode permet d'inclure les popovers d'aide.
+    * 
+    *   @param {object} data                                            Données de l'aide
+    * 
+    *   @return {void} 
+    **/
+    CreateHelp(data)
+    {
+        let title = data.name;
+        let desc = data.desc.split("\n\n");
+
+        let help = `
+        <div class="popover" role="tooltip" data-placement="bottom">
+            <span tabindex="0" data-toggle="popover" data-popover="text-test">
+                <i class="fas fa-info-circle help"></i>
+            </span>
+            <div class="popover-content" style="width: 400px;">
+                <h3 class="popover-header">${title}</h3>
+                <div class="popover-body">
+                    <p>Caractéristique associée : Intelligence</p>
+                    <p>Informatique permet au personnage de s'infiltrer dans les systèmes informatiques à l'aide de programmes spécialement prévus dans ce but. Il est possible de s'en servir pour mettre une tourelle automatique hors service ou inonder un secteur patrouillé, par exemple, mais aussi d'accomplir des tâches bien plus complexes, à condition d'utiliser davantage de programmes d'intrusion. Lorsque cette caractéristique atteint un niveau élevé, le nombre de programmes d'intrusion nécessaires est réduit de 1 (avec une limite inférieure de 1) tous les 4 points en Réparation, modificateurs de caractéristiques inclus.</p>
+                </div>
+            </div>
+        </div>`;
+
+        //this.stat_category.querySelector("span input").parentNode;
     }
 
     /**
@@ -353,19 +382,17 @@ class Player
 
         /* Variables */
         this.classes = await this.GetClasses();
-
-        // this.character_class
-
+        
+        /* Sélecteur de classe du personnage */
         this.classes.map(c => 
         {
             let select_class = document.createElement("option");
+            
             select_class.text = c.name;
             select_class.id = c.id;
 
             this.character_class.add(select_class);
         });
-
-        //console.log("");
 
         /* On vérifier que le joueur a placé ses points */
         this.CheckPoints();
