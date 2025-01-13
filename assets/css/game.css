@@ -82,6 +82,271 @@ body {
 }
 
 /**
+*   Popovers
+**/
+.popover .popover-content {
+    opacity: 0;
+    transition: opacity 0.15s linear;
+}
+  
+.popover {
+    position: relative;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    font-size: inherit;
+    max-width: 100%;
+    z-index: initial;
+    font-family: Roboto, sans-serif;
+}
+
+.popover button {
+    font-family: inherit;
+    font-size: inherit;
+    background: none;
+    border: 0 none;
+    display: inline;
+    outline: none;
+    color: inherit;
+    padding: unset;
+    cursor: pointer;
+}
+
+.popover i:hover {
+    color: var(--color-link-hover);
+}
+
+.popover .popover-content {
+    position: absolute;
+    z-index: 1000;
+    display: block;
+    opacity: 0;
+    visibility: hidden;
+    min-width: 10.68rem;
+    max-width: 24rem;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1.5;
+    text-align: left;
+    font-size: 0.875rem;
+    word-wrap: break-word;
+    background-color: #ffffff;
+    background-clip: padding-box;
+    border: 1px solid #CCCCCC;
+    border-radius: 0.25rem;
+}
+  
+.popover .popover-content:before, 
+.popover .popover-content:after {
+    position: absolute;
+    display: block;
+    content: "";
+    box-sizing: border-box;
+    border-style: solid;
+    border-color: transparent;
+}
+  
+.popover .popover-content h3 {
+    color: #000000 !important;
+}
+  
+.popover .popover-content .popover-header {
+    padding: 0.35rem 0.75rem !important;
+    margin-bottom: 0;
+    font-size: 1rem;
+    color: inherit;
+    background-color: rgba(0, 0, 0, 0.03);
+    border-bottom: 1px solid #ebebeb;
+    border-top-left-radius: calc(0.25rem - 1px);
+    border-top-right-radius: calc(0.25rem - 1px);
+}
+
+.popover .popover-content .popover-header:empty {
+    display: none;
+}
+
+.popover .popover-content .popover-body {
+    padding: 0.5rem 0.75rem !important;
+    color: #212529;
+    text-align: justify;
+}
+  
+.popover[data-width] .popover-content {
+    width: attr(data-width) !important;
+}
+  
+.popover[data-height] .popover-content {
+    height: attr(data-height) !important;
+}
+  
+.popover[data-placement^=top] [data-toggle^=popover] {
+    cursor: pointer;
+    outline: none;
+}
+
+.popover[data-placement^=top] [data-toggle^=popover]:focus, 
+.popover[data-placement^=top] [data-toggle^=popover]:focus-within {
+    color: var(--color-link-hover);
+}
+
+.popover[data-placement^=top] [data-toggle^=popover]:focus + .popover-content, 
+.popover[data-placement^=top] [data-toggle^=popover]:focus-within + .popover-content {
+    transform: translate3d(-50%, 0, 0);
+    visibility: visible;
+    opacity: 1;
+}
+
+.popover[data-placement^=top] .popover-content {
+    bottom: calc(100% + 1em);
+    left: 50%;
+    transform: translate3d(-50%, -15px, 0);
+}
+  
+.popover[data-placement^=top] .popover-content:before, 
+.popover[data-placement^=top] .popover-content:after {
+    bottom: -0.5rem;
+    left: 50%;
+    transform: translate3d(-50%, 0, 0);
+    border-width: 0.5rem 0.5rem 0 0.5rem;
+}
+  
+.popover[data-placement^=top] .popover-content:before {
+    border-color: #CCCCCC transparent transparent transparent;
+    margin-bottom: 0;
+}
+
+.popover[data-placement^=top] .popover-content:after {
+    border-color: #ffffff transparent transparent transparent;
+    margin-bottom: 1px;
+    z-index: 2;
+}
+
+.popover[data-placement^=bottom] [data-toggle^=popover] {
+    cursor: pointer;
+    outline: none;
+}
+  
+.popover[data-placement^=bottom] [data-toggle^=popover]:focus, 
+.popover[data-placement^=bottom] [data-toggle^=popover]:focus-within {
+    color: var(--color-link-hover);
+}
+
+.popover[data-placement^=bottom] [data-toggle^=popover]:focus + .popover-content, 
+.popover[data-placement^=bottom] [data-toggle^=popover]:focus-within + .popover-content {
+    transform: translate3d(-50%, 0, 0);
+    visibility: visible;
+    opacity: 1;
+}
+
+.popover[data-placement^=bottom] .popover-content {
+    top: calc(100% + 1em);
+    left: 50%;
+    transform: translate3d(-50%, -15px, 0);
+}
+  
+.popover[data-placement^=bottom] .popover-content:before, .popover[data-placement^=bottom] .popover-content:after {
+    top: -0.5rem;
+    left: 50%;
+    transform: translate3d(-50%, 0, 0);
+    border-width: 0 0.5rem 0.5rem 0.5rem;
+}
+
+.popover[data-placement^=bottom] .popover-content:before {
+    border-color: transparent transparent #CCCCCC transparent;
+    margin-top: 0;
+}
+
+.popover[data-placement^=bottom] .popover-content:after {
+    border-color: transparent transparent #ffffff transparent;
+    margin-top: 1px;
+    z-index: 2;
+}
+  
+.popover[data-placement^=left] [data-toggle^=popover] {
+    cursor: pointer;
+    outline: none;
+}
+  
+.popover[data-placement^=left] [data-toggle^=popover]:focus, 
+.popover[data-placement^=left] [data-toggle^=popover]:focus-within {
+    color: var(--color-link-hover);
+}
+
+.popover[data-placement^=left] [data-toggle^=popover]:focus + .popover-content, 
+.popover[data-placement^=left] [data-toggle^=popover]:focus-within + .popover-content {
+    transform: translate3d(0, -50%, 0);
+    visibility: visible;
+    opacity: 1;
+}
+  
+.popover[data-placement^=left] .popover-content {
+    top: 50%;
+    right: calc(100% + 1em);
+    transform: translate3d(15px, -50%, 0);
+}
+
+.popover[data-placement^=left] .popover-content:before, 
+.popover[data-placement^=left] .popover-content:after {
+    top: 50%;
+    right: -0.5rem;
+    transform: translate3d(0, -50%, 0);
+    border-width: 0.5rem 0 0.5rem 0.5rem;
+}
+  
+.popover[data-placement^=left] .popover-content:before {
+    border-color: transparent transparent transparent #CCCCCC;
+    margin-right: 0;
+}
+
+.popover[data-placement^=left] .popover-content:after {
+    border-color: transparent transparent transparent #ffffff;
+    margin-right: 1px;
+    z-index: 2;
+}
+
+.popover[data-placement^=right] [data-toggle^=popover] {
+    cursor: pointer;
+    outline: none;
+}
+
+.popover[data-placement^=right] [data-toggle^=popover]:focus, 
+.popover[data-placement^=right] [data-toggle^=popover]:focus-within {
+    color: var(--color-link-hover);
+}
+  
+.popover[data-placement^=right] [data-toggle^=popover]:focus + .popover-content, 
+.popover[data-placement^=right] [data-toggle^=popover]:focus-within + .popover-content {
+    transform: translate3d(0, -50%, 0);
+    visibility: visible;
+    opacity: 1;
+}
+  
+.popover[data-placement^=right] .popover-content {
+    top: 50%;
+    left: calc(100% + 1em);
+    transform: translate3d(15px, -50%, 0);
+}
+
+.popover[data-placement^=right] .popover-content:before, 
+.popover[data-placement^=right] .popover-content:after {
+    top: 50%;
+    left: -0.5rem;
+    transform: translate3d(0, -50%, 0);
+    border-width: 0.5rem 0.5rem 0.5rem 0;
+}
+  
+.popover[data-placement^=right] .popover-content:before {
+    border-color: transparent #CCCCCC transparent transparent;
+    margin-left: 0;
+}
+  
+.popover[data-placement^=right] .popover-content:after {
+    border-color: transparent #ffffff transparent transparent;
+    margin-left: 1px;
+    z-index: 2;
+}
+
+/**
 *   Menu / Barre d'outils
 **/
 .menu {

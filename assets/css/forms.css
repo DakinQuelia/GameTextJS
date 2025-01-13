@@ -156,7 +156,7 @@
     justify-content: space-between;
     align-items: center;
 }
-.sheet-content .sub-category span:first-of-type {
+.sheet-content .sub-category > span:first-of-type {
     width: 85%;
     margin-right: 10px;
 }

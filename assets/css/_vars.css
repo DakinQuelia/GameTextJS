@@ -8,6 +8,9 @@
     --fontawesome: "Font Awesome 5 Free";
     --credits-fonts: 'Open Sans Condensed';
     --starwars-fonts: Eurofont;
+    /* Global */
+    --color-link: #007bff;
+    --color-link-hover: #0057a9; 
     /* Couleurs */
     --blue: #007bff;
     --blue-hover: #0057a9;

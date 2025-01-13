@@ -28,7 +28,7 @@ class Player
         this.errors = [];
         this.total = { stats: 0, skills: 0 };
         this.points = { stats: 0, skills: 0 };
-        this.stats_modifier = null;
+        this.stats_modifier = "";
 
         /* Eléments HTML */
         this.character_name = document.querySelector("#character_name") ? document.querySelector("#character_name") : null;
@@ -82,7 +82,12 @@ class Player
             {
                 this.header_stats_points.innerHTML = `0 points`;
             }
-        
+
+            if (this.value === null)
+            {
+                this.stats_modifier = "-";
+            }
+
             if (this.value < 8)
             {
                 this.stats_modifier = "-1";
@@ -113,7 +118,7 @@ class Player
                 this.stats_modifier = "+4";
             }
         
-            this.modifiers.push({ stat: stat, value: (this.stats_modifier !== "0") ? this.stats_modifier : "--", color: this.GetModifier(this.stats_modifier).color });
+            this.modifiers.push({ stat: stat, value: (this.stats_modifier !== "0" || this.stats_modifier !== null || this.stats_modifier !== "") ? this.stats_modifier : "--", color: this.GetModifier(this.stats_modifier).color });
         });
 
         /* On injecte les modificateurs dans la liste */
@@ -192,7 +197,9 @@ class Player
 
         if (modifier === null || modifier === typeof undefined)
         {
-            return false;
+            return {
+                color: "#000000"
+            };
         }
 
         let modifier_c = modifier.slice(0).charAt(0);
