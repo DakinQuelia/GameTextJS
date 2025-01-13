@@ -78,6 +78,42 @@ class Player
     }
 
     /**
+    *   Cette méthode permet de récupérer le modificateur.
+    *
+    *   @param {object} modifier                                            Modificateur
+    * 
+    *   @return {object}
+    **/
+    GetModifier(modifier)
+    {
+        let color;
+
+        if (modifier === null || modifier === typeof undefined)
+        {
+            return false;
+        }
+
+        let modifier_c = modifier.slice(0).charAt(0);
+
+        if (modifier_c === "+")
+        {
+            color = "#008000";
+        }
+        else if(modifier_c === "-")
+        {
+            color = "#FF0000";
+        }
+        else
+        {
+            color = "#000000";
+        }
+
+        return {
+            color,
+        };
+    }
+
+    /**
     *   Cette méthode permet de récupérer les modificateurs.
     * 
     *   @return {array}

@@ -113,7 +113,7 @@ class Dices
     /**
     *   Cette méthode permet de récupérer le total du modificateur.
     * 
-    *   @return {number}
+    *   @return {object}
     **/
     GetModifier()
     {
