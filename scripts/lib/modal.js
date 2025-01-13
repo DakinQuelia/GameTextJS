@@ -179,7 +179,7 @@ class Modal
             return;
         }
     
-        if (typeof this.previouslyfocused !== typeof undefined || this.previouslyfocused !== null)
+        if (typeof this.previouslyfocused !== "undefined" || this.previouslyfocused !== null)
         {
             this.previouslyfocused.focus();
         }
