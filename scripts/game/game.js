@@ -29,6 +29,9 @@ class Game
         this.files = {
             'player'    : RESOURCES_ROOT + '/player.json',  
             'rules'     : RESOURCES_ROOT + '/rules.json',
+            'classes'   : DATA_ROOT + '/database/classes.json',
+            'rooms'     : DATA_ROOT + '/database/rooms.json',
+            'items'     : DATA_ROOT + '/database/items.json',
             'code'      : DATA_ROOT + '/code.js',
             'data'      : DATA_ROOT + '/data.js',
         };

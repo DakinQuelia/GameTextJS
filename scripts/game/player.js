@@ -59,8 +59,12 @@ class Player
         
             this.value = input.value;
         
-            /*input.addEventListener("change", () =>
-            { });*/
+            /*
+            input.addEventListener("change", () =>
+            { 
+            
+            });
+            */
         
             if (!isNaN(this.value) && this.value.length !== 0) 
             {

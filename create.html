@@ -132,7 +132,15 @@
                                         <div class="category-name" id="stat[4]" data-title="L'Intelligence détermine les facultés d'apprentissage et de raisonnement de votre personnage.">Intelligence</div>
                                     </span>
                                     <span id="inputstat">
-                                        <i class="fas fa-info-circle help"></i>
+                                        <div class="popover" role="tooltip" data-placement="bottom">
+                                            <span tabindex="0" data-toggle="popover" data-popover="text-test">
+                                                <i class="fas fa-info-circle help"></i>
+                                            </span>
+                                            <div class="popover-content" style="width: 400px;">
+                                                <h3 class="popover-header">Intelligence</h3>
+                                                <div class="popover-body">L'Intelligence détermine les facultés d'apprentissage et de raisonnement de votre personnage. Si elle est suffisamment élevée, elle augmente le nombre de points que vous pouvez répartir entre vos compétences.</div>
+                                            </div>
+                                        </div>
                                         <input type="number" name="stats_intelligence" id="stats_intelligence" value="0" min="0" max="18" />
                                     </span>
                                 </div>
@@ -142,7 +150,15 @@
                                         <div class="category-name" id="stat[5]" data-title="La Sagesse permet d'évaluer la volonté et les perceptions.">Sagesse</div>
                                     </span>
                                     <span id="inputstat">
-                                        <i class="fas fa-info-circle help"></i>
+                                        <div class="popover" role="tooltip" data-placement="bottom">
+                                            <span tabindex="0" data-toggle="popover" data-popover="text-test">
+                                                <i class="fas fa-info-circle help"></i>
+                                            </span>
+                                            <div class="popover-content" style="width: 400px;">
+                                                <h3 class="popover-header">Sagesse</h3>
+                                                <div class="popover-body">La Sagesse permet d'évaluer la volonté et les perceptions.  Si elle est suffisamment élevée, elle augement le nombre de points Force d'un Jedi, tout en améliorant ses jets de sauvegarde contre les pouvoirs liés à la Force. Dans le même temps, il est plus difficile de résister à ses pouvoirs liés à la Force.</div>
+                                            </div>
+                                        </div>
                                         <input type="number" name="stats_wisdom" id="stats_wisdom" value="0" min="0" max="18" />
                                     </span>
                                 </div>
@@ -152,7 +168,15 @@
                                         <div class="category-name" id="stat[6]" data-title="Un Charisme élevé augmente la puissance des pouvoirs de la Force. Il permet de réduire le malus appliqué lors de l'utilisation de pouvoir de la Force d'un alignement opposé, mais aussi d'augmenter la précision de vos compagnons. Enfin, le Charisme influe sur les facultés de persuasion." data-placement="right">Charisme</div>
                                     </span>
                                     <span id="inputstat">
-                                        <i class="fas fa-info-circle help"></i>
+                                        <div class="popover" role="tooltip" data-placement="bottom">
+                                            <span tabindex="0" data-toggle="popover" data-popover="text-test">
+                                                <i class="fas fa-info-circle help"></i>
+                                            </span>
+                                            <div class="popover-content" style="width: 400px;">
+                                                <h3 class="popover-header">Charisme</h3>
+                                                <div class="popover-body">Un Charisme élevé augmente la puissance des pouvoirs de la Force. Il permet de réduire le malus appliqué lors de l'utilisation de pouvoir de la Force d'un alignement opposé (un personnage du Côté Lumineux avec un charisme élevé est moins pénalisé s'il utilise des pouvoirs du Côté Obscur), mais aussi d'augmenter la précision de vos compagnons. Enfin, le Charisme influe sur les facultés de persuasion.</div>
+                                            </div>
+                                        </div>
                                         <input type="number" name="stats_charisma" id="stats_charisma" value="0" min="0" max="18" />
                                     </span>
                                 </div>
@@ -170,7 +194,15 @@
                                         <div class="category-name" id="skill[1]" >Informatique</div>
                                     </span>
                                     <span id="inputskill">
-                                        <i class="fas fa-info-circle help"></i>
+                                        <div class="popover" role="tooltip" data-placement="bottom">
+                                            <span tabindex="0" data-toggle="popover" data-popover="text-test">
+                                                <i class="fas fa-info-circle help"></i>
+                                            </span>
+                                            <div class="popover-content" style="width: 400px;">
+                                                <h3 class="popover-header">Informatique</h3>
+                                                <div class="popover-body">...</div>
+                                            </div>
+                                        </div>
                                         <input type="number" name="skills_inf" id="skills_inf" value="0" min="0" />
                                     </span>
                                 </div>
@@ -243,7 +275,7 @@
                         </div>
                         <div class="sheet">
                             <div class="sheet-header center">Informations</div>
-                            <div class="sheet-content">
+                            <div class="sheet-content" id="informations">
                                 <p>Les caractéristiques de votre personnage lui donnent des bonus ou des malus à de nombreux jets (combat, etc) et pouvoirs (y compris ceux dus à la Force). 
                                 Reportez-vous à chaque caractéristique pour voir sur quels aspects du jeu elle influe.</p>
                                 <p>Une valeur est associée à chacune des compétences de votre personnage. Il s'agit du degré de maîtrise qu'il a atteint dans cette compétence, et c'est cela
