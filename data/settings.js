@@ -8,7 +8,12 @@ let settings = {
     author:         "Dakin Quelia",
     version:        "1.0.0.b",
     credits:         [
-        { name: "Dakin Quelia", job: "Programmeur(s)" }
+        { 
+            role: "Programmeur(s)", 
+            members: [
+                "Dakin Quelia"
+            ] 
+        }
     ],
     warnings:       "Aucun avertissement pour ce jeu."
 };

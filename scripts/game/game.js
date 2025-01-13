@@ -10,6 +10,7 @@ import settings from "../../data/settings.js";
 import Player from "./player.js";
 
 const ROOT = location.protocol + '//' + location.host;
+const ASSETS_ROOT = ROOT + '/assets';
 const DATA_ROOT = ROOT + '/data';
 const SCRIPTS_ROOT = ROOT + '/scripts';
 const DATABASE_ROOT = DATA_ROOT + '/database';
@@ -28,13 +29,13 @@ class Game
         this.language = this.config.language;
         this.lang = null;
         this.files = {
-            'player'    : RESOURCES_ROOT + '/player.json',  
-            'rules'     : RESOURCES_ROOT + '/rules.json',
-            'classes'   : DATABASE_ROOT + '/classes.json',
-            'rooms'     : DATABASE_ROOT + '/rooms.json',
-            'items'     : DATABASE_ROOT + '/items.json',
-            'code'      : DATA_ROOT + '/code.js',
-            'data'      : DATA_ROOT + '/data.js',
+            'player'    : RESOURCES_ROOT + '/player.json',              // Informations sur le joueur
+            'rules'     : RESOURCES_ROOT + '/rules.json',               // Les règles du jeu
+            'classes'   : DATABASE_ROOT + '/classes.json',              // BDD :: Classes des personnages
+            'rooms'     : DATABASE_ROOT + '/rooms.json',                // BDD :: Lieux du jeu
+            'items'     : DATABASE_ROOT + '/items.json',                // BDD :: Objets du jeu
+            'code'      : DATA_ROOT + '/code.js',                       // Le code du jeu
+            'data'      : DATA_ROOT + '/data.js',                       // Données du jeu
         };
     }
 
