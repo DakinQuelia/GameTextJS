@@ -1,7 +1,8 @@
 [
     {
-        "name"  : "Jedi Gardien",
-        "icon"  : "",
+        "id": "jedi_guardian",
+        "name": "Jedi Gardien",
+        "icon": "",
         "color": "#1da5d5",
         "description" : "Les Jedi Gardiens se concentrent sur l'art du combat et le maniement du sabre-laser.",
         "attributes" : {
@@ -14,8 +15,9 @@
         }
     },
     {
-        "name"  : "Jedi Sentinelle",
-        "icon"  : "",
+        "id": "jedi_sentinel",
+        "name": "Jedi Sentinelle",
+        "icon": "",
         "color": "",
         "description" : "Les Jedi Sentinelles possèdent de nombreuses compétences et sont bien équilibrées.",
         "attributes" : {
@@ -28,8 +30,9 @@
         }
     },
     {
-        "name"  : "Jedi Consulaire",
-        "icon"  : "",
+        "id": "jedi_consular",
+        "name": "Jedi Consulaire",
+        "icon": "",
         "color": "#007222",
         "description" : "Les Jedi Consulaires ont une grande maîtrise de la Force et passent moins de temps à s'entraîner au combat.",
         "attributes" : {

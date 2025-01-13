@@ -1,0 +1,26 @@
+[
+    {
+        "name": "Force",
+        "desc": "La Force évalue la puissance physique et la musculature de votre personnage. Si elle est suffisamment élevée, elle ocnfère un bonus à l'attaque et aux dégâts au corps à corps, ce qui la rend particulièrement utile pour les utilisateurs d'armes de contact (vibro-lame, sabre-laser, etc)."
+    },
+    {
+        "name": "Dextérité",
+        "desc": "La Dextérité représente l'agilité et les réflexes du personnage. Si elle est suffisamment élevée, elle confère un bonus à la défense et aux jets d'attaque à distance, ce qui la rend particulièrement utile pour les utilisateurs d'armes de combat à distance (pistolets, blasters, etc)."
+    },
+    {
+        "name": "Constitution",
+        "desc": "La Constitution représente la santé du personnage. Si elle est suffisamment élevée, elle permet de gagner des points de vitalité supplémentaires à chaque changement de niveau. Elle est importante pour tout le monde, mais essentielle pour les soldats et les Jedi Gardiens."
+    },
+    {
+        "name": "Intelligence",
+        "desc": "L'Intelligence détermine les facultés d'apprentissage et de raisonnement de votre personnage. Si elle est suffisamment élevée, elle augmente le nombre de points que vous pouvez répartir entre vos compétences."
+    },
+    {
+        "name": "Sagesse",
+        "desc": "La Sagesse permet d'évaluer la volonté et les perceptions.  Si elle est suffisamment élevée, elle augement le nombre de points Force d'un Jedi, tout en améliorant ses jets de sauvegarde contre les pouvoirs liés à la Force. Dans le même temps, il est plus difficile de résister à ses pouvoirs liés à la Force."
+    },
+    {
+        "name": "Charisme",
+        "desc": "Un Charisme élevé augmente la puissance des pouvoirs de la Force. Il permet de réduire le malus appliqué lors de l'utilisation de pouvoir de la Force d'un alignement opposé (un personnage du Côté Lumineux avec un charisme élevé est moins pénalisé s'il utilise des pouvoirs du Côté Obscur), mais aussi d'augmenter la précision de vos compagnons. Enfin, le Charisme influe sur les facultés de persuasion."
+    }
+]

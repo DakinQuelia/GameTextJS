@@ -5,6 +5,12 @@
 *****************************************/
 import Utils from "../lib/utils.js";
 
+const ROOT = location.protocol + '//' + location.host;
+const ASSETS_ROOT = ROOT + '/assets';
+const DATA_ROOT = ROOT + '/data';
+const SCRIPTS_ROOT = ROOT + '/scripts';
+const DATABASE_ROOT = DATA_ROOT + '/database';
+
 class Player
 {
     /**
@@ -180,16 +186,6 @@ class Player
     }
 
     /**
-    *   Cettte méthode permet de récupérer la/les classes du personnage.
-    * 
-    *   @return {array} 
-    **/
-    GetClassCharacter()
-    {
-        return [];
-    }
-
-    /**
     *   Cette méthode permet de récupérer le modificateur.
     *
     *   @param {object} modifier                                            Modificateur
@@ -247,9 +243,14 @@ class Player
 
     }
 
+    /**
+    *   Cette méthode permet d'inclure les popovers d'aide.
+    * 
+    *   @return {void} 
+    **/
     UpdateHelp()
     {
-        
+
     }
 
     /**
@@ -299,6 +300,22 @@ class Player
     }
 
     /**
+    *   Cettte méthode permet de récupérer les classes du jeu.
+    * 
+    *   @return {array} 
+    **/
+    async GetClasses()
+    {
+        return await fetch(`${DATABASE_ROOT}/classes.json`)
+            .then(response => response.json())
+            .then(data =>
+            { 
+                return data ? data : []; 
+            })
+            .catch((err) => { console.log('ERROR :: ' + err); });;
+    }
+
+    /**
     *   Cette méthode initialise la classe "joueur".
     * 
     *   @return {void}
@@ -333,6 +350,22 @@ class Player
         {
             Utils.OpenWindow(e, { title: "Générateur" });  
         });
+
+        /* Variables */
+        this.classes = await this.GetClasses();
+
+        // this.character_class
+
+        this.classes.map(c => 
+        {
+            let select_class = document.createElement("option");
+            select_class.text = c.name;
+            select_class.id = c.id;
+
+            this.character_class.add(select_class);
+        });
+
+        //console.log("");
 
         /* On vérifier que le joueur a placé ses points */
         this.CheckPoints();
