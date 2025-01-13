@@ -8,8 +8,8 @@ import Dices from "../lib/dices.js";
 import Command from "./system/command.js";
 import Items from "./system/items.js";
 import Rooms from "./system/rooms.js";
-import Game from "./game.js";
 import Player from "./player.js";
+import Game from "./game.js";
 
 /******************************************
 *   Utilitaires
