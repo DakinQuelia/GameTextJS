@@ -1,0 +1,42 @@
+{
+    "stats": [
+        {
+            "name": "Force",
+            "desc": "La Force évalue la puissance physique et la musculature de votre personnage. Si elle est suffisamment élevée, elle ocnfère un bonus à l'attaque et aux dégâts au corps à corps, ce qui la rend particulièrement utile pour les utilisateurs d'armes de contact (vibro-lame, sabre-laser, etc)."
+        },
+        {
+            "name": "Dextérité",
+            "desc": "La Dextérité représente l'agilité et les réflexes du personnage. Si elle est suffisamment élevée, elle confère un bonus à la défense et aux jets d'attaque à distance, ce qui la rend particulièrement utile pour les utilisateurs d'armes de combat à distance (pistolets, blasters, etc)."
+        },
+        {
+            "name": "Constitution",
+            "desc": "La Constitution représente la santé du personnage. Si elle est suffisamment élevée, elle permet de gagner des points de vitalité supplémentaires à chaque changement de niveau. Elle est importante pour tout le monde, mais essentielle pour les soldats et les Jedi Gardiens."
+        },
+        {
+            "name": "Intelligence",
+            "desc": "L'Intelligence détermine les facultés d'apprentissage et de raisonnement de votre personnage. Si elle est suffisamment élevée, elle augmente le nombre de points que vous pouvez répartir entre vos compétences."
+        },
+        {
+            "name": "Sagesse",
+            "desc": "La Sagesse permet d'évaluer la volonté et les perceptions.  Si elle est suffisamment élevée, elle augement le nombre de points Force d'un Jedi, tout en améliorant ses jets de sauvegarde contre les pouvoirs liés à la Force. Dans le même temps, il est plus difficile de résister à ses pouvoirs liés à la Force."
+        },
+        {
+            "name": "Charisme",
+            "desc": "Un Charisme élevé augmente la puissance des pouvoirs de la Force. Il permet de réduire le malus appliqué lors de l'utilisation de pouvoir de la Force d'un alignement opposé (un personnage du Côté Lumineux avec un charisme élevé est moins pénalisé s'il utilise des pouvoirs du Côté Obscur), mais aussi d'augmenter la précision de vos compagnons. Enfin, le Charisme influe sur les facultés de persuasion."
+        }
+    ],
+    "skills": [
+        {
+            "name": "Informatique",
+            "desc": "Caractéristique associée : Intelligence\n\nInformatique permet au personnage de s'infiltrer dans les systèmes informatiques à l'aide de programmes spécialement prévus dans ce but. Il est possible de s'en servir pour mettre une tourelle automatique hors service ou inonder un secteur patrouillé, par exemple, mais aussi d'accomplir des tâches bien plus complexes, à condition d'utiliser davantage de programmes d'intrusion. Lorsque cette caractéristique atteint un niveau élevé, le nombre de programmes d'intrusion nécessaires est réduit de 1 (avec une limite inférieure de 1) tous les 4 points en Réparation, modificateurs de caractéristiques inclus."
+        },
+        {
+            "name": "Démolition",
+            "desc": "Caractéristique associée : Intelligence\n\nDémolition permet de poser, récupérer ou désamorcer les mines, lesquelles peuvent être simples (DD de 10 pour les poser), intermédiaires (DD de 20) ou complexes (DD de 30). Toute tentative de désamorçage ajoute +5 au DD associé au piège. Pour récupérer une mine, il faut ajouter +10 au DD correspondant. Il faut avoir reçu la formation nécessaire pour pouvoir utiliser cette compétence."
+        },
+        {
+            "name": "Discrétion",
+            "desc": "Caractéristique associée : Dextérité\n\nDiscrétion régit l'utilisation des objets permettant de passer en mode Discrétion. Si un personnage possède un tel objet et passe en mode Discrétion, ses adversaires doivent réussir un jet de Vigilance opossé à sa compétence de Discrétion pour le repérer. Sinon, ils ne le voient pas, et ce même s'il se trouve dans leur champ de vision. Un personnage en mode Discrétion peut poser, désarmer ou récupérer des mines. Les membres du groupe n'engagement pas automatiquement le combat lorsqu'ils sont en mode Discrétion. Le combat annule le mode Discrétion et ce dernier ne fonctionne pas sans générateur de champ de camouflage. Les unités de qualité supérieure octroient un bonus à la compétence. Cette compétence nécessite un entrainement préalable."
+        }
+    ]
+}

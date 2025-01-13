@@ -10,6 +10,7 @@ const ASSETS_ROOT = ROOT + '/assets';
 const DATA_ROOT = ROOT + '/data';
 const SCRIPTS_ROOT = ROOT + '/scripts';
 const DATABASE_ROOT = DATA_ROOT + '/database';
+const RESOURCES_ROOT = DATA_ROOT + '/resources';
 
 class Player
 {
@@ -25,6 +26,7 @@ class Player
         this.points_skills_max = 20;
         this.value = 0;
         this.name = "";
+        this.helps = [];
         this.classes = [];
         this.stats = [];
         this.skills = [];
@@ -50,6 +52,8 @@ class Player
         this.stats_container = document.querySelector("#stats") ? document.querySelector("#stats") : null;
         this.stat_category = document.querySelectorAll("#stats .sub-category") ? document.querySelectorAll("#stats .sub-category") : null;
         this.stat_category_name = document.querySelectorAll("#stats .category-name") ? document.querySelectorAll("#stats .category-name") : null;
+        this.skill_category = document.querySelectorAll("#skills .sub-category") ? document.querySelectorAll("#skills .sub-category") : null;
+        this.skill_category_name = document.querySelectorAll("#skills .category-name") ? document.querySelectorAll("#skills .category-name") : null;
     }
 
     /**
@@ -244,42 +248,117 @@ class Player
     }
 
     /**
-    *   Cette méthode permet de récupérer les données des aides
-    * 
-    *   @return {void} 
-    **/
-    GetHelpData()
-    {
-
-    }
-
-    /**
     *   Cette méthode permet d'inclure les popovers d'aide.
     * 
     *   @param {object} data                                            Données de l'aide
     * 
-    *   @return {void} 
+    *   @return {string} 
     **/
     CreateHelp(data)
     {
         let title = data.name;
-        let desc = data.desc.split("\n\n");
+        let desc = data.desc;
+        let description;
 
-        let help = `
-        <div class="popover" role="tooltip" data-placement="bottom">
+        if (desc.length > 0)
+        {
+            description = desc.split("\n\n");
+
+            description.forEach(d =>
+            {
+                let p = document.createElement("p");
+
+                p.innerHTML = d;
+            });
+        }
+        else
+        {
+            description = desc;
+        }
+        
+        //console.log(description);
+
+        return `
             <span tabindex="0" data-toggle="popover" data-popover="text-test">
                 <i class="fas fa-info-circle help"></i>
             </span>
             <div class="popover-content" style="width: 400px;">
                 <h3 class="popover-header">${title}</h3>
                 <div class="popover-body">
-                    <p>Caractéristique associée : Intelligence</p>
-                    <p>Informatique permet au personnage de s'infiltrer dans les systèmes informatiques à l'aide de programmes spécialement prévus dans ce but. Il est possible de s'en servir pour mettre une tourelle automatique hors service ou inonder un secteur patrouillé, par exemple, mais aussi d'accomplir des tâches bien plus complexes, à condition d'utiliser davantage de programmes d'intrusion. Lorsque cette caractéristique atteint un niveau élevé, le nombre de programmes d'intrusion nécessaires est réduit de 1 (avec une limite inférieure de 1) tous les 4 points en Réparation, modificateurs de caractéristiques inclus.</p>
+                   ${description}
                 </div>
             </div>
-        </div>`;
+        `;
+    }
 
-        //this.stat_category.querySelector("span input").parentNode;
+    /**
+    *   Cette méthode permet d'afficher les aides.
+    * 
+    *   @return {void} 
+    **/
+    DisplayHelp()
+    {
+        if (this.helps.length <= 0)
+        {
+            return;
+        }
+
+        /* Aides sur les caractéristiques */
+        this.stat_category.forEach((cat, index) => 
+        {
+            let span = cat.querySelector("#inputstat input");
+            let help = document.createElement("div");
+            let help_data = this.helps.map((h) => 
+            {
+                return this.CreateHelp({ name: h.stats[index].name, desc: h.stats[index].desc });
+            });
+
+            help.className = "popover";
+            help.setAttribute("role", "tooltip");
+            help.dataset.placement = "bottom";
+            help.innerHTML = help_data;
+            
+            span.before(help);
+        });
+
+        /* Aides sur les compétences */
+        this.skill_category.forEach((cat, index) => 
+        {
+            let span = cat.querySelector("#inputskill");
+            let help = document.createElement("div");
+            let help_data = this.helps.map((h) => 
+            {
+                console.log(h.skills);
+
+                return this.CreateHelp({ name: h.skills[index].name, desc: h.skills[index].desc });
+            });
+
+            help.className = "popover";
+            help.setAttribute("role", "tooltip");
+            help.dataset.placement = "bottom";
+            help.innerHTML = help_data;
+                
+            //span.appendChild(help);
+        });
+    }
+
+    /**
+    *   Cette méthode permet d'afficher le sélecteur des classes de personnage.
+    * 
+    *   @return {void} 
+    **/
+    DisplayClassSelector()
+    {
+        /* Sélecteur de classe du personnage */
+        this.classes.map(c => 
+        {
+            let select_class = document.createElement("option");
+                
+            select_class.text = c.name;
+            select_class.id = c.id;
+    
+            this.character_class.add(select_class);
+        });
     }
 
     /**
@@ -329,6 +408,24 @@ class Player
     }
 
     /**
+    *   Cette méthode permet de récupérer les données des aides
+    * 
+    *   @return {void} 
+    **/
+    async GetHelpData()
+    {
+        let data = await fetch(`${RESOURCES_ROOT}/help.json`)
+            .then(response => response.json())
+            .then(data =>
+            { 
+                return data ? data : []; 
+            })
+            .catch((err) => { console.log('ERREUR :: ' + err); });
+          
+        this.helps.push(data);
+    }
+
+    /**
     *   Cettte méthode permet de récupérer les classes du jeu.
     * 
     *   @return {array} 
@@ -341,7 +438,7 @@ class Player
             { 
                 return data ? data : []; 
             })
-            .catch((err) => { console.log('ERROR :: ' + err); });;
+            .catch((err) => { console.log('ERREUR :: ' + err); });
     }
 
     /**
@@ -380,19 +477,17 @@ class Player
             Utils.OpenWindow(e, { title: "Générateur" });  
         });
 
+        /* Aides */
+        await this.GetHelpData();
+
         /* Variables */
         this.classes = await this.GetClasses();
-        
-        /* Sélecteur de classe du personnage */
-        this.classes.map(c => 
-        {
-            let select_class = document.createElement("option");
-            
-            select_class.text = c.name;
-            select_class.id = c.id;
 
-            this.character_class.add(select_class);
-        });
+        /* Le sélecteur de classe de personnage */
+        this.DisplayClassSelector();
+
+        /* On affiche l'aide */
+        this.DisplayHelp();
 
         /* On vérifier que le joueur a placé ses points */
         this.CheckPoints();
