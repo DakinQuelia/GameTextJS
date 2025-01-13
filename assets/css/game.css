@@ -3,7 +3,6 @@
 *	Auteur 		: Dakin Quelia
 *	Version 	: 1.0.0. 
 *****************************************/
-@import url("https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css");
 @import url('./_fonts.css');
 @import url('./_vars.css');
 @import url('./intro.css');
@@ -13,6 +12,10 @@
 /**
 *   Global
 **/
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+
 body {
     font-family: "Roboto", sans-serif;
 }
