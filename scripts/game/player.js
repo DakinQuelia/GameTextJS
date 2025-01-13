@@ -262,21 +262,27 @@ class Player
 
         if (desc.length > 0)
         {
-            description = desc.split("\n\n");
+            let paragraphs = desc.split("\n\n");
 
-            description.forEach(d =>
+            paragraphs.forEach(d => 
             {
                 let p = document.createElement("p");
 
                 p.innerHTML = d;
+
+                description = d;
             });
+
+            //console.log(description);
         }
         else
         {
             description = desc;
+
+            let p = document.createElement("p");
+            
+            p.innerHTML = description;
         }
-        
-        //console.log(description);
 
         return `
             <span tabindex="0" data-toggle="popover" data-popover="text-test">
@@ -285,7 +291,7 @@ class Player
             <div class="popover-content" style="width: 400px;">
                 <h3 class="popover-header">${title}</h3>
                 <div class="popover-body">
-                   ${description}
+                    ${description}
                 </div>
             </div>
         `;
@@ -324,12 +330,10 @@ class Player
         /* Aides sur les compétences */
         this.skill_category.forEach((cat, index) => 
         {
-            let span = cat.querySelector("#inputskill");
+            let span = cat.querySelector("#inputskill input");
             let help = document.createElement("div");
             let help_data = this.helps.map((h) => 
             {
-                console.log(h.skills);
-
                 return this.CreateHelp({ name: h.skills[index].name, desc: h.skills[index].desc });
             });
 
@@ -338,7 +342,7 @@ class Player
             help.dataset.placement = "bottom";
             help.innerHTML = help_data;
                 
-            //span.appendChild(help);
+            span.before(help);
         });
     }
 

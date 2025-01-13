@@ -1,1 +1,42 @@
-[]
+[
+    {
+        "name": "Informatique",
+        "desc": "Caractéristique associée : Intelligence\n\nInformatique permet au personnage de s'infiltrer dans les systèmes informatiques à l'aide de programmes spécialement prévus dans ce but. Il est possible de s'en servir pour mettre une tourelle automatique hors service ou inonder un secteur patrouillé, par exemple, mais aussi d'accomplir des tâches bien plus complexes, à condition d'utiliser davantage de programmes d'intrusion. Lorsque cette caractéristique atteint un niveau élevé, le nombre de programmes d'intrusion nécessaires est réduit de 1 (avec une limite inférieure de 1) tous les 4 points en Réparation, modificateurs de caractéristiques inclus.",
+        "cost": "2"
+    },
+    {
+        "name": "Démolition",
+        "desc": "Caractéristique associée : Intelligence\n\nDémolition permet de poser, récupérer ou désamorcer les mines, lesquelles peuvent être simples (DD de 10 pour les poser), intermédiaires (DD de 20) ou complexes (DD de 30). Toute tentative de désamorçage ajoute +5 au DD associé au piège. Pour récupérer une mine, il faut ajouter +10 au DD correspondant. Il faut avoir reçu la formation nécessaire pour pouvoir utiliser cette compétence.",
+        "cost": "1"
+    },
+    {
+        "name": "Discrétion",
+        "desc": "Caractéristique associée : Dextérité\n\nDiscrétion régit l'utilisation des objets permettant de passer en mode Discrétion. Si un personnage possède un tel objet et passe en mode Discrétion, ses adversaires doivent réussir un jet de Vigilance opossé à sa compétence de Discrétion pour le repérer. Sinon, ils ne le voient pas, et ce même s'il se trouve dans leur champ de vision. Un personnage en mode Discrétion peut poser, désarmer ou récupérer des mines. Les membres du groupe n'engagement pas automatiquement le combat lorsqu'ils sont en mode Discrétion. Le combat annule le mode Discrétion et ce dernier ne fonctionne pas sans générateur de champ de camouflage. Les unités de qualité supérieure octroient un bonus à la compétence. Cette compétence nécessite un entrainement préalable.",
+        "cost": "2"
+    },
+    {
+        "name": "Vigilance",
+        "desc": "Caractéristique associée : Sagesse\n\nVigilance permet de repérer les objets ou ennemis cachés par Discrétion. L'ennemi est repéré si le personnage réussit un jet de Vigilance opposé à la compétence de Discrétion adverse (ou au DD de la mine cachée). Cette compétence fonctionne en permanence, mais son efficacité est plus grande si le personnage se déplace lentement. S'il court, il subit un malus de -5 au jet.",
+        "cost": "1"
+    },
+    {
+        "name": "Persuasion",
+        "desc": "Caractéristique associée : Charisme\n\nLe personnage principal est le seul à pouvoir choisir cette compétence quand il / elle gagne un niveau. Les options liées à la compétence de Persuasion s'affichent sous forme de dialogue chaque fois que vous vous trouvez en présence d'un personnage ne souhaitant pas vous révéler certaines informations d'emblée. Lorsque vous en sélectionnez une, votre degré de maîtrise dans cette compétence est comparé à la difficulté de la tentative (DD faible, intermédiaire ou élevé, selon le niveau du joueur). Par exemple, il sera peut être aisé de convaincre un garde d'augmenter le montant d'une prime, mais aussi beaucoup plus dur de l'inciter à quitter son poste.",
+        "cost": "1"
+    },
+    {
+        "name": "Réparation",
+        "desc": "Caractéristique associée : Intelligence\n\nRépération permet de remettre en état les machins telles que les droïdes ou ordinateurs à l'aide de pièces détachées. Le personnage peut réparer un véhicule ou un droïde, mais les tâches les plus complexes nécessitent généralement davantage de pièces. Le nombre de pièces détachées nécessaires est réduit de 1(avec une limite inférieure de 1) tous les 4 points en Réparation, modificateurs de caractéristique inclus. Cette compétence modifie également le nombre de points de vitalité récupérés lorsqu'un droïde du groupe utilise une trousse de réparation, une trousse de réparation améliorée ou une trousse de reconstruction pour se réparer après avoir subi des dégâts.",
+        "cost": "2"
+    },
+    {
+        "name": "Sécurité",
+        "desc": "Caractéristique associée : Sagesse\n\nSécurité permet d'ouvrir les mécanismes à fermeture électronique. Une fois que le personnage assigne des points à cette compétence, elle devient l'une des options par défaut pour les portes et contenants pris pour cible. Les programmes d'intrusion de sécurité confèrent un bonus à l'utilisation de cette compétence. Si vous en avez dans votre inventaire, ils sont eux aussi utilisés par défaut pour ouvrir des portes et contenants. Il est impossible d'utiliser cette compétence quand on ne lui a pas assigné le moindre point.",
+        "cost": "2"
+    },
+    {
+        "name": "Premiers Secours",
+        "desc": "Caractéristique associée : Sagesse\n\nPremiers secours augmente le nombre de points de vitalité récupérés en utilisant une trousse de soins. Le degré de maîtrise modifié est ajouté au nombre de points de vitalité récupérés. Trousses de soins améliorées et trousses de survie appliquent un modificateur au degré de maîtrise de l'utilisateur, ce qui augmente d'autant le nombre de points de vitalité récupérés.",
+        "cost": "1"
+    }
+]
