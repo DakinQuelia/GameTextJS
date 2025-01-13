@@ -247,6 +247,11 @@ class Player
 
     }
 
+    UpdateHelp()
+    {
+        
+    }
+
     /**
     *   Cette méthode permet d'afficher les erreurs.   
     *   

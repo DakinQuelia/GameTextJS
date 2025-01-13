@@ -151,7 +151,7 @@ body {
 }
   
 .popover .popover-content .popover-header {
-    padding: 0.35rem 0.75rem !important;
+    padding: 0.5rem 0.75rem !important;
     margin-bottom: 0;
     font-size: 1rem;
     color: inherit;
@@ -169,6 +169,11 @@ body {
     padding: 0.5rem 0.75rem !important;
     color: #212529;
     text-align: justify;
+}
+
+.popover .popover-content .popover-body p {
+    font-size: 1em;
+    padding: 0;
 }
   
 .popover[data-width] .popover-content {
