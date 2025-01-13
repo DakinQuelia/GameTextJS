@@ -32,6 +32,7 @@ class Player
 
         /* Eléments HTML */
         this.character_name = document.querySelector("#character_name") ? document.querySelector("#character_name") : null;
+        this.character_class = document.querySelector("#character_class") ? document.querySelector("#character_class") : null;
         this.stats_number = document.querySelectorAll('#stats input[type="number"]') ? document.querySelectorAll('#stats input[type="number"]') : null;
         this.skills_number = document.querySelectorAll('#skills input[type="number"]') ? document.querySelectorAll('#skills input[type="number"]') : null;
         this.button_copy = document.querySelector("#gcopy") ? document.querySelector("#gcopy") : null;
@@ -311,6 +312,9 @@ class Player
             {
                 this.skills_number[index].value = 0;
             });
+
+            this.character_name.value = "";
+            this.character_class.selectedIndex = 0;
         });
 
         /* Bouton :: "Jouer" */
