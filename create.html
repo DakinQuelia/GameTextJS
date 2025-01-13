@@ -5,10 +5,274 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jeu :: Test</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
     <link rel="stylesheet" href="assets/css/game.css" />
 </head>
 <body>
-
+    <script type="module" defer>
+        import Game from "/scripts/game/player.js";
+        import { PlayerInit } from '../scripts/game/alias.js';
+        
+        await PlayerInit();
+    </script>
+    <div class="form">
+        <form action="/post" method="post" name="post" enctype="multipart/form-data">
+            <input type="hidden" name="lt" value="0" />
+            <input type="hidden" name="mode" value="newtopic" />
+            <input type="hidden" name="topictype" value="0" />
+            <input type="hidden" name="message" value="" />
+            <input type="hidden" name="f" value="18" />
+            <input type="hidden" name="pseudo" id="pseudo" value="Dakin Quelia" />
+            <input type="hidden" name="subject" id="titre" value="" />
+            <div class="sheet-infos">
+                <h1>Création du personnage</h1>
+                <p>Ce formulaire vous permet de créer votre personnage.</p>
+            </div>
+            <div class="container">
+                <div class="sheet-row">
+                    <div class="sheet full">
+                        <div class="sheet-header">Personnage</div>
+                        <div class="sheet-content">
+                            <div class="sub-category">
+                                <span>
+                                    <div class="category-name">Classe(s) du personnage</div>
+                                </span>
+                                <span>
+                                    <select name="character_class" id="character_class">
+                                        <option value="jedi_guardian">Jedi Gardien</option>
+                                        <option value="jedi_sentinel">Jedi Sentinelle</option>
+                                        <option value="jedi_consular">Jedi Consulaire</option>
+                                    </select>
+                                    <span id="gcopy" class="jsmodal" data-href="#generator" data-title="Ce bouton vous permet de générer les caractéristiques à partir de la classe sélectionnée.">
+                                        <i class="fas fa-copy button-icon"></i>
+                                    </span>
+                                </span>
+                            </div>
+                            <div class="sub-category">
+                                <span>
+                                    <div class="category-name">Nom du personnage</div>
+                                </span>
+                                <span>
+                                    <input type="text" name="character_name" id="character_name" value="" />
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Erreur :: Nombre élevé -->
+                <div class="sheet-row error" id="errors" style="display: none;">
+                    <div class="sheet full">
+                        <div class="sheet-header">Erreur(s)</div>
+                        <div class="sheet-content">
+                            <ul class="errors"></ul>
+                        </div> 
+                    </div>
+                </div>
+                <!-- Fin des Erreurs -->
+                <div class="sheet-row">
+                    <div class="sheet">
+                        <div class="sheet-header" id="points_stats">
+                            <span class="title">Caractéristiques</span>
+                            <span class="points">30 points</span> 
+                        </div>
+                        <div class="sheet-content" id="stats">
+                            <!-- Statistique :: Force -->
+                            <div class="sub-category">
+                                <span>
+                                    <div class="category-name" id="stat[1]" data-title="La Force évalue la puissance physique et la musculature de votre personnage.">Force</div>
+                                </span>
+                                <span id="inputstat">
+                                    <i class="fas fa-info-circle tooltip"></i>
+                                    <input type="number" name="stats_str" id="stats_str" value="0" min="0" max="18" />
+                                </span>
+                            </div>
+                            <!-- Statistique :: Dextérité -->
+                            <div class="sub-category">
+                                <span>
+                                    <div class="category-name" id="stat[2]" data-title="La Dextérité représente l'agilité et les réflexes du personnage.">Dextérité</div>
+                                </span>
+                                <span id="inputstat">
+                                    <i class="fas fa-info-circle tooltip"></i>
+                                    <input type="number" name="stats_dex" id="stats_dex" value="0" min="0" max="18" />
+                                </span>
+                            </div>
+                            <!-- Statistique :: Constitution -->
+                            <div class="sub-category">
+                                <span>
+                                    <div class="category-name" id="stat[3]" data-title="La Constitution représente la santé du personnage.">Constitution</div>
+                                </span>
+                                <span id="inputstat">
+                                    <i class="fas fa-info-circle tooltip"></i>
+                                    <input type="number" name="stats_con" id="stats_con" value="0" min="0" max="18" />
+                                </span>
+                            </div>
+                            <!-- Statistique :: Intelligence -->
+                            <div class="sub-category">
+                                <span>
+                                    <div class="category-name" id="stat[4]" data-title="L'Intelligence détermine les facultés d'apprentissage et de raisonnement de votre personnage.">Intelligence</div>
+                                </span>
+                                <span id="inputstat">
+                                    <i class="fas fa-info-circle tooltip"></i>
+                                    <input type="number" name="stats_int" id="stats_int" value="0" min="0" max="18" />
+                                </span>
+                            </div>
+                            <!-- Statistique :: Sagesse -->
+                            <div class="sub-category">
+                                <span>
+                                    <div class="category-name" id="stat[5]" data-title="La Sagesse permet d'évaluer la volonté et les perceptions.">Sagesse</div>
+                                </span>
+                                <span id="inputstat">
+                                    <i class="fas fa-info-circle tooltip"></i>
+                                    <input type="number" name="stats_wis" id="stats_wis" value="0" min="0" max="18" />
+                                </span>
+                            </div>
+                            <!-- Statistique :: Charisme -->
+                            <div class="sub-category">
+                                <span>
+                                    <div class="category-name" id="stat[6]" data-title="Un Charisme élevé augmente la puissance des pouvoirs de la Force. Il permet de réduire le malus appliqué lors de l'utilisation de pouvoir de la Force d'un alignement opposé, mais aussi d'augmenter la précision de vos compagnons. Enfin, le Charisme influe sur les facultés de persuasion." data-placement="right">Charisme</div>
+                                </span>
+                                <span id="inputstat">
+                                    <i class="fas fa-info-circle tooltip"></i>
+                                    <input type="number" name="stats_cha" id="stats_cha" value="0" min="0" max="18" />
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sheet">
+                        <div class="sheet-header" id="points_skills">
+                            <span class="title">Compétences</span>
+                            <span class="points">20 points</span>
+                        </div>
+                        <div class="sheet-content" id="skills">
+                            <div class="sub-category">
+                                <span>
+                                    <div class="category-name" id="skill[1]" >Informatique</div>
+                                </span>
+                                <span id="inputskill">
+                                    <i class="fas fa-info-circle tooltip"></i>
+                                    <input type="number" name="skills_inf" id="skills_inf" value="0" min="0" />
+                                </span>
+                            </div>
+                            <div class="sub-category">
+                                <span>
+                                    <div class="category-name" id="skill[2]">Démolition</div>
+                                </span>
+                                <span id="inputskill">
+                                    <i class="fas fa-info-circle tooltip"></i>
+                                    <input type="number" name="skills_demo" id="skills_demo" value="0" min="0" />
+                                </span>
+                            </div>
+                            <div class="sub-category">
+                                <span>
+                                    <div class="category-name" id="skill[3]">Discrétion</div>
+                                </span>
+                                <span id="inputskill">
+                                    <i class="fas fa-info-circle tooltip"></i>
+                                    <input type="number" name="skills_dis" id="skills_dis" value="0" min="0" />
+                                </span>   
+                            </div>
+                            <div class="sub-category">
+                                <span>
+                                    <div class="category-name" id="skill[4]">Vigilance</div>
+                                </span>
+                                <span id="inputskill">
+                                    <i class="fas fa-info-circle tooltip"></i>
+                                    <input type="number" name="skills_vig" id="skills_vig" value="0" min="0" />
+                                </span> 
+                            </div>
+                            <div class="sub-category">
+                                <span>
+                                    <div class="category-name" id="skill[5]">Persuasion</div>
+                                </span>
+                                <span id="inputskill">
+                                    <i class="fas fa-info-circle tooltip"></i>
+                                    <input type="number" name="skills_per" id="skills_per" value="0" min="0" />
+                                </span>
+                            </div>
+                            <div class="sub-category">
+                                <span>
+                                    <div class="category-name" id="skill[6]">Réparation</div>
+                                </span>
+                                <span id="inputskill">
+                                    <i class="fas fa-info-circle tooltip"></i>
+                                    <input type="number" name="skills_rep" id="skills_rep" value="0" min="0" />
+                                </span>
+                            </div>
+                            <div class="sub-category">
+                                <span>
+                                    <div class="category-name" id="skill[7]">Sécurité</div>
+                                </span>
+                                <span id="inputskill">
+                                    <i class="fas fa-info-circle tooltip"></i>
+                                    <input type="number" name="skills_sec" id="skills_sec" value="0" min="0" />
+                                </span>
+                            </div>
+                            <div class="sub-category">
+                                <span>
+                                    <div class="category-name" id="skill[8]">Premiers Secours</div>
+                                </span>
+                                <span id="inputskill">
+                                    <i class="fas fa-info-circle tooltip"></i>
+                                    <input type="number" name="skills_health" id="skills_health" value="0" min="0" />
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sheet">
+                        <div class="sheet-header center">Informations</div>
+                        <div class="sheet-content">
+                            <p>Les caractéristiques de votre personnage lui donnent des bonus ou des malus à de nombreux jets (combat, etc) et pouvoirs (y compris ceux dus à la Force). 
+                            Reportez-vous à chaque caractéristique pour voir sur quels aspects du jeu elle influe.</p>
+                            <p>Une valeur est associée à chacune des compétences de votre personnage. Il s'agit du degré de maîtrise qu'il a atteint dans cette compétence, et c'est cela
+                            qui détermine son efficacité quand il y fait appel. Chaque fois que l'on utilise une compétence pour accomplir une tâche, le degré de maîtrise du personnage 
+                            est comparé au degré de difficulté (ou DD) de la tâche en question.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Outil :: Générateur -->
+            <div id="generator" style="display: none;">
+                <div class="large-box">
+                    <div class="large-box-header">Spécialités autres & secret(s) :</div>
+                    <div class="large-box-content">
+                        <textarea name="specialites_autres_secrets" placeholder="Entrez ici vos spécialités autres et secrets..."></textarea>
+                    </div>
+                </div>
+                <div class="large-box">
+                    <div class="large-box-header">Commentaires</div>
+                    <div class="large-box-content">
+                        <textarea name="commentaires" placeholder="Entrez ici vos commentaires..."></textarea>
+                    </div>
+                </div>
+                <div style="text-align: center;">
+                    <span style="color:red;" id="errormsg"></span><br />
+                    <label><span style="color:brown;">Le titre du sujet sera créé automatiquement !</span></label><br /><br />
+                    <button type="submit">Générer la fiche</button>
+                </div>
+            </div>
+            <!-- Boutons -->
+            <div class="sheet-buttons">
+                <button type="button" id="cancel" name="cancel">Annuler</button>
+                <button type="button" id="play" name="play">Jouer</button>
+            </div>
+        </form>
+    </div>
+    <div id="modals">
+        <!-- Fenêtre :: Générateur -->
+        <div id="generator" class="modal" aria-hidden="true" role="dialog" aria-labelledby="titlemodal" style="display: none;">
+            <div class="modal-wrapper" id="modalstop">
+                <div class="modal-header">
+                    <button class="modal-button close" id="close"><i class="fas fa-times"></i></button>
+                    <span class="modal-title" id="titlemodal">Générateur</span>
+                </div>
+                <div class="modal-content">
+                    <p>Cette fonctionnalité n'a pas encore été implémentée.</p>  
+                </div>
+                <div class="modal-footer">
+                    <div class="left"></div> 
+                    <div class="right"><button class="modal-button" type="button" id="btnclose">Fermer</button></div> 
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

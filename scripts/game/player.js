@@ -3,6 +3,8 @@
 *	Auteur 		: Dakin Quelia
 *	Version 	: 1.0.0. 
 *****************************************/
+import Utils from "../lib/utils.js";
+
 class Player
 {
     /**
@@ -15,6 +17,7 @@ class Player
         /* Global */
         this.points_stats_max = 30;
         this.points_skills_max = 20;
+        this.value = 0;
         this.name = "";
         this.classes = [];
         this.stats = [];
@@ -25,16 +28,21 @@ class Player
         this.errors = [];
         this.total = { stats: 0, skills: 0 };
         this.points = { stats: 0, skills: 0 };
+        this.stats_modifier = null;
 
         /* Eléments HTML */
-        this.character_name = document.querySelector("#character_name") ? document.querySelector("#character_name") : "";
-        this.stats_number = document.querySelectorAll('#stats input[type="number"]') ? document.querySelectorAll('#stats input[type="number"]') : "";
-        this.skills_number = document.querySelectorAll('#skills input[type="number"]') ? document.querySelectorAll('#skills input[type="number"]') : "";
-        this.button_play = document.querySelector("#play") ? document.querySelector("#play") : "";
-        this.button_cancel = document.querySelector("#cancel") ? document.querySelector("#cancel") : "";
-        this.header_stats_points = document.querySelector("#points_stats .points") ? document.querySelector("#points_stats .points") : "";
-        this.header_skills_points = document.querySelector("#points_skills .points") ? document.querySelector("#points_skills .points") : "";
-        this.stats_input_name = document.querySelectorAll("#stats .category-name") ? document.querySelectorAll("#stats .category-name") : "";
+        this.character_name = document.querySelector("#character_name") ? document.querySelector("#character_name") : null;
+        this.stats_number = document.querySelectorAll('#stats input[type="number"]') ? document.querySelectorAll('#stats input[type="number"]') : null;
+        this.skills_number = document.querySelectorAll('#skills input[type="number"]') ? document.querySelectorAll('#skills input[type="number"]') : null;
+        this.button_copy = document.querySelector("#gcopy") ? document.querySelector("#gcopy") : null;
+        this.button_play = document.querySelector("#play") ? document.querySelector("#play") : null;
+        this.button_cancel = document.querySelector("#cancel") ? document.querySelector("#cancel") : null;
+        this.header_stats_points = document.querySelector("#points_stats .points") ? document.querySelector("#points_stats .points") : null;
+        this.header_skills_points = document.querySelector("#points_skills .points") ? document.querySelector("#points_skills .points") : null;
+        this.stats_input_name = document.querySelectorAll("#stats .category-name") ? document.querySelectorAll("#stats .category-name") : null;
+        this.stats_container = document.querySelector("#stats") ? document.querySelector("#stats") : null;
+        this.stat_category = document.querySelectorAll("#stats .sub-category") ? document.querySelectorAll("#stats .sub-category") : null;
+        this.stat_category_name = document.querySelectorAll("#stats .category-name") ? document.querySelectorAll("#stats .category-name") : null;
     }
 
     /**
@@ -44,7 +52,111 @@ class Player
     **/
     CheckPoints()
     {
+        /* On récupère les valeurs des caractéristiques */
+        this.stats_number.forEach((input, index, parent) => 
+        {
+            let stat = parent[index].name;
+        
+            this.value = input.value;
+        
+            /*input.addEventListener("change", () =>
+            { });*/
+        
+            if (!isNaN(this.value) && this.value.length !== 0) 
+            {
+                this.total.stats += parseInt(this.value);
+                this.points.stats = this.points_stats_max - parseInt(this.total.stats);
+            }
+            else
+            {
+                this.total.stats -= parseInt(this.value);
+                this.points.stats = this.points_stats_max + parseInt(this.total.stats);
+            }
+        
+            if (this.points.stats > 0)
+            {
+                this.header_stats_points.innerHTML = `${this.points.stats} points`;
+                input.style.disabled = "true";
+            }
+            else
+            {
+                this.header_stats_points.innerHTML = `0 points`;
+            }
+        
+            if (this.value < 8)
+            {
+                this.stats_modifier = "-1";
+            }
+        
+            if (this.value >= 10)
+            {
+                this.stats_modifier = "0";
+            }
+        
+            if (this.value >= 12)
+            {
+                this.stats_modifier = "+1";
+            }
+            
+            if (this.value >= 14)
+            {
+                this.stats_modifier = "+2";
+            }
+        
+            if (this.value >= 16)
+            {
+                this.stats_modifier = "+3";
+            }
+        
+            if (this.value >= 18)
+            {
+                this.stats_modifier = "+4";
+            }
+        
+            this.modifiers.push({ stat: stat, value: (this.stats_modifier !== "0") ? this.stats_modifier : "--", color: this.GetModifier(this.stats_modifier).color });
+        });
 
+        /* On injecte les modificateurs dans la liste */
+        this.stat_category_name.forEach((cat, key) => 
+        {   
+            let modifierHTML = document.createElement("div");
+        
+            /* On récupère les modificateurs */
+            this.GetModifiers().forEach(() =>
+            {
+                modifierHTML.id = `modifier[${key+1}]`;
+                modifierHTML.classList.add("modifier");
+                modifierHTML.style.setProperty("--modifier-color", this.modifiers[key].color);
+                modifierHTML.innerText = `(${this.modifiers[key].value})`;
+            });
+        
+            cat.parentNode.appendChild(modifierHTML);
+        });
+
+        /* On récupère les valeurs des compétences */
+        this.skills_number.forEach((input, index) => 
+        {
+            this.value = input.value;
+        
+            if (!isNaN(this.value) && this.value.length !== 0) 
+            {
+                this.total.skills += parseInt(this.value);
+                this.points.skills = this.points_skills_max - parseInt(this.total.skills);
+            }
+            else
+            {
+                this.points.skills = this.points_skills_max + parseInt(this.total.skills);
+            }
+        
+            if (this.points.skills > 0)
+            {
+                this.header_skills_points.innerHTML = `${this.points.skills} points`;
+            }
+            else
+            {
+                this.header_skills_points.innerHTML = `0 points`;
+            }
+        });
     }
 
     /**
@@ -65,16 +177,6 @@ class Player
     GetClassCharacter()
     {
         return [];
-    }
-
-    /**
-    *   Cettte méthode permet de récupérer les statistiques.
-    * 
-    *   @return {array} 
-    **/
-    GetStats()
-    {
-
     }
 
     /**
@@ -200,11 +302,20 @@ class Player
             });
         });
 
-        /* Bouton "Jouer" */
+        /* Bouton :: "Jouer" */
         this.button_play.addEventListener("click", () =>
         {
             console.log("Jouer !!");  
         });
+
+        /* Bouton :: Copier */
+        this.button_copy.addEventListener("click", (e) =>
+        {
+            Utils.OpenWindow(e, { title: "Générateur" });  
+        });
+
+        /* On vérifier que le joueur a placé ses points */
+        this.CheckPoints();
 
         /* Erreurs */
         this.DisplayErrors();

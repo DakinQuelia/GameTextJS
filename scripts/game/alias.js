@@ -9,6 +9,7 @@ import Command from "./system/command.js";
 import Items from "./system/items.js";
 import Rooms from "./system/rooms.js";
 import Game from "./game.js";
+import Player from "./player.js";
 
 /******************************************
 *   Utilitaires
@@ -54,6 +55,11 @@ export async function GameInit()
 export async function GetPlayer()
 {
     return await Game.GetPlayer();
+}
+
+export async function PlayerInit()
+{
+    return await Player.Init();
 }
 
 /******************************************
