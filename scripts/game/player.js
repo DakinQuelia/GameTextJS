@@ -27,14 +27,14 @@ class Player
         this.points = { stats: 0, skills: 0 };
 
         /* Eléments HTML */
-        this.character_name = document.querySelector("#character_name");
-        this.stats_number = document.querySelectorAll('#stats input[type="number"]');
-        this.skills_number = document.querySelectorAll('#skills input[type="number"]');
-        this.button_play = document.querySelector("#play");
-        this.button_cancel = document.querySelector("#cancel");
-        this.header_stats_points = document.querySelector("#points_stats .points");
-        this.header_skills_points = document.querySelector("#points_skills .points");
-        this.stats_input = document.querySelectorAll("#stats .category-name");
+        this.character_name = document.querySelector("#character_name") ? document.querySelector("#character_name") : "";
+        this.stats_number = document.querySelectorAll('#stats input[type="number"]') ? document.querySelectorAll('#stats input[type="number"]') : "";
+        this.skills_number = document.querySelectorAll('#skills input[type="number"]') ? document.querySelectorAll('#skills input[type="number"]') : "";
+        this.button_play = document.querySelector("#play") ? document.querySelector("#play") : "";
+        this.button_cancel = document.querySelector("#cancel") ? document.querySelector("#cancel") : "";
+        this.header_stats_points = document.querySelector("#points_stats .points") ? document.querySelector("#points_stats .points") : "";
+        this.header_skills_points = document.querySelector("#points_skills .points") ? document.querySelector("#points_skills .points") : "";
+        this.stats_input_name = document.querySelectorAll("#stats .category-name") ? document.querySelectorAll("#stats .category-name") : "";
     }
 
     /**
@@ -104,8 +104,14 @@ class Player
     **/
     DisplayErrors()
     {
-        const errorsTag = document.querySelector("#errors");
-        const errorsContainer = errorsTag.querySelector(".errors");
+        const errors_tag = document.querySelector("#errors");
+
+        if (errors_tag === typeof undefined)
+        {
+            return false;
+        }
+
+        const errors_container = errors_tag.querySelector(".errors");
 
         if (this.total.stats > this.points_stats_max)
         {
@@ -119,20 +125,20 @@ class Player
             
         if (this.errors.length > 0)
         {
-            errorsTag.style.display = "block";
+            errors_tag.style.display = "block";
             
             this.errors.forEach((error, index) =>
             {
-                const errorLi = document.createElement("li");
+                const error_li = document.createElement("li");
             
-                errorLi.id = `error-${index}`;
-                errorLi.textContent = error;
-                errorsContainer.appendChild(errorLi);
+                error_li.id = `error-${index}`;
+                error_li.textContent = error;
+                errors_container.appendChild(error_li);
             });
         }
         else
         {
-            errorsTag.style.display = "none";
+            errors_tag.style.display = "none";
             this.errors = [];
         }
     }
