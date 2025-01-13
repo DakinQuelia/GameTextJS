@@ -267,7 +267,7 @@ class Player
             paragraphs.forEach(d => 
             {
                 let p = document.createElement("p");
-
+                
                 p.innerHTML = d;
 
                 description = d;
