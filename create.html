@@ -17,13 +17,9 @@
     <main class="container-fluid mt-10">
         <div class="form">
             <form action="/post" method="post" name="post" enctype="multipart/form-data">
-                <input type="hidden" name="lt" value="0" />
-                <input type="hidden" name="mode" value="newtopic" />
-                <input type="hidden" name="topictype" value="0" />
-                <input type="hidden" name="message" value="" />
-                <input type="hidden" name="f" value="18" />
-                <input type="hidden" name="pseudo" id="pseudo" value="Dakin Quelia" />
-                <input type="hidden" name="subject" id="titre" value="" />
+                <input type="hidden" name="stats_vigor" id="stats_vigor" value="0" />
+                <input type="hidden" name="stats_willingness" id="stats_willingness" value="0" />
+                <input type="hidden" name="stats_reflex" id="stats_reflex" value="0" />
                 <div class="sheet-infos">
                     <h1>Création du personnage</h1>
                     <p>Ce formulaire vous permet de créer votre personnage.</p>
@@ -83,7 +79,7 @@
                                     </span>
                                     <span id="inputstat">
                                         <i class="fas fa-info-circle help"></i>
-                                        <input type="number" name="stats_str" id="stats_str" value="0" min="0" max="18" />
+                                        <input type="number" name="stats_strength" id="stats_strength" value="0" min="0" max="18" />
                                     </span>
                                 </div>
                                 <!-- Statistique :: Dextérité -->
@@ -93,7 +89,7 @@
                                     </span>
                                     <span id="inputstat">
                                         <i class="fas fa-info-circle help"></i>
-                                        <input type="number" name="stats_dex" id="stats_dex" value="0" min="0" max="18" />
+                                        <input type="number" name="stats_dexterity" id="stats_dexterity" value="0" min="0" max="18" />
                                     </span>
                                 </div>
                                 <!-- Statistique :: Constitution -->
@@ -103,7 +99,7 @@
                                     </span>
                                     <span id="inputstat">
                                         <i class="fas fa-info-circle help"></i>
-                                        <input type="number" name="stats_con" id="stats_con" value="0" min="0" max="18" />
+                                        <input type="number" name="stats_constitution" id="stats_constitution" value="0" min="0" max="18" />
                                     </span>
                                 </div>
                                 <!-- Statistique :: Intelligence -->
@@ -113,7 +109,7 @@
                                     </span>
                                     <span id="inputstat">
                                         <i class="fas fa-info-circle help"></i>
-                                        <input type="number" name="stats_int" id="stats_int" value="0" min="0" max="18" />
+                                        <input type="number" name="stats_intelligence" id="stats_intelligence" value="0" min="0" max="18" />
                                     </span>
                                 </div>
                                 <!-- Statistique :: Sagesse -->
@@ -123,7 +119,7 @@
                                     </span>
                                     <span id="inputstat">
                                         <i class="fas fa-info-circle help"></i>
-                                        <input type="number" name="stats_wis" id="stats_wis" value="0" min="0" max="18" />
+                                        <input type="number" name="stats_wisdom" id="stats_wisdom" value="0" min="0" max="18" />
                                     </span>
                                 </div>
                                 <!-- Statistique :: Charisme -->
@@ -133,7 +129,7 @@
                                     </span>
                                     <span id="inputstat">
                                         <i class="fas fa-info-circle help"></i>
-                                        <input type="number" name="stats_cha" id="stats_cha" value="0" min="0" max="18" />
+                                        <input type="number" name="stats_charisma" id="stats_charisma" value="0" min="0" max="18" />
                                     </span>
                                 </div>
                             </div>
@@ -144,6 +140,7 @@
                                 <span class="points">20 points</span>
                             </div>
                             <div class="sheet-content" id="skills">
+                                <!-- Compétence :: Informatique -->
                                 <div class="sub-category">
                                     <span>
                                         <div class="category-name" id="skill[1]" >Informatique</div>
@@ -153,6 +150,7 @@
                                         <input type="number" name="skills_inf" id="skills_inf" value="0" min="0" />
                                     </span>
                                 </div>
+                                <!-- Compétence :: Démolition -->
                                 <div class="sub-category">
                                     <span>
                                         <div class="category-name" id="skill[2]">Démolition</div>
@@ -162,6 +160,7 @@
                                         <input type="number" name="skills_demo" id="skills_demo" value="0" min="0" />
                                     </span>
                                 </div>
+                                <!-- Compétence :: Discrétion -->
                                 <div class="sub-category">
                                     <span>
                                         <div class="category-name" id="skill[3]">Discrétion</div>

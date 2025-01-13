@@ -3,12 +3,15 @@
     "gender": "MALE",
     "appareance": "face.png",
     "attributes": {
-        "str": { "base": 0, "modifier": null },
-        "dex": { "base": 0, "modifier": null },
-        "con": { "base": 0, "modifier": null },
-        "int": { "base": 0, "modifier": null },
-        "wis": { "base": 0, "modifier": null },
-        "cha": { "base": 0, "modifier": null }
+        "strength":      { "base": 0, "modifier": null },
+        "dexterity":     { "base": 0, "modifier": null },
+        "constitution":  { "base": 0, "modifier": null },
+        "intelligence":  { "base": 0, "modifier": null },
+        "wisdom":        { "base": 0, "modifier": null },
+        "charisma":      { "base": 0, "modifier": null },
+        "vigor":         { "base": 0, "modifier": null },
+        "willingness":   { "base": 0, "modifier": null },
+        "reflex":        { "base": 0, "modifier": null }
     },
     "money": 300,
     "force_points": 0,
