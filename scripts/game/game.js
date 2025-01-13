@@ -12,7 +12,8 @@ import Player from "./player.js";
 const ROOT = location.protocol + '//' + location.host;
 const DATA_ROOT = ROOT + '/data';
 const SCRIPTS_ROOT = ROOT + '/scripts';
-const RESOURCES_ROOT = ROOT + '/resources';
+const DATABASE_ROOT = DATA_ROOT + '/database';
+const RESOURCES_ROOT = DATA_ROOT + '/resources';
 
 class Game
 {
@@ -29,9 +30,9 @@ class Game
         this.files = {
             'player'    : RESOURCES_ROOT + '/player.json',  
             'rules'     : RESOURCES_ROOT + '/rules.json',
-            'classes'   : DATA_ROOT + '/database/classes.json',
-            'rooms'     : DATA_ROOT + '/database/rooms.json',
-            'items'     : DATA_ROOT + '/database/items.json',
+            'classes'   : DATABASE_ROOT + '/classes.json',
+            'rooms'     : DATABASE_ROOT + '/rooms.json',
+            'items'     : DATABASE_ROOT + '/items.json',
             'code'      : DATA_ROOT + '/code.js',
             'data'      : DATA_ROOT + '/data.js',
         };
