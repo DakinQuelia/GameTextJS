@@ -468,7 +468,7 @@ class Player
         /* Bouton :: Copier */
         this.button_copy.addEventListener("click", (e) =>
         {
-            Utils.OpenWindow(e, { title: "Générateur" });  
+            Utils.OpenWindow(e, { title: "Générateur" });
         });
 
         /* Aides */
