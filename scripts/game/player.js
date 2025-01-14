@@ -258,7 +258,7 @@ class Player
     {
         let title = data.name;
         let desc = data.desc;
-        let description;
+        let description = "";
 
         if (desc.length > 0)
         {
@@ -266,22 +266,12 @@ class Player
 
             paragraphs.forEach(d => 
             {
-                let p = document.createElement("p");
-                
-                p.innerHTML = d;
-
-                description = d;
+                description += `<p>${d}</p>`;
             });
-
-            //console.log(description);
         }
         else
         {
             description = desc;
-
-            let p = document.createElement("p");
-            
-            p.innerHTML = description;
         }
 
         return `
@@ -321,7 +311,7 @@ class Player
 
             help.className = "popover";
             help.setAttribute("role", "tooltip");
-            help.dataset.placement = "bottom";
+            help.dataset.placement = "top";
             help.innerHTML = help_data;
             
             span.before(help);
@@ -339,7 +329,7 @@ class Player
 
             help.className = "popover";
             help.setAttribute("role", "tooltip");
-            help.dataset.placement = "bottom";
+            help.dataset.placement = "top";
             help.innerHTML = help_data;
                 
             span.before(help);
