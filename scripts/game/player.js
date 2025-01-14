@@ -69,14 +69,12 @@ class Player
             let stat = parent[index].name;
         
             this.value = input.value;
-        
-            /*
-            input.addEventListener("change", () =>
+    
+            /*input.addEventListener("input", () =>
             { 
+                
+            });*/
             
-            });
-            */
-        
             if (!isNaN(this.value) && this.value.length !== 0) 
             {
                 this.total.stats += parseInt(this.value);
@@ -311,7 +309,7 @@ class Player
 
             help.className = "popover";
             help.setAttribute("role", "tooltip");
-            help.dataset.placement = "top";
+            help.dataset.placement = "left";
             help.innerHTML = help_data;
             
             span.before(help);
@@ -329,7 +327,7 @@ class Player
 
             help.className = "popover";
             help.setAttribute("role", "tooltip");
-            help.dataset.placement = "top";
+            help.dataset.placement = "left";
             help.innerHTML = help_data;
                 
             span.before(help);
@@ -414,7 +412,10 @@ class Player
             { 
                 return data ? data : []; 
             })
-            .catch((err) => { console.log('ERREUR :: ' + err); });
+            .catch((err) => { 
+                console.log('ERREUR :: ' + err); 
+                throw new Error(`ERREUR :: ${err}`);
+            });
           
         this.helps.push(data);
     }
@@ -455,8 +456,11 @@ class Player
                 this.skills_number[index].value = 0;
             });
 
+
             this.character_name.value = "";
             this.character_class.selectedIndex = 0;
+            this.header_stats_points.innerHTML = `${this.points_stats_max} points`;
+            this.header_skills_points.innerHTML = `${this.points_skills_max} points`;
         });
 
         /* Bouton :: "Jouer" */
@@ -485,7 +489,7 @@ class Player
 
         /* On vérifier que le joueur a placé ses points */
         this.CheckPoints();
-
+       
         /* Erreurs */
         this.DisplayErrors();
     }

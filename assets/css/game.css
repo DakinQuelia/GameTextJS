@@ -175,6 +175,10 @@ body {
     font-size: 1em;
     padding: 0;
     margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.popover .popover-content .popover-body p:last-child {
     margin-bottom: 5px;
 }
   
