@@ -4,12 +4,10 @@
 *	Auteur 		: Dakin Quelia <dakinquelia@gmail.com>
 *	Version 	: 1.0.0. 
 *****************************************/
-/** 
-*   Learn how to create this and much more with this email course: https://cssanimation.rocks/courses/animation-101/
-*
-*   MANY THANKS TO @tadywankenobi for the following JS to handle the text in the byline:
-*   The following JS takes in the byline and splits it into letters, each one wrapped in a span. We need to create the spans as nodes, we can't just add them to the HTML using innerHTML, as to do so would mean the CSS won't affect the span because it doesn't recognise the tag as existing. It's an old problem we run into time and again.
-*/
+const ROOT = location.protocol + '//' + location.host;
+const DATA_ROOT = ROOT + '/data';
+const RESOURCES_ROOT = DATA_ROOT + '/resources';
+
 class Introduction
 {   
     /**
@@ -21,6 +19,7 @@ class Introduction
     {
         this.span;
         this.letter;
+        this.data = {};
         this.byline = document.querySelector(".intro-logo #byline");
         this.bylineText = this.byline.innerHTML;									                // Récupère le contenu de H2
         this.bylineArr = this.bylineText.split('');							                        // Explose le contenu sous forme de tableau
@@ -28,10 +27,13 @@ class Introduction
         this.button_play = document.querySelector("#button_play");                                  // Bouton pour démarrer l'animation
         this.intro_play = document.querySelector(".intro-play");                                    // Container du bouton
         this.intro = document.querySelector(".star-wars-intro");                                    // Container de l'animation
+        this.intro_episode = document.querySelector(".star-wars-title");                            // Titre de l'épisode
+        this.intro_subtitle = document.querySelector(".star-wars-subtitle");                        // Sous-titre de l'épisode
+        this.intro_paragraphs = document.querySelector(".intro-content");                           // Contenu des paragraphes
 
         this.Reset();                                                                               // On réinitialise l'animation
 
-        this.button_play.addEventListener("click", () => { this.Start(); });
+        this.button_play.addEventListener("click", () => { this.Start(); });                        // Bouton pour jouer l'animation
     }
 
     /**
@@ -75,6 +77,31 @@ class Introduction
                 this.byline.appendChild(this.span); 				
             }
         }
+    }
+
+    /**
+    *   Cette méthode permet d'afficher les données. 
+    **/
+    async Init()
+    {
+        this.data = await this.LoadData();
+
+        this.intro_episode.innerText = this.data.episode;
+        this.intro_subtitle.innerText = this.data.subtitle;
+        this.intro_paragraphs.innerHTML = this.data.paragraphs.map((para) => `<p>${para}</p>`).join("");
+    }   
+
+    /** 
+    *   Cette méthode permet de charger les données du fichier "introduction.json".
+    * 
+    *   @return {object}
+    **/
+    async LoadData()
+    {
+        return await fetch(`${RESOURCES_ROOT}/introduction.json`)
+            .then(response => response.json())
+            .then(data => { return data ? data : []; })
+            .catch((err) => { console.log('ERREUR :: ' + err); });
     }
 }
 

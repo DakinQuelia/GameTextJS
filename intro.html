@@ -6,6 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jeu :: Introduction</title>
     <link rel="stylesheet" href="assets/css/game.css" />
+    <script type="module" defer>
+        import Intro from "./scripts/lib/intro.js";
+        
+        await Intro.Init();
+    </script>
 </head>
 <body class="stars">
     <div id="stars"></div>
@@ -16,7 +21,7 @@
         <source src="assets/audio/tfa.mp3" type="audio/mpeg">
     </audio>
     <div class="intro-play" style="display: block;">
-        <button id="button_play">Lancer l'introduction</button>
+        <button id="button_play">Jouer</button>
     </div>
     <div class="star-wars-intro" style="display: none;">
         <div class="intro-text">Dans une galaxie, lointaine, très lointaine...</div>
@@ -28,16 +33,12 @@
         <div class="intro-main">
             <div class="intro-container">
                 <div class="intro-header">
-                    <span class="star-wars-title">EPISODE XXVI</span>
+                    <span class="star-wars-title">EPISODE XXXX</span>
                     <span class="star-wars-subtitle">Un sous-titre</span>   
                 </div>
-                <div class="intro-content">
-                    <p>Après plusieurs années de silence galactique, la civilisation est sur le point de connaître une nouvelle sortie Star Wars.</p>
-                    <p>Désormais, tandis que la Force se prépare à s'éveiller, le peuple de la terre...</p>
-                </div>
+                <div class="intro-content"></div>
             </div>
         </div>
     </div>
-    <script type="module" src="scripts/lib/intro.js" defer></script>
 </body>
 </html>
