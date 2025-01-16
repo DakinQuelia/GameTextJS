@@ -20,6 +20,7 @@
   transform: translateY(-50%);
   text-align: center;
   cursor: pointer;
+  gap: 20px;
 }
 
 .intro-play button {
@@ -35,6 +36,11 @@
   text-shadow: none;
   font-size: 50px;
   cursor: pointer;
+
+  &:hover {
+    color: #ffffff;
+    border: 4px solid #ffffff;
+  }
 }
   
 @media only screen and (max-width: 600px) {

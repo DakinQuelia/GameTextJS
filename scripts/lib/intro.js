@@ -4,6 +4,10 @@
 *	Auteur 		: Dakin Quelia <dakinquelia@gmail.com>
 *	Version 	: 1.0.0. 
 *****************************************/
+const ROOT = location.protocol + '//' + location.host;
+const DATA_ROOT = ROOT + '/data';
+const RESOURCES_ROOT = DATA_ROOT + '/resources';
+
 class Introduction
 {   
     /**
@@ -97,7 +101,7 @@ class Introduction
     **/
     async LoadData()
     {
-        return await fetch(`../assets/resources/introduction.json`)
+        return await fetch(`${RESOURCES_ROOT}/introduction.json`)
             .then(response => response.json())
             .then(data => { return data ? data : []; })
             .catch((err) => { console.log('ERREUR :: ' + err); });
