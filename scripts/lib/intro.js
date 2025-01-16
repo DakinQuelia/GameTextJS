@@ -4,9 +4,7 @@
 *	Auteur 		: Dakin Quelia <dakinquelia@gmail.com>
 *	Version 	: 1.0.0. 
 *****************************************/
-const ROOT = location.protocol + '//' + location.host;
-const DATA_ROOT = ROOT + '/data';
-const RESOURCES_ROOT = DATA_ROOT + '/resources';
+import { ROOT, DATA_ROOT, RESOURCES_ROOT } from "../game/constants.js";
 
 class Introduction
 {   

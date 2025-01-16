@@ -3,18 +3,20 @@
 *	Auteur 		: Dakin Quelia
 *	Version 	: 1.0.0. 
 *****************************************/
+import { ROOT, DATA_ROOT, RESOURCES_ROOT, DATABASE_ROOT, SCRIPTS_ROOT } from "./constants.js";
 import Config from './config/config.js';
 import Modal from '../lib/modal.js';
 import Utils from '../lib/utils.js';
 import settings from "../../data/settings.js";
 import Player from "./player.js";
 
-const ROOT = location.protocol + '//' + location.host;
+/*const ROOT = location.protocol + '//' + location.host;
 const ASSETS_ROOT = ROOT + '/assets';
 const DATA_ROOT = ROOT + '/data';
 const SCRIPTS_ROOT = ROOT + '/scripts';
 const DATABASE_ROOT = DATA_ROOT + '/database';
 const RESOURCES_ROOT = DATA_ROOT + '/resources';
+*/
 
 class Game
 {
