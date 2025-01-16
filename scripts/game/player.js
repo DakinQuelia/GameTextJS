@@ -315,7 +315,7 @@ class Player
     {
         if (this.helps.length <= 0)
         {
-            return;
+            return false;
         }
 
         /* Aides sur les caractéristiques */
@@ -333,7 +333,7 @@ class Player
                 return this.CreateHelp({ name: h.stats[index].name, desc: h.stats[index].desc });
             });
 
-            const span = cat.querySelector("#inputstat input");
+            const span = cat.querySelector("#inputstat input") ? cat.querySelector("#inputstat input") : cat.querySelector("#inputstat span.input-stat");
 
             if (typeof span === "undefined" || span === null)
             {
