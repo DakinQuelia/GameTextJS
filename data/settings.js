@@ -4,7 +4,7 @@
 *	Version 	: 1.0.0. 
 *****************************************/
 let settings = {
-    title:          "Titre de mon super jeu",
+    title:          "Titre de mon jeu",
     author:         "Dakin Quelia",
     version:        "1.0.0.b",
     credits:         [
