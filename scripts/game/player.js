@@ -456,7 +456,7 @@ class Player
         {
             this.stats_number.forEach((input, index) => 
             {
-                this.stats_number[index].value = 0;
+                this.stats_number[index].value = 8;
             });
         
             this.skills_number.forEach((input, index) => 
