@@ -4,10 +4,6 @@
 *	Auteur 		: Dakin Quelia <dakinquelia@gmail.com>
 *	Version 	: 1.0.0. 
 *****************************************/
-const ROOT = location.protocol + '//' + location.host;
-const DATA_ROOT = ROOT + '/data';
-const RESOURCES_ROOT = DATA_ROOT + '/resources';
-
 class Introduction
 {   
     /**
@@ -27,6 +23,7 @@ class Introduction
         this.button_play = document.querySelector("#button_play");                                  // Bouton pour démarrer l'animation
         this.intro_play = document.querySelector(".intro-play");                                    // Container du bouton
         this.intro = document.querySelector(".star-wars-intro");                                    // Container de l'animation
+        this.intro_logo = document.querySelector(".intro-logo .byline");                            // Titre du logo
         this.intro_episode = document.querySelector(".star-wars-title");                            // Titre de l'épisode
         this.intro_subtitle = document.querySelector(".star-wars-subtitle");                        // Sous-titre de l'épisode
         this.intro_paragraphs = document.querySelector(".intro-content");                           // Contenu des paragraphes
@@ -44,7 +41,7 @@ class Introduction
     Reset()
     {
         this.audio.currentTime = 0;
-        this.intro_play.style.display = "block";
+        this.intro_play.style.display = "flex";
         this.intro.style.display = "none";
     }
 
@@ -56,11 +53,12 @@ class Introduction
     Start()
     {
         this.intro_play.style.display = "none";
-        this.intro.style.display = "block";
+        this.intro.style.display = "flex";
         this.byline.innerHTML = '';											                    // Vide le contenu courant
 
         this.audio.currentTime = 9;
         this.audio.play();
+
 
         for(let i = 0; i < this.bylineArr.length; i++)
         {								
@@ -88,6 +86,7 @@ class Introduction
 
         this.intro_episode.innerText = this.data.episode;
         this.intro_subtitle.innerText = this.data.subtitle;
+        this.intro_logo.innerHTML = this.data.logo_title;
         this.intro_paragraphs.innerHTML = this.data.paragraphs.map((para) => `<p>${para}</p>`).join("");
     }   
 
@@ -98,7 +97,7 @@ class Introduction
     **/
     async LoadData()
     {
-        return await fetch(`${RESOURCES_ROOT}/introduction.json`)
+        return await fetch(`../assets/resources/introduction.json`)
             .then(response => response.json())
             .then(data => { return data ? data : []; })
             .catch((err) => { console.log('ERREUR :: ' + err); });
