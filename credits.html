@@ -9,10 +9,12 @@
 </head>
 <body class="credits">
     <script type="module" defer>
-        import { DisplayGameInfo } from './scripts/game/alias.js';
+        import { DisplayGameInfo, DisplayCredits } from './scripts/game/alias.js';
 
         const infos = await DisplayGameInfo();
         const title = document.querySelector("#gametitle");
+
+        DisplayCredits();
 
         title.innerHTML = `${infos.title}`;
 
@@ -25,22 +27,12 @@
         <div class="movie">
             <div id="gametitle">???</div>
         </div>
-        <div class="movie-job">Chef du projet</div>
-        <div class="movie-name">Dakin Quelia</div>
-        <div class="movie-job">Programmeur(s)</div>
-        <div class="movie-name">Dakin Quelia</div>
-        <!-- Début :: GameText -->
-        <div class="movie blue">GameText JS</div>
-        <div class="movie-subtitle">
-            Une application d'aventure textuelle.
+        <div id="credits-game">
+            <div class="movie-job">Chef du projet</div>
+            <div class="movie-name">Dakin Quelia</div>
+            <div class="movie-job">Programmeur(s)</div>
+            <div class="movie-name">Dakin Quelia</div>
         </div>
-        <div class="movie-job">Chef du projet</div>
-        <div class="movie-name">Dakin Quelia</div>
-        <div class="movie-job">Programmeur(s)</div>
-        <div class="movie-name">Dakin Quelia</div>
-        <div class="movie-job">Remerciements spéciaux</div>
-        <div class="movie-name">Kir Kanos (Star Wars Holonet)</div>
-        <!-- Fin :: GameText -->
         <div class="movie-text">
             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Modi blanditiis quidem natus perspiciatis, magni non placeat facilis saepe cumque, eius tempora eligendi? Aliquam ullam sed tempora eligendi sequi unde cupiditate.</p>
             <p>Quidem, nobis reiciendis. Deleniti porro, cumque non nihil saepe animi, id ut ipsa iste quam explicabo delectus nobis tempora earum impedit odio soluta? Magni architecto quasi accusantium neque molestias dicta.</p>

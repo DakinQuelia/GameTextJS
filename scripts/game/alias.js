@@ -42,6 +42,11 @@ export function SaveGame(filename)
     return Game.SaveGame(filename);
 }
 
+export function DisplayCredits()
+{
+    return Game.DisplayCredits();
+}
+
 export async function DisplayGameInfo() 
 {
     return await Game.DisplayGameInfo();

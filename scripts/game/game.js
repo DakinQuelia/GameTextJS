@@ -146,6 +146,42 @@ class Game
     }
 
     /**
+    *   Cette méthode permet d'afficher les crédits du jeu.
+    * 
+    *   @return {void} 
+    **/
+    async DisplayCredits()
+    {
+        const credits_wrapper = document.querySelector(".credits-wrapper");
+
+        if (typeof credits_wrapper === "undefined" || credits_wrapper === null)
+        {
+            return false;
+        }
+
+        let data = await this.DisplayGameInfo();
+
+        console.log(data);
+
+        const movie_text = document.querySelector(".movie-text");
+        const HTML = document.createElement("div");
+        
+        HTML.id = "credits-app";
+        HTML.innerHTML = `
+            <div class="movie blue">GameText JS</div>
+            <div class="movie-subtitle">Une application d'aventure textuelle.</div>
+            <div class="movie-job">Chef du projet</div>
+            <div class="movie-name">Dakin Quelia</div>
+            <div class="movie-job">Programmeur(s)</div>
+            <div class="movie-name">Dakin Quelia</div>
+            <div class="movie-job">Remerciements spéciaux</div>
+            <div class="movie-name">Kir Kanos (Star Wars Holonet)</div>
+        `;
+
+        movie_text.before(HTML);
+    }
+
+    /**
     *   Cette méthode initialise le jeu.
     * 
     *   @return {void}
@@ -180,6 +216,9 @@ class Game
 
         // Boîtes modales
         this.RenderAbout();
+
+        // Afficher les crédits du jeu
+        this.DisplayCredits();
     }
 
     /**
@@ -234,7 +273,8 @@ class Game
         return {
             title: game_infos['title'],
             author: game_infos['author'],
-            version: game_infos['version']
+            version: game_infos['version'],
+            credits: game_infos['credits']
         }
     }
 

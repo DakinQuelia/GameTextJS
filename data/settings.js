@@ -8,6 +8,7 @@ let settings = {
     author:         "Dakin Quelia",
     version:        "1.0.0.b",
     credits:         [
+        { role: "Chef du projet", members: [ "Dakin Quelia" ] },
         { 
             role: "Programmeur(s)", 
             members: [
