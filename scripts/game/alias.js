@@ -42,7 +42,7 @@ export function SaveGame(filename)
     return Game.SaveGame(filename);
 }
 
-export function DisplayGameInfo() 
+export async function DisplayGameInfo() 
 {
     return Game.DisplayGameInfo();
 }

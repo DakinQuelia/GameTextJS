@@ -10,14 +10,6 @@ import Utils from '../lib/utils.js';
 import settings from "../../data/settings.js";
 import Player from "./player.js";
 
-/*const ROOT = location.protocol + '//' + location.host;
-const ASSETS_ROOT = ROOT + '/assets';
-const DATA_ROOT = ROOT + '/data';
-const SCRIPTS_ROOT = ROOT + '/scripts';
-const DATABASE_ROOT = DATA_ROOT + '/database';
-const RESOURCES_ROOT = DATA_ROOT + '/resources';
-*/
-
 class Game
 {
     /**
@@ -190,11 +182,11 @@ class Game
     /**
     *   Cette méthode charge les paramètres du jeu.
     * 
-    *   @return {Promise}
+    *   @return {object}
     **/
     async DisplayGameInfo()
     {
-        if (typeof settings === typeof undefined)
+        if (typeof settings === "undefined")
         {
             return;
         }

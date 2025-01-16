@@ -7,18 +7,20 @@
     <title>Jeu :: Crédits</title>
     <link rel="stylesheet" href="assets/css/game.css" />
     <script type="module" defer>
-        import Game from "/scripts/game/game.js";
+        import { DisplayGameInfo } from './scripts/game/alias.js';
 
         const title = document.querySelector("#gametitle");
 
-        // title.innerHTML = await Game.DisplayGameInfo();
-        console.log(Game.DisplayGameInfo());
+        const infos = await DisplayGameInfo();
+
+        // title.innerHTML = ``;
+        console.log(infos);
     </script>
 </head>
 <body class="credits">
     <div class="credits-wrapper">
         <div class="movie">
-            <div id="gametitle">Titre de votre jeu</div>
+            <div id="gametitle">???</div>
         </div>
         <div class="movie-job">Chef du projet</div>
         <div class="movie-name">Dakin Quelia</div>
