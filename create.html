@@ -44,7 +44,7 @@
                                     </span>
                                     <span>
                                         <select name="character_class" id="character_class"></select>
-                                        <span tabindex="0" id="gcopy" class="jsmodal" data-href="#genwindow" data-title="Ce bouton vous permet de générer les caractéristiques à partir de la classe sélectionnée.">
+                                        <span tabindex="0" id="gcopy" data-title="Ce bouton vous permet de générer les caractéristiques à partir de la classe sélectionnée.">
                                             <i class="fas fa-copy button-icon"></i>
                                         </span>
                                     </span>
@@ -253,17 +253,17 @@
                 <!-- Boutons -->
                 <div class="sheet-buttons">
                     <button type="button" id="cancel" name="cancel">Annuler</button>
-                    <button type="button" id="play" name="play">Jouer</button>
+                    <button type="button" id="play" name="play" class="jsmodal" data-href="#playwindow">Jouer</button>
                 </div>
             </form>
         </div>
         <div id="modals">
             <!-- Fenêtre :: Générateur -->
-            <div id="genwindow" class="modal" aria-hidden="true" role="dialog" aria-labelledby="titlemodal" style="display: none;">
+            <div id="playwindow" class="modal" aria-hidden="true" role="dialog" aria-labelledby="titlemodal" style="display: none;">
                 <div class="modal-wrapper" id="modalstop">
                     <div class="modal-header">
                         <button class="modal-button close" id="close"><i class="fas fa-times"></i></button>
-                        <span class="modal-title" id="titlemodal">Générateur</span>
+                        <span class="modal-title" id="titlemodal">Jeu</span>
                     </div>
                     <div class="modal-content">
                         <p style="color: #FF0000;">Cette fonctionnalité n'a pas encore été implémentée.</p>  

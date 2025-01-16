@@ -473,9 +473,9 @@ class Player
         });
 
         /* Bouton :: "Jouer" */
-        this.button_play.addEventListener("click", () =>
+        this.button_play.addEventListener("click", (e) =>
         {
-            console.log("Jouer !!");  
+            Utils.OpenWindow(e, { title: "Jeu" });
         });
 
         /* Bouton :: Copier */
