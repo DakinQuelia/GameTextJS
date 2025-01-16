@@ -510,6 +510,12 @@ body {
     z-index: 100;
 }
 
+.credits-wrapper ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
 .credits-wrapper.kotor {
     color: #96e3ff;
 }

@@ -159,12 +159,40 @@ class Game
             return false;
         }
 
+        let credits = "";
         let data = await this.DisplayGameInfo();
 
-        console.log(data);
-
+        const credits_game = document.querySelector("#credits-game");
         const movie_text = document.querySelector(".movie-text");
         const HTML = document.createElement("div");
+
+        data.credits.forEach((c, index) =>
+        {
+            let job_name = data.credits[index].role;
+            let job_members = data.credits[index].members;
+            let job_member = job_members.forEach(d => { `<li>${d}</li>` });
+
+            console.log(job_member);
+
+            credits += `
+            <div class="movie-job">${job_name}</div>
+            <div class="movie-name">
+                <ul>
+                    ${job_member}
+                </ul>
+            </div>`
+
+            credits_game.innerHTML = credits;
+
+           /* job = `<div class="movie-job">${c.role}</div>`;
+            names = `<div class="movie-name">
+                <ul>
+                    ${c.members.forEach(d => { `<li>${d}</li>` })}
+                </ul>
+            </div>`;
+
+            console.log(names);*/
+        });
         
         HTML.id = "credits-app";
         HTML.innerHTML = `
