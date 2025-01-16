@@ -194,6 +194,26 @@
     background-color: #fff;
 }
 
+.sheet-content .separator {
+    display: block;
+    border-bottom: 1px dashed #999999;
+    margin: 0px 0px 10px 0px;
+}
+
+.sheet-content .sub-category span.input-stat {
+    width: 80px;
+    height: 31.6px;
+    text-align: center;
+    margin-left: 10px;
+    border: 1px solid #CCCCCC;
+    padding: 5px;
+    box-sizing: border-box;
+    font-size: 1em;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+}
+
 .sheet-content .sub-category input[type="text"] {
     width: 250px;
 }

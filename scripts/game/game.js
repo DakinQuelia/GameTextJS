@@ -84,7 +84,7 @@ class Game
         if (filename !== null)
         {
             //console.log(filename);
-            // localStorage.setItem(settings.title + ": " + filename);
+            // localStorage.setItem(settings.title + " :: " + filename);
         
             return true;
         }

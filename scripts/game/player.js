@@ -253,6 +253,11 @@ class Player
         let desc = data.desc;
         let description = "";
 
+        if (typeof data === "undefined")
+        {
+            return false;
+        }
+
         if (desc.length > 0)
         {
             let paragraphs = desc.split("\n\n");
@@ -297,8 +302,14 @@ class Player
         {
             let span = cat.querySelector("#inputstat input");
             let help = document.createElement("div");
+
             let help_data = this.helps.map((h) => 
             {
+                if (typeof h.stats === "undefined")
+                {
+                    return false;
+                }
+
                 return this.CreateHelp({ name: h.stats[index].name, desc: h.stats[index].desc });
             });
 
