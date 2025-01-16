@@ -300,20 +300,19 @@ class Player
         /* Aides sur les caractéristiques */
         this.stat_category.forEach((cat, index) => 
         {
-            if (typeof index === "undefined")
+            let span = cat.querySelector("#inputstat input");
+
+            if (typeof span === "undefined" || typeof span === null)
             {
                 return false;
             }
 
-            let span = cat.querySelector("#inputstat input");
             let help = document.createElement("div");
 
             let help_data = this.helps.map((h) => 
             {
-                if (typeof h.stats === "undefined" || h.stats === null)
+                if (typeof h.stats[index] === "undefined")
                 {
-                    console.log(h.stats);
-
                     return false;
                 }
 
@@ -332,12 +331,18 @@ class Player
         this.skill_category.forEach((cat, index) => 
         {
             let span = cat.querySelector("#inputskill input");
+
+            if (typeof span === "undefined" || typeof span === null)
+            {
+                return false;
+            }
+    
             let help = document.createElement("div");
             let help_data = this.helps.map((h) => 
             {
-                if (typeof h.skills === "undefined")
+                if (typeof h.skills[index] === "undefined")
                 {
-                     return false;
+                    return false;
                 }
 
                 return this.CreateHelp({ name: h.skills[index].name, desc: h.skills[index].desc });

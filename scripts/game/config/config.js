@@ -17,7 +17,6 @@ var config = {
     },
     theme                   : ['default'],
     sounds_file_ext         : '.mp3',
-
     text_input              : true,                             // Ceci permet au joueur de taper une commande
     cursor                  : ">",                              // Le curseur
     command_echo            : true,                             // L'écho de la commande
