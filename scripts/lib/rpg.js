@@ -19,12 +19,14 @@ class RPG
 
     /**
     *   Cette méthode permet de calculer les points de statistiques.
+    *   
+    *   @param {array} stats                                            Tableau des données
     * 
     *   @return  {void}
     **/
-    CalculateStats()
+    CalculateStats(stats)
     {
-
+        
     }
 }
 

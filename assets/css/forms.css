@@ -214,6 +214,10 @@
     justify-content: center;
 }
 
+.sheet-content .sub-category span.input-stat.disabled {
+    background-color: #0908080a;
+}
+
 .sheet-content .sub-category input[type="text"] {
     width: 250px;
 }

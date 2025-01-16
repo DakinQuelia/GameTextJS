@@ -300,13 +300,20 @@ class Player
         /* Aides sur les caractéristiques */
         this.stat_category.forEach((cat, index) => 
         {
+            if (typeof index === "undefined")
+            {
+                return false;
+            }
+
             let span = cat.querySelector("#inputstat input");
             let help = document.createElement("div");
 
             let help_data = this.helps.map((h) => 
             {
-                if (typeof h.stats === "undefined")
+                if (typeof h.stats === "undefined" || h.stats === null)
                 {
+                    console.log(h.stats);
+
                     return false;
                 }
 
@@ -328,6 +335,11 @@ class Player
             let help = document.createElement("div");
             let help_data = this.helps.map((h) => 
             {
+                if (typeof h.skills === "undefined")
+                {
+                     return false;
+                }
+
                 return this.CreateHelp({ name: h.skills[index].name, desc: h.skills[index].desc });
             });
 
