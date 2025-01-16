@@ -10,3 +10,6 @@ export const RESOURCES_ROOT = DATA_ROOT + '/resources';
 export const SCRIPTS_ROOT = ROOT + '/scripts';
 export const DATABASE_ROOT = DATA_ROOT + '/database';
 export const ASSETS_ROOT = ROOT + '/assets';
+export const REGEX_FORMAT = [
+   /^(me|myself|player)$/
+];
