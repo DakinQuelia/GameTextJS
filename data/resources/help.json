@@ -23,6 +23,18 @@
         {
             "name": "Charisme",
             "desc": "Un Charisme élevé augmente la puissance des pouvoirs de la Force. Il permet de réduire le malus appliqué lors de l'utilisation de pouvoir de la Force d'un alignement opposé (un personnage du Côté Lumineux avec un charisme élevé est moins pénalisé s'il utilise des pouvoirs du Côté Obscur), mais aussi d'augmenter la précision de vos compagnons. Enfin, le Charisme influe sur les facultés de persuasion."
+        },
+        {
+            "name": "Vigueur",
+            "desc": "La Vigueur augmente avec la caractéristique « Constitution »."
+        },
+        {
+            "name": "Réflexes",
+            "desc": "Les Réflexes augmentent avec la caractéristique « Dextérité »."
+        },
+        {
+            "name": "Volonté",
+            "desc": "La Volonté augmente avec la caractéristique « Sagesse »."
         }
     ],
     "skills": [
