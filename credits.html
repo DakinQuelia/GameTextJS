@@ -6,18 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jeu :: Crédits</title>
     <link rel="stylesheet" href="assets/css/game.css" />
+</head>
+<body class="credits">
     <script type="module" defer>
         import { DisplayGameInfo } from './scripts/game/alias.js';
 
+        const infos = await DisplayGameInfo();
         const title = document.querySelector("#gametitle");
 
-        const infos = await DisplayGameInfo();
-
-        // title.innerHTML = ``;
-        console.log(infos);
+        title.innerHTML = `${infos.title}`;
     </script>
-</head>
-<body class="credits">
     <div class="credits-wrapper">
         <div class="movie">
             <div id="gametitle">???</div>

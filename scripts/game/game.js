@@ -177,6 +177,41 @@ class Game
 
         // On ajoute l'option "Afficher / Masquer"
         Utils.Toggle();
+
+        // Boîtes modales
+        this.RenderAbout();
+    }
+
+    /**
+    *   Cette méthode permet d'afficher le rendu HTML de la boîte modale "à propos".
+    * 
+    *   @return {void}
+    **/
+    async RenderAbout()
+    {
+        let page_infos = document.querySelector('#about');
+
+        if (typeof page_infos === "undefined" || page_infos === null)
+        {
+            return false;
+        }
+
+        let game_title = page_infos.querySelector('#title');
+        let game_written = page_infos.querySelector('#written');
+        let game_version = page_infos.querySelector('#version');
+        let game_version_footer = page_infos.querySelector('#versionfooter');
+
+        let game_infos = await this.DisplayGameInfo();
+
+        if (typeof game_infos === "undefined" || game_infos  === null)
+        {
+            return false;
+        }
+
+        game_title.innerText = game_infos['title'] ? game_infos['title'] : 'Aucun titre';
+        game_written.innerText = game_infos['author'] ? game_infos['author'] : `Information indisponible`;
+        game_version.innerText = game_infos['version'] ? game_infos['version'] : `Information indisponible`;
+        game_version_footer.innerText = game_infos['version'] ? game_infos['version'] : `Information indisponible`;
     }
 
     /**
@@ -192,23 +227,6 @@ class Game
         }
 
         const game_infos = settings;
-
-        let page_infos = document.querySelector('#about');
-
-        if (typeof page_infos === typeof undefined || page_infos === null)
-        {
-            return;
-        }
-
-        let game_title = page_infos.querySelector('#title');
-        let game_written = page_infos.querySelector('#written');
-        let game_version = page_infos.querySelector('#version');
-        let game_version_footer = page_infos.querySelector('#versionfooter');
-
-        game_title.innerText = game_infos['title'] ? game_infos['title'] : 'Aucun titre';
-        game_written.innerText = game_infos['author'] ? game_infos['author'] : `Information indisponible`;
-        game_version.innerText = game_infos['version'] ? game_infos['version'] : `Information indisponible`;
-        game_version_footer.innerText = game_infos['version'] ? game_infos['version'] : `Information indisponible`;
 
         /* Titre de la page */
         document.title = `Jeu :: ${game_infos.title}`;

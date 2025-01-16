@@ -44,7 +44,7 @@ export function SaveGame(filename)
 
 export async function DisplayGameInfo() 
 {
-    return Game.DisplayGameInfo();
+    return await Game.DisplayGameInfo();
 }
 
 export async function GameInit()
