@@ -9,9 +9,9 @@
         "intelligence":  { "base": 0, "modifier": null },
         "wisdom":        { "base": 0, "modifier": null },
         "charisma":      { "base": 0, "modifier": null },
-        "vigor":         { "base": 0, "modifier": null },
-        "willingness":   { "base": 0, "modifier": null },
-        "reflex":        { "base": 0, "modifier": null }
+        "vigor":         { "base": 4, "modifier": null },
+        "reflex":        { "base": 4, "modifier": null },
+        "willingness":   { "base": 2, "modifier": null }
     },
     "money": 300,
     "force_points": 0,
