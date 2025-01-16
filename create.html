@@ -15,7 +15,7 @@
     </script>
     <main class="container-fluid mt-10">
         <div class="form">
-            <form action="/post" method="post" name="post" enctype="multipart/form-data">
+            <form method="post" name="create_character" id="create_character" enctype="multipart/form-data">
                 <input type="hidden" name="stats_vigor" id="stats_vigor" value="0" />
                 <input type="hidden" name="stats_willingness" id="stats_willingness" value="0" />
                 <input type="hidden" name="stats_reflex" id="stats_reflex" value="0" />
@@ -281,6 +281,7 @@
                 <!-- Boutons -->
                 <div class="sheet-buttons">
                     <button type="button" id="cancel" name="cancel">Annuler</button>
+                    <!--<button type="button" id="generate" name="generate">Générer la fiche</button>-->
                     <button type="button" id="play" name="play" class="jsmodal" data-href="#playwindow">Jouer</button>
                 </div>
             </form>

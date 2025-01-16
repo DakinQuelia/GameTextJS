@@ -35,6 +35,7 @@ class Player
         this.stats_modifier = "";
 
         /* Eléments HTML */
+        this.form = document.querySelector("#create_character") ? document.querySelector("#create_character") : null;
         this.character_name = document.querySelector("#character_name") ? document.querySelector("#character_name") : null;
         this.character_class = document.querySelector("#character_class") ? document.querySelector("#character_class") : null;
         this.stats_number = document.querySelectorAll('#stats input[type="number"]') ? document.querySelectorAll('#stats input[type="number"]') : null;
@@ -50,6 +51,21 @@ class Player
         this.stat_category_name = document.querySelectorAll("#stats .category-name") ? document.querySelectorAll("#stats .category-name") : null;
         this.skill_category = document.querySelectorAll("#skills .sub-category") ? document.querySelectorAll("#skills .sub-category") : null;
         this.skill_category_name = document.querySelectorAll("#skills .category-name") ? document.querySelectorAll("#skills .category-name") : null;
+    }
+
+    /**
+    *   Cette méthode permet de valider le formulaire et créer le personnage.
+    *  
+    *   @return {void}
+    **/
+    ValidateForm()
+    {
+        this.stats_base = [ "stats_vigor", "stats_reflex", "stats_willingness" ];
+
+        this.stats_base.forEach(st => 
+        {
+            let input = document.querySelector(`${st}`);
+        });
     }
 
     /**
@@ -133,6 +149,11 @@ class Player
         this.stat_category_name.forEach((cat, key) => 
         {   
             let modifierHTML = document.createElement("div");
+
+            if (typeof this.modifiers[key] === "undefined")
+            {
+                return false;
+            }
         
             /* On récupère les modificateurs */
             this.GetModifiers().forEach(() =>
@@ -300,13 +321,6 @@ class Player
         /* Aides sur les caractéristiques */
         this.stat_category.forEach((cat, index) => 
         {
-            let span = cat.querySelector("#inputstat input");
-
-            if (typeof span === "undefined" || typeof span === null)
-            {
-                return false;
-            }
-
             let help = document.createElement("div");
 
             let help_data = this.helps.map((h) => 
@@ -319,6 +333,13 @@ class Player
                 return this.CreateHelp({ name: h.stats[index].name, desc: h.stats[index].desc });
             });
 
+            const span = cat.querySelector("#inputstat input");
+
+            if (typeof span === "undefined" || span === null)
+            {
+                return false;
+            }
+
             help.className = "popover";
             help.setAttribute("role", "tooltip");
             help.dataset.placement = "left";
@@ -330,13 +351,6 @@ class Player
         /* Aides sur les compétences */
         this.skill_category.forEach((cat, index) => 
         {
-            let span = cat.querySelector("#inputskill input");
-
-            if (typeof span === "undefined" || typeof span === null)
-            {
-                return false;
-            }
-    
             let help = document.createElement("div");
             let help_data = this.helps.map((h) => 
             {
@@ -347,6 +361,13 @@ class Player
 
                 return this.CreateHelp({ name: h.skills[index].name, desc: h.skills[index].desc });
             });
+
+            const span = cat.querySelector("#inputskill input");
+
+            if (typeof span === "undefined" || span === null)
+            {
+                return false;
+            }
 
             help.className = "popover";
             help.setAttribute("role", "tooltip");
