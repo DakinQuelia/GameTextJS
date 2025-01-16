@@ -18,6 +18,8 @@ class Player
         /* Global */
         this.points_stats_max = 30;
         this.points_skills_max = 20;
+        this.stats_default_value = 0;                                   // Kotor = 8 par défaut
+        this.point_diff = 0;
         this.value = 0;
         this.name = "";
         this.helps = [];
@@ -83,7 +85,6 @@ class Player
             if (this.points.stats > 0)
             {
                 this.header_stats_points.innerHTML = `${this.points.stats} points`;
-                input.style.disabled = "true";
             }
             else
             {
@@ -456,7 +457,7 @@ class Player
         {
             this.stats_number.forEach((input, index) => 
             {
-                this.stats_number[index].value = 8;
+                this.stats_number[index].value = this.stats_default_value;
             });
         
             this.skills_number.forEach((input, index) => 
@@ -486,7 +487,7 @@ class Player
 
             Object.entries(character_class_attributes).map((key, value) => 
             {
-                this.stats_number.forEach((input, index, parent) => 
+                this.stats_number.forEach((input) => 
                 {
                     this.stats_number[value].value = key[1].base;
                 });
