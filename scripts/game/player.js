@@ -414,6 +414,20 @@ class Player
         this.helps.push(data);
     }
 
+    /** 
+    *   Cette méthode permet de récupérer une classe spécifique.
+    * 
+    *   @param {number} id                                              ID de la classe
+    * 
+    *   @return {object}
+    **/
+    GetClass(id)
+    {
+        let character_class = this.classes.filter(c => c.id === parseInt(id))[0];
+
+        return character_class;
+    }
+
     /**
     *   Cettte méthode permet de récupérer les classes du jeu.
     * 
@@ -466,7 +480,17 @@ class Player
         /* Bouton :: Copier */
         this.button_copy.addEventListener("click", (e) =>
         {
-            Utils.OpenWindow(e, { title: "Générateur" });
+            let character_class_id = this.character_class.options[this.character_class.selectedIndex].id;
+            let character_class_data = this.GetClass(character_class_id);
+            let character_class_attributes = character_class_data.attributes;
+
+            Object.entries(character_class_attributes).map((key, value) => 
+            {
+                this.stats_number.forEach((input, index, parent) => 
+                {
+                    this.stats_number[value].value = key[1].base;
+                });
+            });
         });
 
         /* Aides */

@@ -1,6 +1,6 @@
 [
     {
-        "id": "jedi_guardian",
+        "id": 1,
         "name": "Jedi Gardien",
         "icon": "",
         "color": "#1da5d5",
@@ -15,7 +15,7 @@
         }
     },
     {
-        "id": "jedi_sentinel",
+        "id": 2,
         "name": "Jedi Sentinelle",
         "icon": "",
         "color": "",
@@ -30,7 +30,7 @@
         }
     },
     {
-        "id": "jedi_consular",
+        "id": 3,
         "name": "Jedi Consulaire",
         "icon": "",
         "color": "#007222",
