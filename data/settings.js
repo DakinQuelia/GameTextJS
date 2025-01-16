@@ -12,7 +12,9 @@ let settings = {
         { 
             role: "Programmeur(s)", 
             members: [
-                "Dakin Quelia"
+                "Dakin Quelia",
+                "Tartampion",
+                "Arelia"
             ] 
         }
     ],

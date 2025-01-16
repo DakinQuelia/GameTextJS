@@ -170,28 +170,22 @@ class Game
         {
             let job_name = data.credits[index].role;
             let job_members = data.credits[index].members;
-            let job_member = job_members.forEach(d => { `<li>${d}</li>` });
+            let job_member = "";
 
-            console.log(job_member);
+            job_members.forEach((d => 
+            { 
+                job_member += `<li>${d}</li>`;
+            }));
 
             credits += `
             <div class="movie-job">${job_name}</div>
             <div class="movie-name">
                 <ul>
-                    ${job_member}
+                    ${job_member} 
                 </ul>
             </div>`
 
             credits_game.innerHTML = credits;
-
-           /* job = `<div class="movie-job">${c.role}</div>`;
-            names = `<div class="movie-name">
-                <ul>
-                    ${c.members.forEach(d => { `<li>${d}</li>` })}
-                </ul>
-            </div>`;
-
-            console.log(names);*/
         });
         
         HTML.id = "credits-app";
