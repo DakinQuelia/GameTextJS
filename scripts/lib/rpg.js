@@ -3,6 +3,7 @@
 *	Auteur 		: Dakin Quelia
 *	Version 	: 1.0.0. 
 *****************************************/
+import Utils from './utils.js';
 import Modal from './modal.js';
 
 class RPG 

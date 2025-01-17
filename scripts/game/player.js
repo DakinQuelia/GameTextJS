@@ -87,6 +87,7 @@ class Player
                 
             });*/
             
+            /* Calcul des points */
             if (!isNaN(this.value) && this.value.length !== 0) 
             {
                 this.total.stats += parseInt(this.value);

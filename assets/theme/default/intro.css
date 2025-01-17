@@ -163,7 +163,7 @@
 
 .star-wars-intro {
     width: 100%;
-    height: 100%;
+    height: 100vh;
     display: flex;
     overflow: hidden;
     position: relative;
@@ -248,7 +248,7 @@
     font-family: var(--starwars-fonts);
     font-size: 300%;
     font-weight: 400;
-    margin: 20% auto;
+    margin: auto;
     color: #4bd5ee;
     opacity: 0;
     z-index: 1;
