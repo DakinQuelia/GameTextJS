@@ -104,11 +104,9 @@ document.addEventListener("DOMContentLoaded", () =>
 /* Sauvegarder la partie */
 let filename = form_savegame.querySelector("#savename").value;
 
-button_save_form.addEventListener("click", (e) => 
+button_save_form.addEventListener("click", () => 
 {
-    e.stopPropagation();
-
-    SaveGame(filename);
+    SaveGame();
 });
 
 /* Afficher la date/heure */

@@ -49,40 +49,53 @@ class Game
     /**
     *   Cette méthode permet de sauvegarder la partie.
     * 
-    *   @param {string} filename                                        Nom du fichier
-    * 
-    *   @return {boolean}
+    *   @return {void}
     **/
-    SaveGame(filename)
+    SaveGame()
     {
         const form = document.querySelector("#savegameform");
         const content = form.querySelector(".modal-content");
         const input = form.querySelector("#savename");
+        const filename = input.value;
         const submit = document.querySelector("#savesubmit");
         let error_span = document.createElement('div');
-
-        if (typeof filename === "undefined" || filename === "" || filename === null) 
+  
+        input.addEventListener("input", (event) => 
         {
-            form.classList.add('form-invalid');
-                               
-            error_span.id = "error-save";
-            error_span.textContent = "Vous n'avez pas rempli le champ « Nom du fichier » !";
-            error_span.style.marginLeft = "185px";
-                    
-            content.appendChild(error_span);
-                    
-            return false;
-        }
-                        
-        if (filename !== null)
-        {
-            console.log(filename);
-            // localStorage.setItem(settings.title + " :: " + filename);
-                
-            return true;
-        }
+            event.preventDefault();
 
-        return false;
+            if (filename !== null || filename !== "")
+            {
+                // localStorage.setItem(settings.title + " :: " + filename);
+                form.classList.remove("form-invalid");
+                error_span.remove();
+            }
+
+        }, false);
+
+        form.addEventListener("submit", (event) => 
+        {
+            event.preventDefault();
+
+            if (typeof filename === "undefined" || filename === "" || filename === null) 
+            {
+                form.classList.add('form-invalid');
+                                       
+                error_span.id = "error-save";
+                error_span.textContent = "Vous n'avez pas rempli le champ « Nom du fichier » !";
+                error_span.style.marginLeft = "185px";
+                            
+                content.appendChild(error_span);
+            }
+
+            if (filename !== null || filename !== "")
+            {
+                form.classList.remove("form-invalid");
+                error_span.remove();
+
+                console.log(filename);
+            }
+        }, false);
     }
 
     /**
