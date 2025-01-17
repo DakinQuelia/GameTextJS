@@ -3,8 +3,9 @@
 *	Auteur 		: Dakin Quelia
 *	Version 	: 1.0.0. 
 *****************************************/
-import { ROOT, DATA_ROOT, RESOURCES_ROOT, DATABASE_ROOT } from "./constants.js";
+import { FILES } from "./constants.js";
 import Utils from "../lib/utils.js";
+import RPG from "../lib/rpg.js";
 
 class Player
 {
@@ -65,7 +66,11 @@ class Player
         this.stats_base.forEach(st => 
         {
             let input = document.querySelector(`${st}`);
+
+
         });
+
+        //
     }
 
     /**
@@ -82,10 +87,10 @@ class Player
         
             this.value = input.value;
     
-            /*input.addEventListener("input", () =>
+            input.addEventListener("input", () =>
             { 
                 
-            });*/
+            });
             
             /* Calcul des points */
             if (!isNaN(this.value) && this.value.length !== 0) 
@@ -99,6 +104,7 @@ class Player
                 this.points.stats = this.points_stats_max + parseInt(this.total.stats);
             }
         
+            /* En-tête dynamique */
             if (this.points.stats > 0)
             {
                 this.header_stats_points.innerHTML = `${this.points.stats} points`;
@@ -108,6 +114,7 @@ class Player
                 this.header_stats_points.innerHTML = `0 points`;
             }
 
+            /* Vérification de la valeur */
             if (this.value === null)
             {
                 this.stats_modifier = "-";
@@ -451,7 +458,7 @@ class Player
     **/
     async GetHelpData()
     {
-        let data = await fetch(`${RESOURCES_ROOT}/help.json`)
+        let data = await fetch(FILES['help'])
             .then(response => response.json())
             .then(data =>
             { 
@@ -486,7 +493,7 @@ class Player
     **/
     async GetClasses()
     {
-        return await fetch(`${DATABASE_ROOT}/classes.json`)
+        return await fetch(FILES['classes'])
             .then(response => response.json())
             .then(data =>
             { 

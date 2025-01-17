@@ -3,7 +3,7 @@
 *	Auteur 		: Dakin Quelia
 *	Version 	: 1.0.0. 
 *****************************************/
-var config = { 
+let config = { 
     language				: 'fr',							    // La langue par défaut du script
     custom_exits            : false,                            // Définir à "true" pour des sorties personnalisées dans exits.js
     filelist                : [],                               // Les fichiers à charger
@@ -15,7 +15,7 @@ var config = {
         css                 : 'assets/css/',                    // -- Dossier : le dossier des fichiers CSS
         logs                : 'logs/'                           // -- Dossier : le dossier des logs
     },
-    theme                   : ['default'],
+    theme                   : 'default',
     sounds_file_ext         : '.mp3',
     text_input              : true,                             // Ceci permet au joueur de taper une commande
     cursor                  : ">",                              // Le curseur

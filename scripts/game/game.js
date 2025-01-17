@@ -3,7 +3,7 @@
 *	Auteur 		: Dakin Quelia
 *	Version 	: 1.0.0. 
 *****************************************/
-import { ROOT, DATA_ROOT, RESOURCES_ROOT, DATABASE_ROOT, SCRIPTS_ROOT } from "./constants.js";
+import { FILES, ROOT, DATA_ROOT, RESOURCES_ROOT, DATABASE_ROOT, SCRIPTS_ROOT } from "./constants.js";
 import Config from './config/config.js';
 import Modal from '../lib/modal.js';
 import Utils from '../lib/utils.js';
@@ -22,15 +22,6 @@ class Game
         this.config = Config;
         this.language = this.config.language;
         this.lang = null;
-        this.files = {
-            'player'    : RESOURCES_ROOT + '/player.json',              // Informations sur le joueur
-            'rules'     : RESOURCES_ROOT + '/rules.json',               // Les règles du jeu
-            'classes'   : DATABASE_ROOT + '/classes.json',              // BDD :: Classes des personnages
-            'rooms'     : DATABASE_ROOT + '/rooms.json',                // BDD :: Lieux du jeu
-            'items'     : DATABASE_ROOT + '/items.json',                // BDD :: Objets du jeu
-            'code'      : DATA_ROOT + '/code.js',                       // Le code du jeu
-            'data'      : DATA_ROOT + '/data.js',                       // Données du jeu
-        };
     }
 
     /**
@@ -52,7 +43,7 @@ class Game
     **/
     LoadSettings(folder)
     {
-        let filename = folder ? folder + '/settings.js' : this.files['settings'];
+        let filename = folder ? folder + '/settings.js' : FILES['settings'];
     }
 
     /**
@@ -112,7 +103,7 @@ class Game
         const page = document.querySelector('#rules .modal-content');
         const footer = document.querySelector('#rules .modal-footer .left');
 
-        return fetch(this.files['rules'])
+        return fetch(FILES['rules'])
             .then(response => response.json())
             .then(data => 
             { 
@@ -307,7 +298,7 @@ class Game
     **/
     async GetPlayer()
     {
-        return await fetch(`${RESOURCES_ROOT}/player.json`)
+        return await fetch(`${FILES['player']}`)
             .then(response => response.json())
             .then(data =>
             { 
