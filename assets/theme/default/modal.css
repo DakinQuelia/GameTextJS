@@ -5,8 +5,8 @@
 *****************************************/
 .form-invalid {
     width: 100%;
-    margin-top: .25rem;
-    /*font-size: 80%;*/
+    /*margin-top: .25rem;
+    font-size: 80%;*/
     color: #dc3545;
 }
 
@@ -103,7 +103,7 @@
     vertical-align: middle;
 }
 
-.modal-button:hover {
+.modal-button:hover:not([disabled]) {
     color: #000000;
     background-color: rgba(204, 204, 204, .4);
     border: 1px solid #cccccc;
@@ -341,7 +341,8 @@
     margin-left: -1.25rem;
 }
 
-.modal .form-control:disabled, .modal .form-control[readonly] {
+.modal .form-control:disabled, 
+.modal .form-control[readonly] {
     background-color: #e9ecef;
     opacity: 1;
 }

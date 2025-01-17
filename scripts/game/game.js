@@ -57,17 +57,17 @@ class Game
     {
         const form = document.querySelector("#savegameform");
         const content = form.querySelector(".modal-content");
+        const input = form.querySelector("#savename");
         const submit = document.querySelector("#savesubmit");
         let error_span = document.createElement('div');
 
-        if (filename === typeof undefined || filename === "" || filename === null) 
+        if (typeof filename === "undefined" || filename === "" || filename === null) 
         {
-            submit.disabled = true;
             form.classList.add('form-invalid');
                                
             error_span.id = "error-save";
             error_span.textContent = "Vous n'avez pas rempli le champ « Nom du fichier » !";
-            error_span.style.marginLeft = "127px";
+            error_span.style.marginLeft = "185px";
                     
             content.appendChild(error_span);
                     

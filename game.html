@@ -187,21 +187,20 @@
                 <div class="modal-wrapper" id="modalstop">
                     <form method="POST" id="savegameform">
                         <div class="modal-header">
-                            <button class="modal-button close" id="close"><i class="fas fa-times"></i></button>
+                            <button class="modal-button close" type="button" id="close"><i class="fas fa-times"></i></button>
                             <span class="modal-title" id="titlemodal">Sauvegarder la partie</span>
                         </div>
                         <div class="modal-content">
-                            
-                                <div class="inline">
-                                    <label>Nom du fichier</label> 
-                                    <input type="text" name="savename" id="savename" />   
-                                </div>     
+                            <div class="inline">
+                                <label>Nom du fichier</label> 
+                                <input type="text" name="savename" id="savename" />   
+                            </div>     
                          </div>
                         <div class="modal-footer">
                             <div class="left"></div> 
                             <div class="right">
                                 <button class="modal-button" type="button" name="savesubmit" id="savesubmit">Valider</button>
-                                <button class="modal-button" type="button" id="btnclose">Fermer</button>
+                                <button class="modal-button" type="button" name="btnclose" id="btnclose">Fermer</button>
                             </div> 
                         </div>
                     </form>
