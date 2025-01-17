@@ -98,14 +98,15 @@ document.addEventListener("DOMContentLoaded", () =>
     form_savegame.classList.remove("form-invalid");
     error_save.remove();
     form_savegame.querySelector("#savename").value = "";
-    button_save_form.style.disabled = false;
 });
 
 /* Sauvegarder la partie */
 let filename = form_savegame.querySelector("#savename").value;
 
-button_save_form.addEventListener("click", () => 
+button_save_form.addEventListener("click", (e) => 
 {
+    e.preventDefault();
+    
     SaveGame();
 });
 

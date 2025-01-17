@@ -56,46 +56,45 @@ class Game
         const form = document.querySelector("#savegameform");
         const content = form.querySelector(".modal-content");
         const input = form.querySelector("#savename");
-        const filename = input.value;
-        const submit = document.querySelector("#savesubmit");
-        let error_span = document.createElement('div');
-  
-        input.addEventListener("input", (event) => 
+        const icon_close = document.querySelector("#close");
+        const button_close = document.querySelector("#btnclose");
+        let filename = input.value;
+        let error_span = document.querySelector("#error-save") ? document.querySelector("#error-save") : document.createElement('div');
+
+        if (filename === "" || filename === null) 
         {
-            event.preventDefault();
-
-            if (filename !== null || filename !== "")
-            {
-                // localStorage.setItem(settings.title + " :: " + filename);
-                form.classList.remove("form-invalid");
-                error_span.remove();
-            }
-
-        }, false);
-
-        form.addEventListener("submit", (event) => 
-        {
-            event.preventDefault();
-
-            if (typeof filename === "undefined" || filename === "" || filename === null) 
-            {
-                form.classList.add('form-invalid');
+            form.classList.add('form-invalid');
                                        
-                error_span.id = "error-save";
-                error_span.textContent = "Vous n'avez pas rempli le champ « Nom du fichier » !";
-                error_span.style.marginLeft = "185px";
+            error_span.id = "error-save";
+            error_span.textContent = "Vous n'avez pas rempli le champ « Nom du fichier » !";
+            error_span.style.marginLeft = "185px";
                             
-                content.appendChild(error_span);
-            }
+            content.appendChild(error_span);
+        }
+        else if (filename !== null || filename !== "")
+        {
+            form.classList.remove("form-invalid");
+            error_span.remove();
 
-            if (filename !== null || filename !== "")
-            {
-                form.classList.remove("form-invalid");
-                error_span.remove();
+            console.log(filename);
+        }
 
-                console.log(filename);
-            }
-        }, false);
+        icon_close.addEventListener("click", () => 
+        {
+            form.classList.remove("form-invalid");
+            error_span.remove();
+            filename = "";
+        });
+
+        button_close.addEventListener("click", () => 
+        {
+            form.classList.remove("form-invalid");
+            error_span.remove();
+            filename = "";
+        });
+
+        /* Vider le champ */
+        filename = "";
     }
 
     /**
