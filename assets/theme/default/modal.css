@@ -346,6 +346,14 @@
     opacity: 1;
 }
 
+.modal .modal-content .inline {
+    display: flex;
+}
+
+.modal .modal-content .inline label {
+    width: 50%;
+}
+
 /**
 *   Groupe de champs
 **/

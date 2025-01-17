@@ -3,9 +3,10 @@
 *	Auteur 		: Dakin Quelia
 *	Version 	: 1.0.0. 
 *****************************************/
-import Config from '../scripts/game/config/config.js';
+import { FILES } from "../scripts/game/constants.js";
 import { OpenWindow, Require, DisplayDateTime, GetPlayer, DisplayGameInfo, GameInit, SaveGame } from '../scripts/game/alias.js';
 import { DicesRolls, DicesDisplayResults } from '../scripts/game/alias.js';
+import Config from '../scripts/game/config/config.js';
 
 /* Donnéees de jeu */
 await GameInit();
@@ -21,8 +22,10 @@ const button_cmd = document.querySelector("#cmdsubmit");
 const button_rules = document.querySelector("#grules");
 const button_credits = document.querySelector("#gcredits");
 const button_dices = document.querySelector("#gdices");
-const form_savegame = document.querySelector("#savegameform");
 const button_save_form = document.querySelector("#savegame #savesubmit");
+const modal_savegame = document.querySelector("#savegame");
+const form_savegame = document.querySelector("#savegameform");
+const error_save = document.querySelector("#error-save");
 const show_date = document.querySelector(".sidebar-block.sidebar-time .datetime");
 const pages_infos = document.querySelector(".page-infos");
 const title_game = document.querySelector(".page-infos h1"); 
@@ -93,6 +96,7 @@ button_dices.addEventListener("click", (e) =>
 document.addEventListener("DOMContentLoaded", () => 
 {
     form_savegame.classList.remove("form-invalid");
+    error_save.remove();
     form_savegame.querySelector("#savename").value = "";
     button_save_form.style.disabled = false;
 });
@@ -102,6 +106,8 @@ let filename = form_savegame.querySelector("#savename").value;
 
 button_save_form.addEventListener("click", (e) => 
 {
+    e.stopPropagation();
+
     SaveGame(filename);
 });
 

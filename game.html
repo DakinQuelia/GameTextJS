@@ -185,25 +185,26 @@
             <!-- Fenêtre :: Sauvegarder -->
             <div id="savegame" class="modal" aria-hidden="true" role="dialog" aria-labelledby="titlemodal" style="display: none;">
                 <div class="modal-wrapper" id="modalstop">
-                    <div class="modal-header">
-                        <button class="modal-button close" id="close"><i class="fas fa-times"></i></button>
-                        <span class="modal-title" id="titlemodal">Sauvegarder la partie</span>
-                    </div>
-                    <div class="modal-content">
-                        <form method="POST" id="savegameform">
-                            <div class="inline">
-                                <label>Nom du fichier</label> 
-                                <input type="text" name="savename" id="savename" />   
-                            </div>
-                        </form>      
-                     </div>
-                    <div class="modal-footer">
-                        <div class="left"></div> 
-                        <div class="right">
-                            <button class="modal-button" type="button" name="savesubmit" id="savesubmit">Valider</button>
-                            <button class="modal-button" type="button" id="btnclose">Fermer</button>
-                        </div> 
-                    </div>
+                    <form method="POST" id="savegameform">
+                        <div class="modal-header">
+                            <button class="modal-button close" id="close"><i class="fas fa-times"></i></button>
+                            <span class="modal-title" id="titlemodal">Sauvegarder la partie</span>
+                        </div>
+                        <div class="modal-content">
+                            
+                                <div class="inline">
+                                    <label>Nom du fichier</label> 
+                                    <input type="text" name="savename" id="savename" />   
+                                </div>     
+                         </div>
+                        <div class="modal-footer">
+                            <div class="left"></div> 
+                            <div class="right">
+                                <button class="modal-button" type="button" name="savesubmit" id="savesubmit">Valider</button>
+                                <button class="modal-button" type="button" id="btnclose">Fermer</button>
+                            </div> 
+                        </div>
+                    </form>
                 </div>
             </div>
             <!-- Fenêtre :: Règles du jeu -->

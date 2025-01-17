@@ -56,27 +56,29 @@ class Game
     SaveGame(filename)
     {
         const form = document.querySelector("#savegameform");
+        const content = form.querySelector(".modal-content");
         const submit = document.querySelector("#savesubmit");
+        let error_span = document.createElement('div');
 
         if (filename === typeof undefined || filename === "" || filename === null) 
         {
-            submit.style.disabled = true;
+            submit.disabled = true;
             form.classList.add('form-invalid');
-                    
-            let error_span = document.createElement('div');
+                               
+            error_span.id = "error-save";
             error_span.textContent = "Vous n'avez pas rempli le champ « Nom du fichier » !";
             error_span.style.marginLeft = "127px";
-        
-            form.appendChild(error_span);
-        
+                    
+            content.appendChild(error_span);
+                    
             return false;
         }
-            
+                        
         if (filename !== null)
         {
-            //console.log(filename);
+            console.log(filename);
             // localStorage.setItem(settings.title + " :: " + filename);
-        
+                
             return true;
         }
 
@@ -90,7 +92,7 @@ class Game
     **/
     LoadGame(filename)
     {
-
+        
     }
 
     /**
