@@ -92,21 +92,13 @@ button_dices.addEventListener("click", (e) =>
     DicesDisplayResults();
 });
 
-/* Au chargement */
-document.addEventListener("DOMContentLoaded", () => 
-{
-    form_savegame.classList.remove("form-invalid");
-    error_save.remove();
-    form_savegame.querySelector("#savename").value = "";
-});
-
 /* Sauvegarder la partie */
 let filename = form_savegame.querySelector("#savename").value;
 
 button_save_form.addEventListener("click", (e) => 
 {
     e.preventDefault();
-    
+
     SaveGame();
 });
 

@@ -75,12 +75,11 @@ class Game
         {
             form.classList.remove("form-invalid");
             error_span.remove();
-
-            console.log(filename);
         }
 
         icon_close.addEventListener("click", () => 
-        {
+        {   
+            console.log("Icône modale");
             form.classList.remove("form-invalid");
             error_span.remove();
             filename = "";
@@ -88,6 +87,7 @@ class Game
 
         button_close.addEventListener("click", () => 
         {
+            console.log("Bouton fermer modale");
             form.classList.remove("form-invalid");
             error_span.remove();
             filename = "";
