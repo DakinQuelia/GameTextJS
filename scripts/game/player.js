@@ -6,6 +6,7 @@
 import { FILES } from "./constants.js";
 import Utils from "../lib/utils.js";
 import RPG from "../lib/rpg.js";
+import Config from "../../data/settings.js"
 
 class Player
 {
@@ -19,9 +20,10 @@ class Player
         /* Global */
         this.points_stats_max = 30;
         this.points_skills_max = 20;
-        this.stats_default_value = 0;                                   // Kotor = 8 par défaut
+        this.stats_default_value = Config.base_points ? Config.base_points : 0;                                   // Défaut : 0 | Kotor = 8 par défaut
         this.point_diff = 0;
         this.value = 0;
+        this.cost = 0;
         this.name = "";
         this.helps = [];
         this.classes = [];
@@ -86,11 +88,15 @@ class Player
             let stat = parent[index].name;
         
             this.value = input.value;
+            this.stats.push({ name: input.name, value: input.value });
+
+            console.log(this.GetAttributeCost(index));
     
-            input.addEventListener("input", () =>
+            /*input.addEventListener("input", (e) =>
             { 
-                
-            });
+                e.stopPropagation();
+
+            });*/
             
             /* Calcul des points */
             if (!isNaN(this.value) && this.value.length !== 0) 
@@ -120,7 +126,7 @@ class Player
                 this.stats_modifier = "-";
             }
 
-            if (this.value < 8)
+            if (this.value <= 8)
             {
                 this.stats_modifier = "-1";
             }
@@ -209,6 +215,43 @@ class Player
     GetName()
     {
         return this.name ? this.name : "Inconnu";
+    }
+
+    /**
+    *   Cette méthode permet de récupérer le coût de l'attribut.
+    * 
+    *   @param {number} index 
+    * 
+    *   @return {number}
+    **/
+    GetAttributeCost(index = 0)
+    {
+        let mod = 0;
+        let input = this.stats;
+    
+        switch(index)
+        {
+            case 0:
+                mod = Math.floor((input[0].value - 10)/2);
+            break;
+            case 1:
+                mod = Math.floor((input[1].value - 10)/2);
+            break;
+            case 2:
+                mod = Math.floor((input[2].value - 10)/2);
+            break;
+            case 3:
+                mod = Math.floor((input[3].value - 10)/2);
+            break;
+            case 4:
+                mod = Math.floor((input[4].value - 10)/2);
+            break;
+            case 5:
+                mod = Math.floor((input[5].value - 10)/2);
+            break;
+        }
+            
+        return Math.max(1, mod);
     }
 
     /**
@@ -521,7 +564,6 @@ class Player
             {
                 this.skills_number[index].value = 0;
             });
-
 
             this.character_name.value = "";
             this.character_class.selectedIndex = 0;

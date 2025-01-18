@@ -34,6 +34,6 @@
         "repair":           { "base": 0, "modifier": null },
         "treatinjury":      { "base": 0, "modifier": null }
     },
-    "feats": {},
+    "feats": [],
     "inventory": []
 }
