@@ -24,6 +24,7 @@ class Player
         this.point_diff = 0;
         this.value = 0;
         this.cost = 0;
+        this.diff = 0;
         this.name = "";
         this.helps = [];
         this.classes = [];
@@ -86,28 +87,37 @@ class Player
         this.stats_number.forEach((input, index, parent) => 
         {
             let stat = parent[index].name;
-        
-            this.value = input.value;
-            this.stats.push({ name: input.name, value: input.value });
+            let min = input.hasAttribute('min') ? input.getAttribute('min') : 0;
 
-            console.log(this.GetAttributeCost(index));
-    
-            /*input.addEventListener("input", (e) =>
+            if (min !== null || min !== "undefined")
+            {
+                input.value = min;
+            }
+          
+        
+            this.value = parseInt(input.value);
+            this.diff = parseInt(this.value) - parseInt(min);
+            this.stats.push({ name: input.name, value: input.value, diff: this.diff });
+            
+            /*
+            input.addEventListener("input", (e) =>
             { 
                 e.stopPropagation();
+            });
+            */
 
-            });*/
-            
             /* Calcul des points */
             if (!isNaN(this.value) && this.value.length !== 0) 
             {
-                this.total.stats += parseInt(this.value);
-                this.points.stats = this.points_stats_max - parseInt(this.total.stats);
+                //this.total.stats += parseInt(this.value);
+                this.cost += Math.abs(this.diff);
+                this.points.stats = this.points_stats_max - parseInt(this.cost);
             }
             else
             {
-                this.total.stats -= parseInt(this.value);
-                this.points.stats = this.points_stats_max + parseInt(this.total.stats);
+                //this.total.stats -= parseInt(this.value);
+                this.cost -= Math.abs(this.diff);
+                this.points.stats = this.points_stats_max + parseInt(this.cost);
             }
         
             /* En-tête dynamique */
@@ -126,7 +136,7 @@ class Player
                 this.stats_modifier = "-";
             }
 
-            if (this.value <= 8)
+            if (this.value < 10)
             {
                 this.stats_modifier = "-1";
             }
@@ -220,7 +230,7 @@ class Player
     /**
     *   Cette méthode permet de récupérer le coût de l'attribut.
     * 
-    *   @param {number} index 
+    *   @param {number} index                                           Index de la stat
     * 
     *   @return {number}
     **/
