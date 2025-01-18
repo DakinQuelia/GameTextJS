@@ -25,14 +25,14 @@
         "1": { "name": "Maître Jedi", "color": "#000000", "level": 10 }
     },
     "skills": {
-        "informatique":     { "base": 0, "modifier": null },
-        "persuasion":       { "base": 0, "modifier": null },
-        "demolition":       { "base": 0, "modifier": null },
-        "discretion":       { "base": 0, "modifier": null },
-        "vigilance":        { "base": 0, "modifier": null },
-        "securite":         { "base": 0, "modifier": null },
-        "reparation":       { "base": 0, "modifier": null },
-        "premiers_secours": { "base": 0, "modifier": null }
+        "computeruse":      { "base": 0, "modifier": null },
+        "persuade":         { "base": 0, "modifier": null },
+        "demolitions":      { "base": 0, "modifier": null },
+        "stealth":          { "base": 0, "modifier": null },
+        "awareness":        { "base": 0, "modifier": null },
+        "security":         { "base": 0, "modifier": null },
+        "repair":           { "base": 0, "modifier": null },
+        "treatinjury":      { "base": 0, "modifier": null }
     },
     "feats": {},
     "inventory": []
