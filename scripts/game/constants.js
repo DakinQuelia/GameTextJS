@@ -24,5 +24,5 @@ export const FILES = {
 };
 
 export const REGEX_FORMAT = [
-   /^(me|myself|player)$/
+   /^(me|myself|player)$/                                           // Nom du joueur
 ];

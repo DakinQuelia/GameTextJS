@@ -169,6 +169,11 @@ class Player
             {
                 this.stats_modifier = "+4";
             }
+
+            if (this.value >= 20)
+            {
+                this.stats_modifier = "+5";
+            }
         
             this.modifiers.push({ stat: stat, value: (this.stats_modifier !== "0" || this.stats_modifier !== null || this.stats_modifier !== "") ? this.stats_modifier : "--", color: this.GetModifier(this.stats_modifier).color });
         });
