@@ -18,8 +18,8 @@ class Player
     constructor()
     {
         /* Global */
-        this.points_stats_max = Config.points.stats_max ? Config.points.stats_max : 30;
-        this.points_skills_max = Config.points.skills_max ? Config.points.skills_max : 20;
+        this.points_stats_max = Config.points.stats_max ? Config.points.stats_max : 30;                           // Maximum de points de stats
+        this.points_skills_max = Config.points.skills_max ? Config.points.skills_max : 20;                        // Maximum de points pour compétences
         this.stats_default_value = Config.base_points ? Config.base_points : 0;                                   // Défaut : 0 | Kotor = 8 par défaut
         this.point_diff = 0;
         this.value = 0;
@@ -87,12 +87,13 @@ class Player
         this.stats_number.forEach((input, index, parent) => 
         {
             let stat = parent[index].name;
-            let min = input.hasAttribute('min') ? input.getAttribute('min') : 0;
+            let min = (input.hasAttribute('min') && input.getAttribute('min') === Config.base_points) ? input.getAttribute('min') : 0;
 
             this.value = parseInt(input.value);
             this.diff = parseInt(this.value) - parseInt(min);
             this.stats.push({ name: input.name, value: input.value, diff: this.diff });
-            
+            this.total.stats = 0;
+
             /*
             input.addEventListener("input", (e) =>
             { 
@@ -103,14 +104,14 @@ class Player
             /* Calcul des points */
             if (this.cost <= this.points_stats_max)
             {
-                this.total.stats += Math.abs(this.diff);
                 this.cost += Math.abs(this.diff);
+                this.total.stats += this.cost;
                 this.points.stats = this.points_stats_max - parseInt(this.cost);
             }
             else if (this.value > Config.base_points)
             {
-                this.total.stats -= Math.abs(this.diff);
                 this.cost -= Math.abs(this.diff);
+                this.total.stats -= this.cost;
                 this.points.stats = this.points_stats_max + parseInt(this.cost);
             }
             else
