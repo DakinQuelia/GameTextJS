@@ -93,6 +93,7 @@ class Player
             this.diff = parseInt(this.value) - parseInt(min);
             this.stats.push({ name: input.name, value: input.value, diff: this.diff });
             this.total.stats = 0;
+            this.points.stats = 0;
 
             /*
             input.addEventListener("input", (e) =>
@@ -106,13 +107,13 @@ class Player
             {
                 this.cost += Math.abs(this.diff);
                 this.total.stats += this.cost;
-                this.points.stats = this.points_stats_max - parseInt(this.cost);
+                this.points.stats = this.points_stats_max - this.total.stats;
             }
             else if (this.value > Config.base_points)
             {
                 this.cost -= Math.abs(this.diff);
                 this.total.stats -= this.cost;
-                this.points.stats = this.points_stats_max + parseInt(this.cost);
+                this.points.stats = this.points_stats_max + this.total.stats;
             }
             else
             {
