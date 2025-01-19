@@ -18,8 +18,8 @@ class Player
     constructor()
     {
         /* Global */
-        this.points_stats_max = 30;
-        this.points_skills_max = 20;
+        this.points_stats_max = Config.points.stats_max ? Config.points.stats_max : 30;
+        this.points_skills_max = Config.points.skills_max ? Config.points.skills_max : 20;
         this.stats_default_value = Config.base_points ? Config.base_points : 0;                                   // Défaut : 0 | Kotor = 8 par défaut
         this.point_diff = 0;
         this.value = 0;
@@ -89,12 +89,6 @@ class Player
             let stat = parent[index].name;
             let min = input.hasAttribute('min') ? input.getAttribute('min') : 0;
 
-            if (min !== null || min !== "undefined")
-            {
-                input.value = min;
-            }
-          
-        
             this.value = parseInt(input.value);
             this.diff = parseInt(this.value) - parseInt(min);
             this.stats.push({ name: input.name, value: input.value, diff: this.diff });
@@ -103,31 +97,39 @@ class Player
             input.addEventListener("input", (e) =>
             { 
                 e.stopPropagation();
-            });
+            });            
             */
 
             /* Calcul des points */
-            if (!isNaN(this.value) && this.value.length !== 0) 
+            if (this.cost <= this.points_stats_max)
             {
-                //this.total.stats += parseInt(this.value);
+                this.total.stats += Math.abs(this.diff);
                 this.cost += Math.abs(this.diff);
                 this.points.stats = this.points_stats_max - parseInt(this.cost);
             }
-            else
+            else if (this.value > Config.base_points)
             {
-                //this.total.stats -= parseInt(this.value);
+                this.total.stats -= Math.abs(this.diff);
                 this.cost -= Math.abs(this.diff);
                 this.points.stats = this.points_stats_max + parseInt(this.cost);
             }
-        
+            else
+            {
+                this.points.stats = 30;
+            }
+
             /* En-tête dynamique */
             if (this.points.stats > 0)
             {
                 this.header_stats_points.innerHTML = `${this.points.stats} points`;
             }
-            else
+            else if (this.points.stats <= 0)
             {
                 this.header_stats_points.innerHTML = `0 points`;
+            }
+            else
+            {
+                this.header_stats_points.innerHTML = `30 points`;
             }
 
             /* Vérification de la valeur */

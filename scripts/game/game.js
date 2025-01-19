@@ -53,11 +53,12 @@ class Game
     **/
     SaveGame()
     {
-        const form = document.querySelector("#savegameform");
+        const modal = document.querySelector("#savegame");
+        const form = modal.querySelector("#savegameform");
         const content = form.querySelector(".modal-content");
         const input = form.querySelector("#savename");
-        const icon_close = document.querySelector("#close");
-        const button_close = document.querySelector("#btnclose");
+        const icon_close = modal.querySelector("#close");
+        const button_close = modal.querySelector("#btnclose");
         let filename = input.value;
         let error_span = document.querySelector("#error-save") ? document.querySelector("#error-save") : document.createElement('div');
 
@@ -79,7 +80,6 @@ class Game
 
         icon_close.addEventListener("click", () => 
         {   
-            console.log("Icône modale");
             form.classList.remove("form-invalid");
             error_span.remove();
             filename = "";
@@ -87,7 +87,6 @@ class Game
 
         button_close.addEventListener("click", () => 
         {
-            console.log("Bouton fermer modale");
             form.classList.remove("form-invalid");
             error_span.remove();
             filename = "";
