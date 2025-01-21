@@ -59,6 +59,7 @@ class Game
         const input = form.querySelector("#savename");
         const icon_close = modal.querySelector("#close");
         const button_close = modal.querySelector("#btnclose");
+
         let filename = input.value;
         let error_span = document.querySelector("#error-save") ? document.querySelector("#error-save") : document.createElement('div');
 
@@ -72,7 +73,7 @@ class Game
                             
             content.appendChild(error_span);
         }
-        else if (filename !== null || filename !== "")
+        else
         {
             form.classList.remove("form-invalid");
             error_span.remove();
@@ -86,6 +87,13 @@ class Game
         });
 
         button_close.addEventListener("click", () => 
+        {
+            form.classList.remove("form-invalid");
+            error_span.remove();
+            filename = "";
+        });
+
+        modal.addEventListener('keydown', event =>
         {
             form.classList.remove("form-invalid");
             error_span.remove();

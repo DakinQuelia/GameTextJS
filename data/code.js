@@ -24,8 +24,8 @@ const button_credits = document.querySelector("#gcredits");
 const button_dices = document.querySelector("#gdices");
 const button_save_form = document.querySelector("#savegame #savesubmit");
 const modal_savegame = document.querySelector("#savegame");
-const form_savegame = document.querySelector("#savegameform");
-const error_save = document.querySelector("#error-save");
+const form_savegame = modal_savegame.querySelector("#savegameform");
+const error_save = document.querySelector("#error-save") ? document.querySelector("#error-save") : null;
 const show_date = document.querySelector(".sidebar-block.sidebar-time .datetime");
 const pages_infos = document.querySelector(".page-infos");
 const title_game = document.querySelector(".page-infos h1"); 
@@ -47,6 +47,19 @@ player_class_tag.innerHTML = `<span style="color: ${player_data.classes[0].color
 player_money_tag.innerHTML = `${player_data.money} Crédits`;
 player_hp_tag.innerHTML = `${player_data.hit_points} / ${player_data.max_hit_points}`;
 player_pf_tag.innerHTML = `${player_data.force_points} / ${player_data.max_force_points}`;
+
+let filename = form_savegame.querySelector("#savename").value;
+
+/* Au chargement */
+document.addEventListener("DOMContentLoaded", (e) => 
+{
+    e.preventDefault();
+    
+    form_savegame.reset();
+    form_savegame.classList.remove("form-invalid");
+    error_save.remove();
+    filename = "";
+});
 
 Object.values(player_data.classes).forEach((key, index) =>
 {
@@ -93,14 +106,28 @@ button_dices.addEventListener("click", (e) =>
 });
 
 /* Sauvegarder la partie */
-let filename = form_savegame.querySelector("#savename").value;
-
-button_save_form.addEventListener("click", (e) => 
+form_savegame.addEventListener("submit", (e) => 
 {
     e.preventDefault();
 
+    if (error_save !== null)
+    {
+        form_savegame.classList.remove("form-invalid");
+        error_save.remove();
+        filename = "";
+    }
+
     SaveGame();
 });
+
+/*
+button_save_form.addEventListener("click", (e) => 
+{
+    e.preventDefault();
+        
+    SaveGame();
+});
+*/
 
 /* Afficher la date/heure */
 setInterval(() => { show_date.textContent = DisplayDateTime('fr-FR'); }, 1000);
