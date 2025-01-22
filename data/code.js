@@ -4,7 +4,7 @@
 *	Version 	: 1.0.0. 
 *****************************************/
 import { FILES } from "../scripts/game/constants.js";
-import { OpenWindow, Require, DisplayDateTime, GetPlayer, DisplayGameInfo, GameInit, SaveGame } from '../scripts/game/alias.js';
+import { OpenWindow, Require, DisplayDateTime, GetPlayer, GetLevel, DisplayGameInfo, GameInit, SaveGame } from '../scripts/game/alias.js';
 import { DicesRolls, DicesDisplayResults } from '../scripts/game/alias.js';
 import Config from '../scripts/game/config/config.js';
 
@@ -50,23 +50,34 @@ player_pf_tag.innerHTML = `${player_data.force_points} / ${player_data.max_force
 
 let filename = form_savegame.querySelector("#savename").value;
 
+player_level_tag.innerHTML = GetLevel(player_data.classes);
+
 /* Au chargement */
 document.addEventListener("DOMContentLoaded", (e) => 
 {
     e.preventDefault();
     
-    form_savegame.reset();
+    /*form_savegame.reset();
     form_savegame.classList.remove("form-invalid");
     error_save.remove();
-    filename = "";
+    filename = "";*/
+
+    if (error_save !== null)
+    {
+        form_savegame.classList.remove("form-invalid");
+        error_save.remove();
+        filename = "";
+
+        console.log("test");
+    }
 });
 
-Object.values(player_data.classes).forEach((key, index) =>
+/*Object.values(player_data.classes).forEach((key, index) =>
 {
     player_level += player_data.classes[index].level
 
     player_level_tag.innerHTML = player_level;
-});
+});*/
 
 button_about.addEventListener("click", (e) => 
 { 
@@ -110,24 +121,8 @@ form_savegame.addEventListener("submit", (e) =>
 {
     e.preventDefault();
 
-    if (error_save !== null)
-    {
-        form_savegame.classList.remove("form-invalid");
-        error_save.remove();
-        filename = "";
-    }
-
     SaveGame();
 });
-
-/*
-button_save_form.addEventListener("click", (e) => 
-{
-    e.preventDefault();
-        
-    SaveGame();
-});
-*/
 
 /* Afficher la date/heure */
 setInterval(() => { show_date.textContent = DisplayDateTime('fr-FR'); }, 1000);

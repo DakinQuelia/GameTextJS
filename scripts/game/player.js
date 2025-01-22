@@ -237,6 +237,33 @@ class Player
     }
 
     /**
+    *   Cette méthode permet de récupérer le niveau du personnage.
+    * 
+    *   @param {object} data                                            Données du joueur
+    * 
+    *   @return {number} 
+    **/
+    GetLevel(data)
+    {
+        let player_level = 0;
+        let player_classes = data;
+
+        if (typeof player_classes === "undefined" || player_classes === null)
+        {
+            return player_level;
+        }
+        
+        Object.values(player_classes).forEach((key, index) =>
+        {
+            player_level += player_classes[index].level;
+
+            return player_level;
+        });
+
+        return player_level;
+    }
+
+    /**
     *   Cette méthode permet de récupérer le coût de l'attribut.
     * 
     *   @param {number} index                                           Index de la stat

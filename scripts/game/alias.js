@@ -47,6 +47,11 @@ export function DisplayCredits()
     return Game.DisplayCredits();
 }
 
+export function GetLevel(data)
+{
+    return Player.GetLevel(data);
+}
+
 export async function DisplayGameInfo() 
 {
     return await Game.DisplayGameInfo();
