@@ -63,9 +63,16 @@ class Game
         let filename = input.value;
         let error_span = document.querySelector("#error-save") ? document.querySelector("#error-save") : document.createElement('div');
 
-        button_submit.addEventListener("click", (e) => 
+        form.addEventListener("submit", (e) => 
         {
             e.preventDefault();
+
+            if (form.classList.contains('form-invalid')) 
+            {
+                e.stopPropagation();
+
+                return false;	
+            };
         
             if (filename === "" || filename === null) 
             {

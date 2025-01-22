@@ -582,6 +582,30 @@ class Utils
     }
 
     /**
+    *   Cette méthode permet de vérifier si la chaîne de caractère est de type numérique.
+    *   
+    *   @param {string} character                                       Chaîne de caractère
+    *
+    *   @return {boolean}
+    **/
+    IsDigit(character)
+    {
+        return character >= "0" &&  character <= "9";
+    }
+
+    /**
+    *   Cette méthode permet de vérifier si la chaîne de caractère est alphanumérique.
+    *   
+    *   @param {string} character                                       Chaîne de caractère
+    *
+    *   @return {boolean}
+    **/
+    IsAlpha(character)
+    {
+        return character >= "a" && character <= "z" || character >= "A" && character <= "Z" || character === "_";
+    }
+
+    /**
     *   Cette méthode permet d'inclure un fichier.
     * 
     *   @param {string} url                                             L'url du fichier
