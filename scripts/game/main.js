@@ -3,8 +3,7 @@
 *	Auteur 		: Dakin Quelia
 *	Version 	: 1.0.0. 
 *****************************************/
-import { FILES } from "./constants.js";
-import { OpenWindow, Require, DisplayDateTime, GetPlayer, GetLevel, DisplayGameInfo, GameInit, SaveGame } from './alias.js';
+import { OpenWindow, DisplayDateTime, GetPlayer, GetLevel, DisplayGameInfo, GameInit, SaveGame } from './alias.js';
 import { DicesRolls, DicesDisplayResults } from './alias.js';
 import Config from './config/config.js';
 
@@ -29,7 +28,6 @@ const error_save = document.querySelector("#error-save") ? document.querySelecto
 const show_date = document.querySelector(".sidebar-block.sidebar-time .datetime");
 const pages_infos = document.querySelector(".page-infos");
 const title_game = document.querySelector(".page-infos h1"); 
-const page_content = document.querySelector(".page-content");
 const player_name_tag =  document.querySelector("#playername");
 const player_class_tag = document.querySelector("#klass .value");
 const player_money_tag = document.querySelector("#money .value");
@@ -38,8 +36,10 @@ const player_pf_tag = document.querySelector("#forcepoints .value");
 const player_level_tag = document.querySelector("#level .value");
 
 /* Au chargement */
-document.addEventListener("DOMContentLoaded", () => 
+document.addEventListener("DOMContentLoaded", (e) => 
 {
+    e.preventDefault();
+
     /* Si l'erreur existe, on la supprime */
     if (error_save !== null)
     {
