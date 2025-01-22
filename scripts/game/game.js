@@ -58,26 +58,37 @@ class Game
         const content = form.querySelector(".modal-content");
         const input = form.querySelector("#savename");
         const icon_close = modal.querySelector("#close");
+        const button_submit = modal.querySelector("#savesubmit");
         const button_close = modal.querySelector("#btnclose");
 
         let filename = input.value;
         let error_span = document.querySelector("#error-save") ? document.querySelector("#error-save") : document.createElement('div');
 
-        if (filename === "" || filename === null) 
+        button_submit.addEventListener("click", (e) => 
         {
-            form.classList.add('form-invalid');
-                                       
-            error_span.id = "error-save";
-            error_span.textContent = "Vous n'avez pas rempli le champ « Nom du fichier » !";
-            error_span.style.marginLeft = "185px";
-                            
-            content.appendChild(error_span);
-        }
-        else
-        {
-            form.classList.remove("form-invalid");
-            error_span.remove();
-        }
+            e.preventDefault();
+        
+            if (filename === "" || filename === null) 
+            {
+                form.classList.add('form-invalid');
+                                        
+                error_span.id = "error-save";
+                error_span.textContent = "Vous n'avez pas rempli le champ « Nom du fichier » !";
+                error_span.style.marginLeft = "185px";
+      
+                content.appendChild(error_span);
+            }
+            else
+            {
+                form.classList.remove("form-invalid");
+                error_span.remove();
+            }
+
+            console.log(filename);
+
+            /* Vider le champ */
+            //filename = "";
+        });
 
         icon_close.addEventListener("click", () => 
         {   
@@ -93,15 +104,12 @@ class Game
             filename = "";
         });
 
-        modal.addEventListener('keydown', event =>
+        modal.addEventListener('keydown', () =>
         {
             form.classList.remove("form-invalid");
             error_span.remove();
             filename = "";
         });
-
-        /* Vider le champ */
-        filename = "";
     }
 
     /**
