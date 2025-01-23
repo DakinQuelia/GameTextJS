@@ -112,7 +112,7 @@ class Modal
     **/
     async LoadModal(url)
     {
-       const target = '#' + URL.split('#')[1];
+       const target = '#' + url.split('#')[1];
        const existingmodal = document.querySelector(target);
 
        if (existingmodal !== null) 
@@ -120,7 +120,7 @@ class Modal
            return existingmodal;
        }
 
-       const page = await fetch(URL).then(response => response.text());
+       const page = await fetch(url).then(response => response.text());
        const element = document.createRange().createContextualFragment(page).querySelector(target);
 
        if (element === null)
