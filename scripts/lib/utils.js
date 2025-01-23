@@ -23,7 +23,7 @@ const USERAGENT = navigator.userAgent;
 const MINUTES = 60;
 const HOURS = 60 * MINUTES;
 const DAYS = 24 * HOURS;
-const LAUNCHDATE = $countdown ? Date.parse($countdown.dataset.time) / 1000 : '';
+const LAUNCHDATE = $countdown ? Date.parse($countdown.dataset.time) / 1000 : 0;
 const PAGES = document.querySelectorAll(".form-page") ? document.querySelectorAll(".form-page") : '';
 const PAGE = document.querySelector(".form-page");
 const NUMBER_PAGES = PAGES.length;
@@ -37,7 +37,7 @@ class Utils
     **/
     constructor()
     {
-        this.hilitedid = false;
+        this.files_ext = ".js";
     }
 
     /**
@@ -279,7 +279,7 @@ class Utils
     /**
     *   Cette méthode permet de mettre à jour la strucutre HTML du compteur.
     *
-    *   @param {{days: number, hours: numbers, minutes: number, seconds: number}} diff 
+    *   @param {{days: number, hours: number, minutes: number, seconds: number}} diff 
     * 
     *   @return {void}
     **/
