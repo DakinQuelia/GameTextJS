@@ -5,7 +5,7 @@
 *****************************************/
 import { OpenWindow, DisplayDateTime, GetPlayer, GetLevel, DisplayGameInfo, GameInit, SaveGame } from './alias.js';
 import { DicesRolls, DicesDisplayResults } from './alias.js';
-import Config from './config/config.js';
+import Config from '../config/config.js';
 
 /* Initialisation du jeu */
 await GameInit();

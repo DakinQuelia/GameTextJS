@@ -4,7 +4,7 @@
 *	Version 	: 1.0.0. 
 *****************************************/
 import { FILES, ROOT, DATA_ROOT, RESOURCES_ROOT, DATABASE_ROOT, SCRIPTS_ROOT } from "./constants.js";
-import Config from './config/config.js';
+import Config from '../config/config.js';
 import Modal from '../lib/modal.js';
 import Utils from '../lib/utils.js';
 import settings from "../../data/settings.js";
@@ -349,7 +349,7 @@ class Game
     **/
     async LoadText()
     {
-        let lang = await fetch(`${SCRIPTS_ROOT}/game/lang/${this.config.language}.json`).catch((err) => { console.log('ERROR :: ' + err); });
+        let lang = await fetch(`${SCRIPTS_ROOT}/lang/${this.config.language}.json`).catch((err) => { console.log('ERROR :: ' + err); });
 
         if (!lang.ok) 
         {

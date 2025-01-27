@@ -3,7 +3,7 @@
 *	Auteur 		: Dakin Quelia
 *	Version 	: 1.0.0. 
 *****************************************/
-import { FILES } from '../game/constants.js';
+import { FILES } from '../core/constants.js';
 import Utils from './utils.js';
 import Modal from './modal.js';
 
