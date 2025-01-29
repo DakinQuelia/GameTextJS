@@ -28,7 +28,7 @@ class Game
     *
     *   @return {boolean}
 	**/
-	IsIE() 
+	IsIE()
 	{
 		let userAgent = navigator.userAgent;
 		
@@ -353,7 +353,7 @@ class Game
 
         if (!lang.ok) 
         {
-            throw new Error("Statut de la réponse :: " + response.status);
+            throw new Error("Statut de la réponse :: " + lang.status);
         }
 
         let texts = await lang.json();

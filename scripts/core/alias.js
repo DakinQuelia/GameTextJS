@@ -24,6 +24,11 @@ export function DisplayDateTime()
     return Utils.DisplayDateTime();
 }
 
+export function Toggle()
+{
+    return Utils.Toggle();
+}
+
 export function Sum(items)
 {
     return Utils.Sum(items);

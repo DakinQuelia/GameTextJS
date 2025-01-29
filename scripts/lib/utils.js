@@ -483,6 +483,9 @@ class Utils
             toggle.addEventListener('click', (e) => 
             {
                 const target = e.target.parentNode.parentNode.nextElementSibling;
+
+                console.log(target);
+
                 const head = e.target.parentNode.parentNode;
                 const icon = e.target;
 

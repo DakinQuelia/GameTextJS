@@ -4,7 +4,7 @@
 *	Version 	: 1.0.0. 
 *****************************************/
 import { OpenWindow, DisplayDateTime, GetPlayer, GetLevel, DisplayGameInfo, GameInit, SaveGame } from './alias.js';
-import { DicesRolls, DicesDisplayResults } from './alias.js';
+import { DicesRolls, DicesDisplayResults, Toggle } from './alias.js';
 import Config from '../config/config.js';
 
 /* Initialisation du jeu */
@@ -34,6 +34,8 @@ const player_money_tag = document.querySelector("#money .value");
 const player_hp_tag = document.querySelector("#hitpoints .value");
 const player_pf_tag = document.querySelector("#forcepoints .value");
 const player_level_tag = document.querySelector("#level .value");
+
+//Toggle();
 
 /* Au chargement */
 document.addEventListener("DOMContentLoaded", (e) => 
