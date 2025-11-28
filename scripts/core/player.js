@@ -69,7 +69,7 @@ class Player
         this.stats_base.forEach(st => 
         {
             let input = document.querySelector(`${st}`);
-
+            
 
         });
 
