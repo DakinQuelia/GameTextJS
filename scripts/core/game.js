@@ -12,9 +12,9 @@ import settings from "../../data/settings.js";
 class Game
 {
     /**
-	*	Constructeur
+	*	Cette méthode initialise la classe de jeu.
     *
-    *   @return {void}
+    *   @return {Game}
 	**/
     constructor()
     {

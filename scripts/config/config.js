@@ -3,6 +3,14 @@
 *	Auteur 		: Dakin Quelia
 *	Version 	: 1.0.0. 
 *****************************************/
+/**
+*   @typedef {Object} FolderPaths
+*   @property {string} images                                   // Le chemin vers le dossier contenant les images.
+*   @property {string} sounds                                   // Le chemin vers le dossier contenant les fichiers audio.
+*   @property {string} videos                                   // Le chemin vers le dossier contenant les vidéos.
+*   @property {string} css                                      // Le chemin vers le dossier contenant les fichiers CSS.
+*   @property {string} logs                                     // Le chemin vers le dossier contenant les fichiers de logs.
+**/
 let config = { 
     /** @type {string} **/
     language				: 'fr',							    // La langue par défaut du script
